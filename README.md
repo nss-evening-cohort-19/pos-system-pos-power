@@ -1,20 +1,19 @@
 <div style="text-align:center">
-<h1>Hip Hop, Pizza, and Wangs (HHP+W)</h1>
+<h1>POS Power</h1>
 
 <image src="./instructions/hhpw-record.png" style="height:300px;"></image></div>
 
-## Get Started
-**READ ALL INSTRUCTIONS BEFORE BEGINNING THIS PROJECT.** Take notes as you read.
+## Overview
 
-Everything that needs to be done before coding starts.
+Planning Documents for Project:
 
-* **ERD** - Create an ERD to show the relationships between all of  your data
-* **Postman Collection** - Create a postman collection to store and test out all of your API calls.
-* **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)** - This is the basic MVP wireframe. You can choose to style how you wish. (View the [click through prototype](https://www.figma.com/proto/4y3EZddALuBR3ouSEM57Np/MVP?scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2) if you want to see the flow)
-* **Flowchart** - Plan out the flow of your data through the application
-* **Github Issue Tickets** - Using the Project Instructions as a guide, create issue tickets for this project’s work.
-* **Github Milestones** - Separate those issue tickets into Milestones to plan out the work.
-* **Github Project Board** - Create a project board, add all of your issue tickets, and order them by priority.
+* **[ERD](https://dbdiagram.io/d/62a7c7409921fe2a96f9b983)** - Create an ERD to show the relationships between all of  your data
+* **[Postman Collection](https://go.postman.co/workspace/POS-POWER~f2be894b-e001-4cab-a02a-7ea1eefd26a1/collection/20353056-902a4d8f-c9aa-4626-895e-f6093c3a44fd?action=share&creator=21027593)**
+* **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)** - This is the basic MVP wireframe. (View the [click through prototype](https://www.figma.com/proto/4y3EZddALuBR3ouSEM57Np/MVP?scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2) if you want to see the flow)
+* **[Flowchart](https://www.figma.com/file/RmegeX2jpdgU0Z1bQk7xRh/Wings%2FPizza-Flowchart?node-id=0%3A1)** - Plan out the flow of your data through the application
+* **[Github Issue Tickets](https://github.com/nss-evening-cohort-19/pos-system-pos-power/issues)** - Using the Project Instructions as a guide, create issue tickets for this project’s work.
+* **[Github Milestones](https://github.com/nss-evening-cohort-19/pos-system-pos-power/milestones)** - Separate those issue tickets into Milestones to plan out the work.
+* **[Github Project Board](https://github.com/nss-evening-cohort-19/pos-system-pos-power/projects/1)** - Create a project board, add all of your issue tickets, and order them by priority.
 
 ## Definition of Done
 
