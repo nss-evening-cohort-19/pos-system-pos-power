@@ -17,6 +17,7 @@ const orderForm = (uid, obj = {}) => {
         <label for="email">Customer Email</label>
         <input type="email" class="form-control" id="customerEmail" placeholder="Enter email address" value="${obj.customerEmail || ''}" required>
       </div>
+      <br>
       <select class="custom-select">
         <option selected>Select Order Type</option>
         <option value="call_in">Call-in</option>
