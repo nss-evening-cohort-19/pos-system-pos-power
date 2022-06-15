@@ -11,10 +11,10 @@ const navBar = () => {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li id="logo-image">
-            <img id="navLogo" src=${logo}
+            <img id="navLogo" src=${logo}>
           </li>
           <li class="nav-item">
-            <a id="view-order" class="nav-link" aria-current="page" href="#">View Order</a>
+            <a id="view-order" class="nav-link" aria-current="page" href="#">View Orders</a>
           </li>
           <li class="nav-item">
             <a id="create-order" class="nav-link" href="#">Create an Order</a>
