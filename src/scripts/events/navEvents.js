@@ -1,5 +1,5 @@
 import renderOrders from '../components/pages/orders';
-import getAllOrders from '../../api/ordersData';
+import { getAllOrders } from '../../api/ordersData';
 import clearDom from '../helpers/clearDom';
 import orderForm from '../components/forms/orderForm';
 
