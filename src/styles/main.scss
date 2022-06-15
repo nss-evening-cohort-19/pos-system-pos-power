@@ -27,15 +27,36 @@ body {
   margin: auto;
 }
 
-#right-nav {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row wrap;
+#navLogo {
+  width: 50px;
+  height: 50px;
 }
 
-.icon {
-  background: url('https://github.com/nss-evening-cohort-19/pos-system-pos-power/blob/a81066034a910c3e91e5ac43f0096d263850f261/instructions/hhpw-record.png');
-  height: 50px;
-  width: 50px;
-  display: block;
+#logo-image {
+  display: flex;
+}
+
+#navBarDiv {
+  background-color: black;
+  border-bottom: 0.5px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-style: solid;
+  border-color: white;
+  position: fixed;
+  width: 100%;
+  display: flex;
+}
+
+#search-bar-div {
+  margin-top: 3%;
+}
+
+#view-order {
+  margin-top: 4%;
+}
+
+#create-order {
+  margin-top: 4%;
 }
