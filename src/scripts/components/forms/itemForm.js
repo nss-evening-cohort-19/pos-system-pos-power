@@ -9,7 +9,7 @@ const itemForm = (obj = {}) => {
       </div>
       <div class="form-group">
         <label for="price">Item Price</label>
-        <input type="text" class="form-control" placeholder="Item Price" id="item_price">${obj.item_price || ''}</input>
+        <input type="text" class="form-control" placeholder="Item Price" id="item_price" aria-describedby="itemPrice" value="${obj.item_price || ''}" required>
       </div>
       <br>
       <button type="submit" class="btn btn-primary">Submit Item
