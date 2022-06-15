@@ -23,7 +23,7 @@ const orderForm = (uid, obj = {}) => {
         <option value="call-in" ${obj.orderType === 'call-in' ? 'selected' : ''}>Call-in</option>
         <option value="walk-in" ${obj.orderType === 'walk-in' ? 'selected' : ''}>Walk-in</option>
       </select>
-      <button type="submit" class="btn btn-primary">Create/Edit Order
+      <button type="submit" class="btn btn-primary">${obj ? 'Update Order' : 'Submit Order'}
       </button>
     </form>`;
 
