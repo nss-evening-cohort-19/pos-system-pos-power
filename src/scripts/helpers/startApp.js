@@ -5,13 +5,13 @@ import loginHome from '../components/pages/loginHome';
 import domEvents from '../events/domEvents';
 import navEvents from '../events/navEvents';
 
-const startApp = (user) => {
+const startApp = () => {
   domBuilder();
   navBar();
   logoutButton();
-  loginHome(user);
-  navEvents(user);
-  domEvents(user);
+  loginHome();
+  navEvents();
+  domEvents();
 };
 
 export default startApp;
