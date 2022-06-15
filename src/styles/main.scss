@@ -17,7 +17,7 @@ body {
 
 #login-form-container {
   display: block;
-  background-image: url("https://w0.peakpx.com/wallpaper/669/329/HD-wallpaper-stickerbomb-black-dark-dj-grey-music-sayings-thumbnail.jpg");
+  // background-image: url("https://w0.peakpx.com/wallpaper/669/329/HD-wallpaper-stickerbomb-black-dark-dj-grey-music-sayings-thumbnail.jpg");
   height: 100vh;
   width: 100vw;
 
@@ -25,4 +25,17 @@ body {
 #google-auth {
   display: block;
   margin: auto;
+}
+
+#right-nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row wrap;
+}
+
+.icon {
+  background: url('https://github.com/nss-evening-cohort-19/pos-system-pos-power/blob/a81066034a910c3e91e5ac43f0096d263850f261/instructions/hhpw-record.png');
+  height: 50px;
+  width: 50px;
+  display: block;
 }
