@@ -12,7 +12,7 @@ const renderOrders = (array) => {
     array.forEach((card) => {
       domString += `<div class="card" style="width: 18rem;">
       <div class="card-body order-card">
-        <h5 class="card-title">${card.orderName}</h5>
+        <h5 class="card-title">${card.last_name}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${card.status}</h6>
         <p class="card-text">${card.customerPhoneNumber}</p>
         <p class="card-text">${card.customerEmail}</p>
