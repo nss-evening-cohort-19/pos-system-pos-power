@@ -10,9 +10,9 @@ const signMeOut = () => {
 };
 
 const logoutButton = () => {
-  const domString = '<a href="#" class="nav-link" id="google-auth2">Log Out</a>';
+  const domString = '<a href="#" class="nav-link" id="logout-auth">Log Out</a>';
   document.querySelector('#logout-nav').innerHTML = (domString);
-  document.querySelector('#google-auth2').addEventListener('click', signMeOut);
+  document.querySelector('#logout-auth').addEventListener('click', signMeOut);
 };
 
 export default logoutButton;
