@@ -8,9 +8,9 @@ const emptyOrders = () => {
 const renderOrders = (array) => {
   clearDom();
   if (array.length) {
-    let domString = '<div class="container order-container">';
+    let domString = '<div id="cardContainer" class="container order-container">';
     array.forEach((card) => {
-      domString += `<div class="card" style="width: 18rem;">
+      domString += `<div style="width: 18rem;">
       <div class="card-body order-card">
         <h5 class="card-title">${card.last_name}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${card.orderStatus}</h6>
