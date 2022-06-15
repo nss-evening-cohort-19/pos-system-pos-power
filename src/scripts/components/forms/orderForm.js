@@ -6,23 +6,24 @@ const orderForm = (uid, obj = {}) => {
   const domString = `
     <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
       <div class="form-group">
-        <label for="orderName">Order Name</label>
-        <input type="text" class="form-control" id="last_name" aria-describedby="orderName" placeholder="Enter Order Name" value="${obj.last_name || ''}" required>
+        <label for="last_name">Order Name</label>
+        <input type="text" class="form-control" id="last_name" aria-describedby="last_name" placeholder="Enter Order Name" value="${obj.last_name || ''}" required>
       </div>
       <div class="form-group">
         <label for="phone">Customer Phone Number</label>
-        <input type="text" class="form-control" placeholder="Phone Number" id="customerPhoneNumber">${obj.customerPhoneNumber || ''}</input>
+        <input type="text" class="form-control" placeholder="Phone Number" id="customerPhoneNumber" value="${obj.customerPhoneNumber || ''}" required>
       </div>
       <div class="form-group">
         <label for="email">Customer Email</label>
         <input type="email" class="form-control" id="customerEmail" placeholder="Enter email address" value="${obj.customerEmail || ''}" required>
       </div>
+      <br>
       <select class="custom-select">
-        <option selected>Select Order Type</option>
-        <option value="call_in">Call-in</option>
-        <option value="walk_in">Walk-in</option>
+        <option ${obj.orderType ? '' : 'selected'}>Select Order Type</option>
+        <option value="call-in" ${obj.orderType === 'call-in' ? 'selected' : ''}>Call-in</option>
+        <option value="walk-in" ${obj.orderType === 'walk-in' ? 'selected' : ''}>Walk-in</option>
       </select>
-      <button type="submit" class="btn btn-primary">Submit Order
+      <button type="submit" class="btn btn-primary">${obj ? 'Update Order' : 'Submit Order'}
       </button>
     </form>`;
 
