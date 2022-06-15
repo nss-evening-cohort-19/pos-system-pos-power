@@ -1,0 +1,122 @@
+{
+  "-N4Xno5mS84KKlkwdjA7": {
+    "customerEmail": "bfermor1@bloglovin.com",
+    "customerPhoneNumber": "(709) 5651529",
+    "firebaseKey": "-N4Xno5mS84KKlkwdjA7",
+    "first_name": "Barnabas",
+    "last_name": "Fermor",
+    "orderDate": "1649416490000",
+    "orderDetails": [
+      {
+        "itemName": "10 pc. boneless wings",
+        "itemPrice": 10.99
+      },
+      {
+        "itemName": "Large Fries",
+        "itemPrice": 3.99
+      }
+    ],
+    "orderStatus": "closed",
+    "orderTotal": 14.98,
+    "orderType": "call-in",
+    "paymentType": "Mastercard",
+    "tipAmount": 3,
+    "uid": ""
+  },
+  "-N4XovoF0GMhKOr2na0K": {
+    "customerEmail": "krismchandler@gmail.com",
+    "customerPhoneNumber": "(615) 3104738",
+    "firebaseKey": "-N4XovoF0GMhKOr2na0K",
+    "first_name": "Kristen",
+    "last_name": "Chandler",
+    "orderDate": "1649416490001",
+    "orderDetails": [
+      {
+        "itemName": "Large Pepperoni Pizza",
+        "itemPrice": 14.99
+      },
+      {
+        "itemName": "2 Liter Coke",
+        "itemPrice": 2.99
+      }
+    ],
+    "orderStatus": "open",
+    "orderTotal": 17.98,
+    "orderType": "walk-in",
+    "paymentType": "cash",
+    "tipAmount": 5,
+    "uid": ""
+  },
+  "-N4XpYNgXcygEX1dpPVL": {
+    "customerEmail": "mitchmccullough@gmail.com",
+    "customerPhoneNumber": "(615) 9764295",
+    "firebaseKey": "-N4XpYNgXcygEX1dpPVL",
+    "first_name": "Mitch",
+    "last_name": "Mccullough",
+    "orderDate": "1649416490002",
+    "orderDetails": [
+      {
+        "itemName": "Caesar Salad",
+        "itemPrice": 7.99
+      },
+      {
+        "itemName": "12 pc. Wings, Buffalo",
+        "itemPrice": 12.99
+      }
+    ],
+    "orderStatus": "open",
+    "orderTotal": 20.98,
+    "orderType": "call-in",
+    "paymentType": "Visa",
+    "tipAmount": 5,
+    "uid": ""
+  },
+  "-N4XqQlbbn3Cj--YS4ob": {
+    "customerEmail": "blackcl3@gmail.com",
+    "customerPhoneNumber": "(615) 2850104",
+    "firebaseKey": "-N4XqQlbbn3Cj--YS4ob",
+    "first_name": "Christian",
+    "last_name": "Black",
+    "orderDate": "1649416490003",
+    "orderDetails": [
+      {
+        "itemName": "small pizza, hawaiian",
+        "itemPrice": 9.99
+      },
+      {
+        "itemName": "fanta, 20oz",
+        "itemPrice": 1.99
+      }
+    ],
+    "orderStatus": "closed",
+    "orderTotal": 11.98,
+    "orderType": "walk-in",
+    "paymentType": "cash",
+    "tipAmount": 3,
+    "uid": ""
+  },
+  "-N4XrCyVzxDRE3RAqx11": {
+    "customerEmail": "justin.ferwerda@gmail.com",
+    "customerPhoneNumber": "(630) 9358941",
+    "firebaseKey": "-N4XrCyVzxDRE3RAqx11",
+    "first_name": "Justin",
+    "last_name": "Ferwerda",
+    "orderDate": "1649416490004",
+    "orderDetails": [
+      {
+        "itemName": "12 pc wing, garlic parmesan",
+        "itemPrice": 12.99
+      },
+      {
+        "itemName": "Onion Rings, Large",
+        "itemPrice": 4.99
+      }
+    ],
+    "orderStatus": "open",
+    "orderTotal": 17.98,
+    "orderType": "walk-in",
+    "paymentType": "Mastercard",
+    "tipAmount": 4,
+    "uid": ""
+  }
+}
