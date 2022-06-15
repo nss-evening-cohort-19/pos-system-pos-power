@@ -1,14 +1,18 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import clearDom from '../helpers/clearDom';
+import loginButton from './loginButton';
 
 const signMeOut = () => {
   firebase.auth().signOut();
+  clearDom();
+  loginButton();
 };
 
 const logoutButton = () => {
-  const domString = '<button id="google-auth-2" class="btn btn-danger">SIGNOUT</button>';
-  document.querySelector('#login-form-container').innerHTML = (domString);
-  document.querySelector('#google-auth-2').addEventListener('click', signMeOut);
+  const domString = '<a href="#" class="nav-link" id="google-auth2">Log Out</a>';
+  document.querySelector('#logout-nav').innerHTML = (domString);
+  document.querySelector('#google-auth2').addEventListener('click', signMeOut);
 };
 
 export default logoutButton;

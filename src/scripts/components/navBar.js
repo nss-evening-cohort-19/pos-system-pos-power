@@ -2,8 +2,9 @@ import renderToDom from '../helpers/renderToDom';
 
 const navBar = () => {
   const domString = `
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav id="navBarDiv" class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
+      <span class="icon" style="span" width:50px></span>
       <a class="navbar-brand" href="#">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,12 +19,15 @@ const navBar = () => {
             <a id="create-order" class="nav-link" href="#">Create an Order</a>
           </li>
         </ul>
+        <div id="right-nav">
+          <div class="nav-item">
+            <input type="text" class="form-control" id="searchBar-input" placeholder="Search Orders">
+          </div>
+          <div class="nav-item">
+            <div id="logout-nav">Logout</div>
+          </div>
         </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" id="searchBar-input" placeholder="Search Orders">
-        </div>
-        <a href='#' id="logout-btn">Logout
-        </a>
+      </div>
     </div>
   </nav>
   `;
