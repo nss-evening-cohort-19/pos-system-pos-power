@@ -17,4 +17,12 @@ const getAllOrders = (uid) => new Promise((resolve, reject) => {
     .catch((reject));
 });
 
-export default getAllOrders;
+const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orders/${firebaseKey}.json`)
+    .then(() => {
+      getAllOrders(uid).then((ordersArray) => resolve(ordersArray));
+    })
+    .catch((error) => reject(error));
+});
+
+export { getAllOrders, deleteOrder };
