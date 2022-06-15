@@ -1,13 +1,6 @@
-import renderOrders from '../components/pages/orders';
-import getAllOrders from '../../api/ordersData';
-import clearDom from '../helpers/clearDom';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
-
-const viewOrders = () => {
-  clearDom();
-  getAllOrders().then((response) => renderOrders(response));
-};
+import viewOrders from '../helpers/viewOrders';
 
 const domEvents = () => {
   document.querySelector('#ordersHome').addEventListener('click', viewOrders);
