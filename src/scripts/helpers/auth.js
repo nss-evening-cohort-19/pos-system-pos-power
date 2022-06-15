@@ -12,6 +12,7 @@ const checkLoginStatus = () => {
       // person is logged in do something...
       logoutButton();
       startApp(user);
+      document.getElementById('login-form-container').style.display = 'none';
     } else {
       // person is NOT logged in
       loginButton();
