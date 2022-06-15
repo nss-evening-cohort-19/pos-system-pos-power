@@ -5,6 +5,7 @@ import loginHome from '../components/pages/loginHome';
 import navEvents from '../events/navEvents';
 
 const startApp = (user) => {
+  document.querySelector('#login-form-container').innerHTML = '';
   domBuilder();
   navBar();
   logoutButton();
