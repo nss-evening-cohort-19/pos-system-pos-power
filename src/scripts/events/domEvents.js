@@ -3,7 +3,9 @@
 // import viewOrders from '../helpers/viewOrders';
 
 import viewOrderDetails from '../../api/mergedData';
+import { deleteOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
+import renderOrders from '../components/pages/orders';
 
 const domEvents = () => {
   // document.querySelector('#ordersHome').addEventListener('click', viewOrders);
@@ -17,6 +19,14 @@ const domEvents = () => {
       const [, orderFirebaseKey] = event.target.id.split('--');
       console.warn('order firebaseKey: ', orderFirebaseKey);
       viewOrderDetails(orderFirebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
+    }
+
+    if (event.target.id.includes('delete-order-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        const [, firebaseKey] = event.target.id.split('--');
+        deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
+      }
     }
   });
 };

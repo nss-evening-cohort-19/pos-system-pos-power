@@ -4,7 +4,7 @@ import firebaseConfig from './apiKeys';
 const dbURL = firebaseConfig.databaseURL;
 
 // eslint-disable-next-line no-unused-vars
-const getAllOrders = (uid) => new Promise((resolve, reject) => {
+const getAllOrders = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/orders.json`)
     .then((response) => {
       if (response.data) {
@@ -28,10 +28,10 @@ const getSingleOrdersItems = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbURL}/orders/${firebaseKey}.json`)
+const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/orders/${firebaseKey}.json`)
     .then(() => {
-      getAllOrders(uid).then((ordersArray) => resolve(ordersArray));
+      getAllOrders().then((ordersArray) => resolve(ordersArray));
     })
     .catch((error) => reject(error));
 });
