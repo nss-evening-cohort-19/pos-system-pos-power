@@ -16,7 +16,6 @@ const domEvents = () => {
     if (event.target.id.includes('edit-order-btn')) {
       const [, orderFirebaseKey] = event.target.id.split('--');
       console.warn('order firebaseKey: ', orderFirebaseKey);
-      viewOrderDetails(orderFirebaseKey).then((orderItemObject) => console.warn(orderItemObject));
       viewOrderDetails(orderFirebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
     }
   });
