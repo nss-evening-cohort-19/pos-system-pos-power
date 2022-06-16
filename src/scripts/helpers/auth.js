@@ -5,7 +5,6 @@ import firebaseConfig from '../../api/apiKeys';
 import startApp from './startApp';
 import clearDom from './clearDom';
 import clearBtn from './clearBtn';
-import loginHome from '../components/pages/loginHome';
 
 const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);
@@ -15,7 +14,6 @@ const checkLoginStatus = () => {
       startApp(user);
       clearDom();
       clearBtn();
-      loginHome(user);
     } else {
       // person is NOT logged in
       loginButton();
