@@ -18,7 +18,7 @@ const orderForm = (uid, obj = {}) => {
         <input type="email" class="form-control" id="customerEmail" placeholder="Enter email address" value="${obj.customerEmail || ''}" required>
       </div>
       <br>
-      <select class="custom-select">
+      <select class="custom-select" id="orderType">
         <option ${obj.orderType ? '' : 'selected'}>Select Order Type</option>
         <option value="call-in" ${obj.orderType === 'call-in' ? 'selected' : ''}>Call-in</option>
         <option value="walk-in" ${obj.orderType === 'walk-in' ? 'selected' : ''}>Walk-in</option>
