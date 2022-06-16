@@ -10,9 +10,9 @@ const startApp = (user) => {
   domBuilder();
   navBar();
   logoutButton();
+  loginHome(user);
   navEvents(user);
   domEvents(user);
-  loginHome(user);
 };
 
 export default startApp;
