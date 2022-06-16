@@ -25,4 +25,15 @@ const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export { getAllOrders, deleteOrder };
+const createOrder = (orderObject) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/orders.json`, orderObject)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/orders/${response.data.name}.json`, payload)
+        .then(() => {
+          getAllOrders(orderObject.uid).then(resolve);
+        });
+    }).catch(reject);
+});
+
+export { getAllOrders, deleteOrder, createOrder };
