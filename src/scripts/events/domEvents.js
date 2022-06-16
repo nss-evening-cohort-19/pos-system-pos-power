@@ -15,9 +15,8 @@ const domEvents = () => {
   // document.querySelector('#revenueHome').addEventListener('click', revenuePage);
 
   document.querySelector('#main-container').addEventListener('click', (event) => {
-    if (event.target.id.includes('edit-order-btn')) {
+    if (event.target.id.includes('view-details-btn')) {
       const [, orderFirebaseKey] = event.target.id.split('--');
-      console.warn('order firebaseKey: ', orderFirebaseKey);
       viewOrderDetails(orderFirebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
     }
 
