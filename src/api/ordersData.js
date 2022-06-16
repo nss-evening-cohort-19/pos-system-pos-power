@@ -16,6 +16,18 @@ const getAllOrders = (uid) => new Promise((resolve, reject) => {
     .catch((reject));
 });
 
+const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orders/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
+const getSingleOrdersItems = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/items.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
 const deleteOrder = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/orders/${firebaseKey}.json`)
     .then(() => {
@@ -44,5 +56,5 @@ const updateOrder = (orderObject) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllOrders, deleteOrder, createOrder, updateOrder
+  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder
 };
