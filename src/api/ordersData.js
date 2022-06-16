@@ -7,7 +7,6 @@ const dbURL = firebaseConfig.databaseURL;
 const getAllOrders = (uid) => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/orders.json`)
     .then((response) => {
-      console.warn(response);
       if (response.data) {
         resolve(Object.values(response.data));
       } else {
