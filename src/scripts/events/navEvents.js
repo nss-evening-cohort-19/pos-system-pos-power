@@ -1,21 +1,13 @@
-import renderOrders from '../components/pages/orders';
-import { getAllOrders } from '../../api/ordersData';
-import clearDom from '../helpers/clearDom';
+import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
-
-const viewOrders = () => {
-  clearDom();
-  getAllOrders().then((response) => renderOrders(response));
-};
+import loginHome from '../components/pages/loginHome';
 
 const navEvents = () => {
+  document.querySelector('#home-nav').addEventListener('click', loginHome);
+
   document.querySelector('#view-order').addEventListener('click', viewOrders);
 
   document.querySelector('#create-order').addEventListener('click', orderForm);
-
-  document.querySelector('#ordersHome').addEventListener('click', viewOrders);
-
-  document.querySelector('#createHome').addEventListener('click', orderForm);
 };
 
 export default navEvents;
