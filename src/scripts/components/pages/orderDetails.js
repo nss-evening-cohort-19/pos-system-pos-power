@@ -1,15 +1,11 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const emptyItems = () => {
-  document.querySelector('#view').innerHTML = '<h2>No Items in Order</h2>';
-};
-
 const orderDetails = (obj) => {
   clearDom();
   const itemArray = Object.values(obj.itemObj);
   if (itemArray.length) {
-    let domString = '<div id="cardContainer" class="container order-container">';
+    let domString = '<div id="itemsContainer">';
     itemArray.forEach((card) => {
       domString += `
       <div style="width: 30rem;">
@@ -21,9 +17,21 @@ const orderDetails = (obj) => {
         </div>
     </div>`;
     });
+    domString += `
+    </div>
+    <div id=orderDetailsButtons>
+      <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
+      <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
+    </div>`;
     renderToDOM('#view', domString);
   } else {
-    emptyItems();
+    const htmlString = `
+    <h2>No Items in Order</h2>
+    <div id=orderDetailsButtons>
+      <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
+      <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
+    </div>`;
+    renderToDOM('#view', htmlString);
   }
 };
 
