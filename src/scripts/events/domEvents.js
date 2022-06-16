@@ -6,13 +6,16 @@ import viewOrderDetails from '../../api/mergedData';
 import { deleteOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
+import viewOrders from '../helpers/viewOrders';
+import orderForm from '../components/forms/orderForm';
+import revenuePage from '../components/pages/revenue';
 
-const domEvents = () => {
-  // document.querySelector('#ordersHome').addEventListener('click', viewOrders);
+function domEvents() {
+  document.querySelector('#ordersHome').addEventListener('click', viewOrders);
 
-  // document.querySelector('#createHome').addEventListener('click', orderForm);
+  document.querySelector('#createHome').addEventListener('click', orderForm);
 
-  // document.querySelector('#revenueHome').addEventListener('click', revenuePage);
+  document.querySelector('#revenueHome').addEventListener('click', revenuePage);
 
   document.querySelector('#main-container').addEventListener('click', (event) => {
     if (event.target.id.includes('view-details-btn')) {
@@ -28,6 +31,6 @@ const domEvents = () => {
       }
     }
   });
-};
+}
 
 export default domEvents;
