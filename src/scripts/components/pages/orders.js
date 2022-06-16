@@ -17,6 +17,7 @@ const renderOrders = (array) => {
         <p class="card-text">${card.customerPhoneNumber}</p>
         <p class="card-text">${card.customerEmail}</p>
         <p class="card-text">${card.orderType}</p>
+        <button class="btn btn-light" id="view-details-btn--${card.firebaseKey}">Details</button>
         <button class="btn btn-primary" id="edit-order-btn--${card.firebaseKey}">Edit</button>
         <button class="btn btn-danger" id="delete-order-btn--${card.firebaseKey}">Delete</button>
       </div>
