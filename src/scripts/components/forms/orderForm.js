@@ -24,7 +24,7 @@ const orderForm = (uid, obj = {}) => {
         <option value="walk-in" ${obj.orderType === 'walk-in' ? 'selected' : ''}>Walk-in</option>
       </select>
       <hr id="hr-order">
-      <button type="submit" class="btn btn-primary">${obj ? 'Update Order' : 'Submit Order'}
+      <button type="submit" class="btn btn-primary">${obj.firebaseKey ? 'Update Order' : 'Submit Order'}
       </button>
     </form>`;
 
