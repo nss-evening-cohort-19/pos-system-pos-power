@@ -9,7 +9,7 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
-import getSingleItem from '../../api/itemsData';
+import { getSingleItem } from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
 
 function domEvents() {

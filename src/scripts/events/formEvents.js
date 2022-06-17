@@ -15,6 +15,11 @@ const formEvents = (uid) => {
       };
       createOrder(newOrder).then((response) => renderOrders(response));
     }
+
+    if (e.target.id.includes('update-item')) {
+      const [, itemFirebaseKey] = e.target.id.split('--');
+      console.warn('itemFirebaseKey: ', itemFirebaseKey);
+    }
   });
 };
 

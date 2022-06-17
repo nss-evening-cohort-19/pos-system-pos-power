@@ -1,7 +1,7 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const orderDetails = (obj) => {
+const orderDetails = (obj = {}) => {
   clearDom();
   const itemArray = Object.values(obj.itemObj);
   if (itemArray.length) {
