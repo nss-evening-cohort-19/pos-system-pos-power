@@ -11,13 +11,18 @@ import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
 import getAllRevenueObj from '../../api/revenueData';
 
-function domEvents() {
-  document.querySelector('#ordersHome').addEventListener('click', viewOrders);
-
-  document.querySelector('#createHome').addEventListener('click', orderForm);
-
-  document.querySelector('#revenueHome').addEventListener('click', () => { getAllRevenueObj().then((revenuePage)); });
-
+const domEvents = () => {
+  document.querySelector('#view').addEventListener('click', (e) => {
+    if (e.target.id.includes('ordersHome')) {
+      viewOrders();
+    }
+    if (e.target.id.includes('createHome')) {
+      orderForm();
+    }
+    if (e.target.id.includes('revenueHome')) {
+      getAllRevenueObj().then((revenuePage));
+    }
+  });
   document.querySelector('#main-container').addEventListener('click', (event) => {
     if (event.target.id.includes('view-details-btn')) {
       const [, orderFirebaseKey] = event.target.id.split('--');
@@ -32,6 +37,6 @@ function domEvents() {
       }
     }
   });
-}
+};
 
 export default domEvents;
