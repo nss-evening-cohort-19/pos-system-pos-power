@@ -10,7 +10,7 @@ const startApp = (user) => {
   document.querySelector('#login-form-container').innerHTML = '';
   domBuilder();
   navBar();
-  logoutButton();
+  logoutButton(user);
   loginHome(user);
   navEvents(user);
   domEvents(user);
