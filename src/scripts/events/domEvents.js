@@ -9,13 +9,14 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
+import getAllRevenueObj from '../../api/revenueData';
 
 function domEvents() {
   document.querySelector('#ordersHome').addEventListener('click', viewOrders);
 
   document.querySelector('#createHome').addEventListener('click', orderForm);
 
-  document.querySelector('#revenueHome').addEventListener('click', revenuePage);
+  document.querySelector('#revenueHome').addEventListener('click', () => { getAllRevenueObj().then((revenuePage)); });
 
   document.querySelector('#main-container').addEventListener('click', (event) => {
     if (event.target.id.includes('view-details-btn')) {
