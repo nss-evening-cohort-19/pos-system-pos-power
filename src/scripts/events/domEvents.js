@@ -9,6 +9,7 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
+import paymentForm from '../components/forms/paymentForm';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -20,6 +21,9 @@ const domEvents = () => {
     }
     if (e.target.id.includes('revenueHome')) {
       revenuePage();
+    }
+    if (e.target.id.includes('#goToPaymentButton')) {
+      paymentForm();
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
