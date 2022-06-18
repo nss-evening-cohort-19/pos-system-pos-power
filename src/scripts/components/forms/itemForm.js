@@ -5,7 +5,7 @@ import selectOrder from './selectOrder';
 const itemForm = (obj = {}) => {
   clearDom();
   const domString = `
-    <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="mb-4">
+    <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="mb-4 item-form-div">
       <div class="form-group">
         <label for="itemName">Item Name</label>
         <input type="text" class="form-control" id="item_name" aria-describedby="itemName" placeholder="Enter Item Name" value="${obj.item_name || ''}" required>
@@ -16,7 +16,7 @@ const itemForm = (obj = {}) => {
       </div>
       <div class="form-group" id="select-order"></div>
       <br>
-      <button type="submit" class="btn btn-primary">${obj.firebaseKey ? 'Update Item' : 'Submit Item'}
+      <button id="submit-item-btn" type="submit" class="btn btn-primary">${obj.firebaseKey ? 'Update Item' : 'Submit Item'}
       </button>
     </form>`;
 
