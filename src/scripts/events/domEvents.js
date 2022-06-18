@@ -9,7 +9,6 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
-<<<<<<< HEAD
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
 =======
 import getAllRevenueObj from '../../api/revenueData';
@@ -27,6 +26,7 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
+      // eslint-disable-next-line no-undef
       getAllRevenueObj().then((revenuePage));
     }
     if (e.target.id.includes('goToPaymentButton')) {
