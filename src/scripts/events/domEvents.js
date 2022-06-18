@@ -9,8 +9,14 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
+<<<<<<< HEAD
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
+=======
+import getAllRevenueObj from '../../api/revenueData';
+import { getSingleItem } from '../../api/itemsData';
+>>>>>>> main
 import itemForm from '../components/forms/itemForm';
+import paymentForm from '../components/forms/paymentForm';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -21,7 +27,10 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
-      revenuePage();
+      getAllRevenueObj().then((revenuePage));
+    }
+    if (e.target.id.includes('goToPaymentButton')) {
+      paymentForm();
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
