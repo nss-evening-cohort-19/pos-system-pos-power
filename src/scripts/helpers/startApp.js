@@ -8,6 +8,7 @@ import formEvents from '../events/formEvents';
 
 const startApp = (user) => {
   document.querySelector('#login-form-container').innerHTML = '';
+  document.getElementById('login-form-container').style.backgroundImage = '';
   domBuilder();
   navBar();
   logoutButton(user);

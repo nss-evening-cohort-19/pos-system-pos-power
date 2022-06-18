@@ -3,6 +3,7 @@ import 'firebase/auth';
 import loginButton from '../components/loginButton';
 import firebaseConfig from '../../api/apiKeys';
 import startApp from './startApp';
+import loginPageBackground from '../components/loginPageBackground';
 
 const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);
@@ -13,6 +14,7 @@ const checkLoginStatus = () => {
     } else {
       // person is NOT logged in
       loginButton();
+      loginPageBackground();
     }
   });
 };
