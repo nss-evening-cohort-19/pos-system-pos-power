@@ -6,7 +6,7 @@ const paymentForm = () => {
   const domString = `
   <form id="paymentForm">
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Select Payment Type</>
+      <label for="select-payment">Select Payment Type</>
       <select class="form-control" id="paymentType">
         <option selected>Please Select Payment Type</option>
         <option id="cash" value="cash">Cash</option>
@@ -21,7 +21,7 @@ const paymentForm = () => {
         <input type="text" class="form-control" placeholder="Tip Amount" id="tipAmount">
     </div>
     <br>
-    <button type="submit" class="btn btn-primary">Submit Item
+    <button id="submit-payment-btn" type="submit" class="btn btn-primary">Submit Item
     </button>
   </form>`;
 
