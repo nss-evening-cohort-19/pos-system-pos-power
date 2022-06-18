@@ -190,6 +190,7 @@ body {
   margin-top: -3%;
 }
 
+css-login
 #sign-in-logo {
   margin-top: 10%;
   margin-bottom: 5%;
@@ -199,4 +200,15 @@ body {
   background-color: #44D62C;
   color: white;
   border: none;
+
+.addItemBtn {
+  position: absolute;
+  top: 10%;
+  left: 42%;
+}
+
+.goToPaymentBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
 }
