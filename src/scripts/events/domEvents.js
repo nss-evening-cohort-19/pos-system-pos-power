@@ -12,6 +12,7 @@ import revenuePage from '../components/pages/revenue';
 import getAllRevenueObj from '../../api/revenueData';
 import { getSingleItem } from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
+import paymentForm from '../components/forms/paymentForm';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -23,6 +24,9 @@ const domEvents = () => {
     }
     if (e.target.id.includes('revenueHome')) {
       getAllRevenueObj().then((revenuePage));
+    }
+    if (e.target.id.includes('goToPaymentButton')) {
+      paymentForm();
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
