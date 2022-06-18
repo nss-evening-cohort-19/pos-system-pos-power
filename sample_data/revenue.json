@@ -6,7 +6,7 @@
     "orderType": "call-in",
     "paymentType": "mastercard",
     "tipAmount": 12.23,
-    "totalAmount": "24.56"
+    "totalAmount": 24.56
   },
   "-N4Zpj9ff0_DJG5EA5pd": {
     "date": "220516",
@@ -15,7 +15,7 @@
     "orderType": "walk-in",
     "paymentType": "visa",
     "tipAmount": 37.23,
-    "totalAmount": "100.24"
+    "totalAmount": 100.24
   },
   "-N4ZpstqK4EGse6mzyRS": {
     "date": "220523",
@@ -24,7 +24,7 @@
     "orderType": "call-in",
     "paymentType": "visa",
     "tipAmount": 2.65,
-    "totalAmount": "1235.65"
+    "totalAmount": 1235.65
   },
   "-N4Zpz6mqyg9agKmb9fr": {
     "date": "220525",
@@ -33,7 +33,7 @@
     "orderType": "walk-in",
     "paymentType": "cash",
     "tipAmount": 43.65,
-    "totalAmount": "3.00"
+    "totalAmount": 3.00
   },
   "-N4Zq5jw_UB9EejdXWMz": {
     "date": "220526",
@@ -42,6 +42,6 @@
     "orderType": "walk-in",
     "paymentType": "discover",
     "tipAmount": 21.5,
-    "totalAmount": "1.97"
+    "totalAmount": 1.97
   }
 }
