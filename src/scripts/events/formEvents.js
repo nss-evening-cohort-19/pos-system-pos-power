@@ -68,7 +68,12 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('paymentForm')) {
-      getSingleOrder().then();
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(
+        const revenueObject = {
+          
+        }
+      )
     }
   });
 };
