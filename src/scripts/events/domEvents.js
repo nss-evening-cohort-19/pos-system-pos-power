@@ -22,7 +22,7 @@ const domEvents = () => {
     if (e.target.id.includes('revenueHome')) {
       revenuePage();
     }
-    if (e.target.id.includes('#goToPaymentButton')) {
+    if (e.target.id.includes('goToPaymentButton')) {
       paymentForm();
     }
   });
