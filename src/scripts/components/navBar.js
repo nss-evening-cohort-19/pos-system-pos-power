@@ -1,5 +1,5 @@
 import renderToDom from '../helpers/renderToDom';
-import logo from '../../../instructions/hhpw-record.png';
+import logo from '../../../instructions/hhpw-record-neon.png';
 
 const navBar = () => {
   const domString = `
