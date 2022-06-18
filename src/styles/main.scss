@@ -56,15 +56,29 @@ body {
 }
 
 #view-order {
-  margin-top: 1%;
+  margin-top: 3%;
+}
+
+#view-order:hover {
+  color:#44D62C;
 }
 
 #home-nav {
-  margin-top: 4%;
+  margin-top: 5%;
 }
+
+#home-nav:hover {
+  color: #04d9ff
+}
+
+
 
 #create-order {
   margin-top: 2%;
+}
+
+#create-order:hover {
+  color: #f69904;
 }
 
 #view {
