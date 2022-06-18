@@ -24,6 +24,9 @@ const domEvents = () => {
     if (e.target.id.includes('goToPaymentButton')) {
       paymentForm();
     }
+    if (e.target.id.includes('goToPaymentButton')) {
+      paymentForm();
+    }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
     if (event.target.id.includes('view-details-btn')) {
