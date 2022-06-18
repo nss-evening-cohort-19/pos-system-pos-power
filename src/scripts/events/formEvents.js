@@ -3,7 +3,8 @@ import viewOrderDetails from '../../api/mergedData';
 import { createOrder, updateOrder, getSingleOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
-import createRevenueNode from '../../api/revenueData';
+import { createRevenueNode } from '../../api/revenueData';
+import revenuePage from '../components/pages/revenue';
 
 const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -80,13 +81,14 @@ const formEvents = (uid) => {
         const revenueObject = {
           totalAmount: sum,
           date: new Date().toLocaleString(),
-          tipAmount: document.querySelector('#tipAmount').value,
+          tipAmount: parseInt(document.querySelector('#tipAmount').value, 10),
           paymentType: document.querySelector('#paymentType').value,
           orderId: firebaseKey,
-          orderType: getSingleOrder(firebaseKey).then((orderObject) => orderObject.orderType)
+          orderType: getSingleOrder(firebaseKey).then((orderObject) => orderObject.orderType),
+
         };
 
-        createRevenueNode(revenueObject).then(null);
+        createRevenueNode(revenueObject).then(revenuePage());
       });
     }
   });

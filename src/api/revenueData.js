@@ -22,4 +22,4 @@ const createRevenueNode = (revenueObject) => new Promise((resolve, reject) => {
     }).catch(reject);
 });
 
-export default { getAllRevenueObj, createRevenueNode };
+export { getAllRevenueObj, createRevenueNode };
