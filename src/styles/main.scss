@@ -213,3 +213,26 @@ css-login
   top: 10%;
   left: 50%;
 }
+
+#submit-order {
+  color: white; 
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 3%;
+}
+
+#order-submit-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#order-submit-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
