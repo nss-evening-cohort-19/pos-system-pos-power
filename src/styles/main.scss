@@ -218,6 +218,33 @@ body {
   left: 50%;
 }
 
+#ordersHome {
+  background-color: #44D62C;
+  color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  border-radius: 4px;
+}
+
+#ordersHome:hover {
+  background-color: black;
+  color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+}
+
+#createHome {
+  background-color: #04d9ff;
+  color: black;
+  border-style: solid;
+  border-color: #04d9ff;
+  border-radius: 4px;
+}
+
+#createHome:hover {
+  background-color: black;
+}
+
 .order-card {
   color: black;
 }
@@ -249,6 +276,21 @@ body {
   border-color: #04d9ff;
 }
 
+#revenueHome {
+  background-color: #f69904;
+  color: black;
+  border-style: solid;
+  border-color: #f69904;
+  border-radius: 4px;
+}
+
+#revenueHome:hover {
+  background-color: black;
+  color: #f69904;
+  border-style: solid;
+  border-color: #f69904;
+}
+  
 .btn-danger {
   background-color: #f69904;
   border-style: solid;
