@@ -19,7 +19,7 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
-      getAllRevenueObj().then((revenuePage));
+      getAllRevenueObj().then((revenuePage()));
     }
     if (e.target.id.includes('goToPaymentButton')) {
       paymentForm();
