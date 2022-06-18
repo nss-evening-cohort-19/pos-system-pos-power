@@ -1,6 +1,5 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
-import selectOrder from './selectOrder';
 
 const itemForm = (obj = {}, orderId) => {
   clearDom();
@@ -21,7 +20,6 @@ const itemForm = (obj = {}, orderId) => {
     </form>`;
 
   renderToDOM('#form-container', domString);
-  selectOrder(orderId);
 };
 
 export default itemForm;

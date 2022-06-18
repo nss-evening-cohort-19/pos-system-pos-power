@@ -51,16 +51,16 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('submit-item')) {
-      const orderId = document.querySelector('#order_id').value;
+      const [, firebaseKey] = e.target.id.split('--');
       const itemObject = {
         item_name: document.querySelector('#item_name').value,
         item_price: document.querySelector('#item_price').value,
-        orderId
+        orderId: firebaseKey
       };
       createItem(itemObject)
         .then((itemArray) => {
           itemArray.forEach((item) => {
-            if (orderId === item.orderId) {
+            if (firebaseKey === item.orderId) {
               viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
             }
           });
