@@ -4,6 +4,7 @@ const domBuilder = () => {
   const domString = `
   <div id="navigation"></div>
   <div id="main-container">
+    <div id ="details-buttons"></div>
     <div id="form-container"></div>
     <div id="view"></div>
   </div>`;
