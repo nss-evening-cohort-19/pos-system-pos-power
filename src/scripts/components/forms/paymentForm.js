@@ -4,7 +4,7 @@ import renderToDOM from '../../helpers/renderToDom';
 const paymentForm = (obj = {}) => {
   clearDom();
   const domString = `
-  <form id="paymentForm">
+  <form id="paymentForm--${obj.firebaseKey}">
     <div class="form-group">
       <label for="exampleFormControlSelect1">Select Payment Type</>
       <select class="form-control" id="paymentType">

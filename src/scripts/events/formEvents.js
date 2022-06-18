@@ -1,8 +1,9 @@
-import { updateItem, createItem } from '../../api/itemsData';
+import { updateItem, createItem, getItems } from '../../api/itemsData';
 import viewOrderDetails from '../../api/mergedData';
-import { createOrder, getSingleOrder, updateOrder } from '../../api/ordersData';
+import { createOrder, updateOrder, getSingleOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
+import createRevenueNode from '../../api/revenueData';
 
 const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -51,16 +52,16 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('submit-item')) {
-      const orderId = document.querySelector('#order_id').value;
+      const [, firebaseKey] = e.target.id.split('--');
       const itemObject = {
         item_name: document.querySelector('#item_name').value,
         item_price: document.querySelector('#item_price').value,
-        orderId
+        orderId: firebaseKey
       };
       createItem(itemObject)
         .then((itemArray) => {
           itemArray.forEach((item) => {
-            if (orderId === item.orderId) {
+            if (firebaseKey === item.orderId) {
               viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
             }
           });
@@ -69,11 +70,24 @@ const formEvents = (uid) => {
 
     if (e.target.id.includes('paymentForm')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then(
+      getItems().then((itemArray) => {
+        let sum = 0;
+        itemArray.forEach((item) => {
+          if (item.orderId === firebaseKey) {
+            sum += item.price;
+          }
+        });
         const revenueObject = {
-          
-        }
-      )
+          totalAmount: sum,
+          date: new Date().toLocaleString(),
+          tipAmount: document.querySelector('#tipAmount').value,
+          paymentType: document.querySelector('#paymentType').value,
+          orderId: firebaseKey,
+          orderType: getSingleOrder(firebaseKey).then((orderObject) => orderObject.orderType)
+        };
+
+        createRevenueNode(revenueObject).then(null);
+      });
     }
   });
 };

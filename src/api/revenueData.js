@@ -11,4 +11,15 @@ const getAllRevenueObj = () => new Promise((resolve, reject) => {
     .catch((reject));
 });
 
-export default getAllRevenueObj;
+const createRevenueNode = (revenueObject) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/revenue.json`, revenueObject)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/revenue/${response.data.name}.json`, payload)
+        .then(() => {
+          getAllRevenueObj().then(resolve);
+        });
+    }).catch(reject);
+});
+
+export default { getAllRevenueObj, createRevenueNode };
