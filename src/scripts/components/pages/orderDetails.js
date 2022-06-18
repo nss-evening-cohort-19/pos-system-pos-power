@@ -21,7 +21,7 @@ const orderDetails = (obj = {}) => {
     </div>
     <div id=orderDetailsButtons>
       <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
-      <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
+      <button id="goToPaymentButton--${obj.firebaseKey}" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
     renderToDOM('#view', domString);
   } else {
@@ -29,7 +29,7 @@ const orderDetails = (obj = {}) => {
     <h2>No Items in Order</h2>
     <div id=orderDetailsButtons>
       <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
-      <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
+      <button  class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
     renderToDOM('#view', htmlString);
   }

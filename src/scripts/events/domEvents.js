@@ -22,10 +22,8 @@ const domEvents = () => {
       getAllRevenueObj().then((revenuePage()));
     }
     if (e.target.id.includes('goToPaymentButton')) {
-      paymentForm();
-    }
-    if (e.target.id.includes('goToPaymentButton')) {
-      paymentForm();
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObject) => paymentForm(orderObject));
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {

@@ -1,6 +1,6 @@
 import { updateItem, createItem } from '../../api/itemsData';
 import viewOrderDetails from '../../api/mergedData';
-import { createOrder, updateOrder } from '../../api/ordersData';
+import { createOrder, getSingleOrder, updateOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 
@@ -65,6 +65,10 @@ const formEvents = (uid) => {
             }
           });
         });
+    }
+
+    if (e.target.id.includes('paymentForm')) {
+      getSingleOrder().then();
     }
   });
 };
