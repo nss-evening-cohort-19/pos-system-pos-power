@@ -54,6 +54,10 @@ const domEvents = () => {
       }
     }
 
+    if (event.target.id.includes('addItemButton')) {
+      itemForm();
+    }
+
     if (event.target.id.includes('edit-order')) {
       const [, firebaseKey] = event.target.id.split('--');
       getSingleOrder(firebaseKey).then((orderObject) => orderForm(orderObject));

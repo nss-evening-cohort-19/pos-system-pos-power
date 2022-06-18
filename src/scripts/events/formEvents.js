@@ -1,4 +1,4 @@
-import { updateItem } from '../../api/itemsData';
+import { updateItem, createItem } from '../../api/itemsData';
 import viewOrderDetails from '../../api/mergedData';
 import { createOrder, updateOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
@@ -44,6 +44,23 @@ const formEvents = (uid) => {
         .then((itemArray) => {
           itemArray.forEach((item) => {
             if (firebaseKey === item.firebaseKey) {
+              viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+            }
+          });
+        });
+    }
+
+    if (e.target.id.includes('submit-item')) {
+      const orderId = document.querySelector('#order_id').value;
+      const itemObject = {
+        item_name: document.querySelector('#item_name').value,
+        item_price: document.querySelector('#item_price').value,
+        orderId
+      };
+      createItem(itemObject)
+        .then((itemArray) => {
+          itemArray.forEach((item) => {
+            if (orderId === item.orderId) {
               viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
             }
           });

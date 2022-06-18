@@ -1,5 +1,6 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
+import selectOrder from './selectOrder';
 
 const itemForm = (obj = {}) => {
   clearDom();
@@ -13,12 +14,14 @@ const itemForm = (obj = {}) => {
         <label for="price">Item Price</label>
         <input type="text" class="form-control" placeholder="Item Price" id="item_price" aria-describedby="itemPrice" value="${obj.item_price || ''}" required>
       </div>
+      <div class="form-group" id="select-order"></div>
       <br>
       <button type="submit" class="btn btn-primary">${obj.firebaseKey ? 'Update Item' : 'Submit Item'}
       </button>
     </form>`;
 
   renderToDOM('#form-container', domString);
+  selectOrder(`${obj.orderId || ''}`);
 };
 
 export default itemForm;
