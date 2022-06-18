@@ -1,4 +1,4 @@
-import viewOrderDetails from '../../api/mergedData';
+import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import { deleteOrder, getSingleOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -63,6 +63,14 @@ const domEvents = () => {
     if (event.target.id.includes('edit-order')) {
       const [, firebaseKey] = event.target.id.split('--');
       getSingleOrder(firebaseKey).then((orderObject) => orderForm(orderObject));
+    }
+
+    if (event.target.id.includes('delete-item-btn')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      updatedItems(firebaseKey)
+        .then((response) => {
+          orderDetails(response);
+        });
     }
   });
 };
