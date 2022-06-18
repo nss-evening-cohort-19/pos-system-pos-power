@@ -9,6 +9,7 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
+import getAllRevenueObj from '../../api/revenueData';
 import { getSingleItem } from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
 
@@ -21,7 +22,7 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
-      revenuePage();
+      getAllRevenueObj().then((revenuePage));
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
