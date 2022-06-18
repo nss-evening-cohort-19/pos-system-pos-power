@@ -6,7 +6,7 @@ const dbURL = firebaseConfig.databaseURL;
 
 const getAllRevenueObj = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/revenue.json`)
-    .then((response) => { revenueObj(Object.values((response.data))); })
+    .then((response) => { resolve(revenueObj(Object.values((response.data)))); })
     .catch((reject));
 });
 
