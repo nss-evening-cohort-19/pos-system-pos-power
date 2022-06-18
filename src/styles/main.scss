@@ -19,7 +19,6 @@ body {
 
 #login-form-container {
   display: block;
-  // background-image: url("https://w0.peakpx.com/wallpaper/669/329/HD-wallpaper-stickerbomb-black-dark-dj-grey-music-sayings-thumbnail.jpg");
   height: 100vh;
   width: 100vw;
 
@@ -189,4 +188,28 @@ body {
 #mobilePayment {
   font-size: small;
   margin-top: -3%;
+}
+
+css-login
+#sign-in-logo {
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+#google-auth {
+  background-color: #44D62C;
+  color: white;
+  border: none;
+}
+
+.addItemBtn {
+  position: absolute;
+  top: 10%;
+  left: 42%;
+}
+
+.goToPaymentBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
 }

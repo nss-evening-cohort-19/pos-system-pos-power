@@ -6,7 +6,7 @@
     "last_name": "Fermor",
     "orderStatus": "closed",
     "orderType": "call-in",
-    "uid": ""
+    "uid": "nxcU5RkrqLUEgt9wOqfCrOgyHtD2"
   },
   "-N4XovoF0GMhKOr2na0K": {
     "customerEmail": "krismchandler@gmail.com",
@@ -15,7 +15,7 @@
     "last_name": "Chandler",
     "orderStatus": "open",
     "orderType": "walk-in",
-    "uid": ""
+    "uid": "AIzaSyDNnSWY8qBgJdEPEYKA9aRsXLcLNp5UMj0"
   },
   "-N4XpYNgXcygEX1dpPVL": {
     "customerEmail": "mitchmccullough@gmail.com",
@@ -24,7 +24,7 @@
     "last_name": "Mccullough",
     "orderStatus": "open",
     "orderType": "call-in",
-    "uid": ""
+    "uid": "nxcU5RkrqLUEgt9wOqfCrOgyHtD2"
   },
   "-N4XqQlbbn3Cj--YS4ob": {
     "customerEmail": "blackcl3@gmail.com",
@@ -33,7 +33,7 @@
     "last_name": "Black",
     "orderStatus": "closed",
     "orderType": "walk-in",
-    "uid": ""
+    "uid": "Tdq9u1FTUDRmyhj7Kj8q7XCTY9i1"
   },
   "-N4XrCyVzxDRE3RAqx11": {
     "customerEmail": "justin.ferwerda@gmail.com",
@@ -42,6 +42,6 @@
     "last_name": "Ferwerda",
     "orderStatus": "open",
     "orderType": "walk-in",
-    "uid": ""
+    "uid": "NSxpLnqK2ZgQPbcQBxuhXbslCTQ2"
   }
 }
