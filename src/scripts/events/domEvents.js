@@ -3,7 +3,7 @@
 // import viewOrders from '../helpers/viewOrders';
 
 import viewOrderDetails from '../../api/mergedData';
-import { deleteOrder } from '../../api/ordersData';
+import { deleteOrder, getSingleOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
@@ -41,6 +41,11 @@ const domEvents = () => {
         const [, firebaseKey] = event.target.id.split('--');
         deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
       }
+    }
+
+    if (event.target.id.includes('edit-order')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObject) => orderForm(orderObject));
     }
   });
 };

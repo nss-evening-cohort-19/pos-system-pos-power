@@ -1,4 +1,4 @@
-import { createOrder } from '../../api/ordersData';
+import { createOrder, updateOrder } from '../../api/ordersData';
 import renderOrders from '../components/pages/orders';
 
 const formEvents = (uid) => {
@@ -16,9 +16,18 @@ const formEvents = (uid) => {
       createOrder(newOrder).then((response) => renderOrders(response));
     }
 
-    if (e.target.id.includes('update-item')) {
-      const [, itemFirebaseKey] = e.target.id.split('--');
-      console.warn('itemFirebaseKey: ', itemFirebaseKey);
+    if (e.target.id.includes('update-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const updatedOrder = {
+        customerEmail: document.querySelector('#customerEmail').value,
+        customerPhoneNumber: document.querySelector('#customerPhoneNumber').value,
+        last_name: document.querySelector('#last_name').value,
+        orderStatus: 'open',
+        orderType: document.querySelector('#orderType').value,
+        firebaseKey,
+        uid
+      };
+      updateOrder(updatedOrder).then((orderArray) => renderOrders(orderArray));
     }
   });
 };
