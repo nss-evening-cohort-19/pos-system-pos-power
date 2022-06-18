@@ -26,6 +26,16 @@ const updateItem = (itemObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/items/${firebaseKey}.json`)
+    .then(() => {
+      getItems().then((itemsArray) => resolve(itemsArray));
+    })
+    .catch((error) => reject(error));
+});
+
 // const getItemByOrderId = ()
 
-export { getItems, getSingleItem, updateItem };
+export {
+  getItems, getSingleItem, updateItem, deleteItem
+};
