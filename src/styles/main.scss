@@ -206,18 +206,6 @@ body {
   border: none;
 }
 
-.addItemBtn {
-  position: absolute;
-  top: 10%;
-  left: 42%;
-}
-
-.goToPaymentBtn {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-}
-
 #submit-order {
   color: white; 
 }
@@ -423,4 +411,11 @@ body {
   margin-right: auto;
   width: 100%;
   height: 100%;
+}
+
+#orderDetailsButtons {
+  width: 100%;
+  margin-top: -6%;
+  margin-left: auto;
+  margin-right: auto;
 }
