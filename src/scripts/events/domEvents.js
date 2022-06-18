@@ -1,7 +1,3 @@
-// import orderForm from '../components/forms/orderForm';
-// import revenuePage from '../components/pages/revenue';
-// import viewOrders from '../helpers/viewOrders';
-
 import viewOrderDetails from '../../api/mergedData';
 import { deleteOrder, getSingleOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
@@ -23,7 +19,7 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
-      getAllRevenueObj().then((revenuePage));
+      getAllRevenueObj().then((revenuePage()));
     }
     if (e.target.id.includes('goToPaymentButton')) {
       paymentForm();
