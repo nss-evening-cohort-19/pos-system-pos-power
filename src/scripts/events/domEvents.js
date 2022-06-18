@@ -9,7 +9,7 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
-import { getSingleItem } from '../../api/itemsData';
+import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
 
 const domEvents = () => {
@@ -39,6 +39,13 @@ const domEvents = () => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to Delete?')) {
         const [, firebaseKey] = event.target.id.split('--');
+        getItems().then((itemArray) => {
+          itemArray.forEach((item) => {
+            if (item.orderId === firebaseKey) {
+              deleteItem(item.firebaseKey).then(null);
+            }
+          });
+        });
         deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
       }
     }
