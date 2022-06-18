@@ -34,8 +34,21 @@ const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const getItemByOrderId = ()
+const createItem = (itemObj) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/items.json`, itemObj)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/items/${response.data.name}.json`, payload)
+        .then(() => {
+          getItems().then(resolve);
+        });
+    }).catch(reject);
+});
+
+// const getOrderId = (firebaseKey) => new Promise((resolve, reject) => {
+//   axios.get(`${dbURL}/items.json?orderBy="orderId"&equalTo="$"`)
+// })
 
 export {
-  getItems, getSingleItem, updateItem, deleteItem
+  getItems, getSingleItem, updateItem, deleteItem, createItem
 };
