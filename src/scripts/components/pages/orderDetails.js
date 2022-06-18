@@ -20,7 +20,7 @@ const orderDetails = (obj = {}) => {
     domString += `
     </div>
     <div id=orderDetailsButtons>
-      <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
+      <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
       <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
     renderToDOM('#view', domString);

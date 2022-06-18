@@ -36,7 +36,7 @@ const domEvents = () => {
 
     if (event.target.id.includes('edit-item-btn')) {
       const [, itemFirebaseKey] = event.target.id.split('--');
-      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject));
+      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject, itemObject.orderId));
     }
 
     if (event.target.id.includes('delete-order-btn')) {
@@ -55,7 +55,9 @@ const domEvents = () => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      itemForm();
+      const [, firebaseKey] = event.target.id.split('--');
+      const itemObj = {};
+      itemForm(itemObj, firebaseKey);
     }
 
     if (event.target.id.includes('edit-order')) {
