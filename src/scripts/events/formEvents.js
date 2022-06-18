@@ -1,4 +1,7 @@
+import { updateItem } from '../../api/itemsData';
+import viewOrderDetails from '../../api/mergedData';
 import { createOrder, updateOrder } from '../../api/ordersData';
+import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 
 const formEvents = (uid) => {
@@ -28,6 +31,23 @@ const formEvents = (uid) => {
         uid
       };
       updateOrder(updatedOrder).then((orderArray) => renderOrders(orderArray));
+    }
+
+    if (e.target.id.includes('update-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const itemObject = {
+        firebaseKey,
+        item_name: document.querySelector('#item_name').value,
+        item_price: document.querySelector('#item_price').value,
+      };
+      updateItem(itemObject)
+        .then((itemArray) => {
+          itemArray.forEach((item) => {
+            if (firebaseKey === item.firebaseKey) {
+              viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+            }
+          });
+        });
     }
   });
 };

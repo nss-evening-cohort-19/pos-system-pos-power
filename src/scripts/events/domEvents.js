@@ -1,7 +1,3 @@
-// import orderForm from '../components/forms/orderForm';
-// import revenuePage from '../components/pages/revenue';
-// import viewOrders from '../helpers/viewOrders';
-
 import viewOrderDetails from '../../api/mergedData';
 import { deleteOrder, getSingleOrder } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
@@ -9,8 +5,8 @@ import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
+import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
 import getAllRevenueObj from '../../api/revenueData';
-import { getSingleItem } from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 
@@ -23,7 +19,7 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
-      getAllRevenueObj().then((revenuePage));
+      getAllRevenueObj().then((revenuePage()));
     }
     if (e.target.id.includes('goToPaymentButton')) {
       paymentForm();
@@ -47,6 +43,13 @@ const domEvents = () => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to Delete?')) {
         const [, firebaseKey] = event.target.id.split('--');
+        getItems().then((itemArray) => {
+          itemArray.forEach((item) => {
+            if (item.orderId === firebaseKey) {
+              deleteItem(item.firebaseKey).then(null);
+            }
+          });
+        });
         deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
       }
     }
