@@ -1,19 +1,23 @@
 const getTotalRevenue = (arr) => {
-  console.warn(arr);
-  arr.reduce((accumulator, object) => accumulator + object.totalAmount, 0);
+  let sum = 0;
+  arr.forEach((revObj) => {
+    sum += revObj.totalAmount;
+  });
+  return sum;
 };
 
 const getTotalTips = (arr) => {
-  arr.reduce((accumulator, object) => accumulator + object.tipAmount, 0);
+  let sum = 0;
+  arr.forEach((revObj) => {
+    sum += revObj.tipAmount;
+  });
+  return sum;
 };
 
 const revenueObj = (arr) => {
-  console.warn(arr);
-  console.warn(getTotalRevenue(arr));
-  console.warn(getTotalTips(arr));
   const newRevenueObj = {
-    tipAmount: getTotalRevenue(arr),
-    totalAmount: getTotalTips(arr)
+    totalAmount: getTotalRevenue(arr),
+    tipAmount: getTotalTips(arr)
   };
   console.warn(newRevenueObj);
   return newRevenueObj;
