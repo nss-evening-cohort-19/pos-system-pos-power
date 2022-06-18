@@ -19,7 +19,7 @@ const domEvents = () => {
       orderForm();
     }
     if (e.target.id.includes('revenueHome')) {
-      getAllRevenueObj().then((revenuePage()));
+      getAllRevenueObj().then(revenuePage);
     }
     if (e.target.id.includes('goToPaymentButton')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -34,7 +34,7 @@ const domEvents = () => {
 
     if (event.target.id.includes('edit-item-btn')) {
       const [, itemFirebaseKey] = event.target.id.split('--');
-      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject));
+      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject, itemObject.orderId));
     }
 
     if (event.target.id.includes('delete-order-btn')) {
@@ -53,7 +53,9 @@ const domEvents = () => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      itemForm();
+      const [, firebaseKey] = event.target.id.split('--');
+      const itemObj = {};
+      itemForm(itemObj, firebaseKey);
     }
 
     if (event.target.id.includes('edit-order')) {
