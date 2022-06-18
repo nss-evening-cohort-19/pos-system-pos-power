@@ -1,4 +1,5 @@
 const getTotalRevenue = (arr) => {
+  console.warn(arr);
   arr.reduce((accumulator, object) => accumulator + object.totalAmount, 0);
 };
 
@@ -7,12 +8,14 @@ const getTotalTips = (arr) => {
 };
 
 const revenueObj = (arr) => {
+  console.warn(arr);
   console.warn(getTotalRevenue(arr));
   console.warn(getTotalTips(arr));
   const newRevenueObj = {
     tipAmount: getTotalRevenue(arr),
     totalAmount: getTotalTips(arr)
   };
+  console.warn(newRevenueObj);
   return newRevenueObj;
 };
 
