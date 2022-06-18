@@ -55,6 +55,18 @@ const updateOrder = (orderObject) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getOrderByUser = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orders.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch((error) => reject(error));
+});
+
 export {
-  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder
+  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser
 };

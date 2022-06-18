@@ -24,7 +24,7 @@ const navBar = () => {
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <form id="search-bar-div" class="nav-item">
+          <form id="search-bar-div" class="nav-item" onsubmit="return false">
             <input type="search" class="form-control" id="searchBar-input" placeholder="Search Orders">
           </form>
           <div id="logout-nav-div" class="nav-link">

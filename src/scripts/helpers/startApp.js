@@ -10,7 +10,7 @@ const startApp = (user) => {
   document.querySelector('#login-form-container').innerHTML = '';
   document.getElementById('login-form-container').style.backgroundImage = '';
   domBuilder();
-  navBar();
+  navBar(user);
   logoutButton(user);
   loginHome(user);
   navEvents(user);

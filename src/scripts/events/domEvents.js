@@ -24,6 +24,9 @@ const domEvents = () => {
     if (e.target.id.includes('goToPaymentButton')) {
       paymentForm();
     }
+    if (e.target.id.includes('goToPaymentButton')) {
+      paymentForm();
+    }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
     if (event.target.id.includes('view-details-btn')) {
@@ -33,7 +36,7 @@ const domEvents = () => {
 
     if (event.target.id.includes('edit-item-btn')) {
       const [, itemFirebaseKey] = event.target.id.split('--');
-      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject));
+      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject, itemObject.orderId));
     }
 
     if (event.target.id.includes('delete-order-btn')) {
@@ -49,6 +52,12 @@ const domEvents = () => {
         });
         deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
       }
+    }
+
+    if (event.target.id.includes('addItemButton')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      const itemObj = {};
+      itemForm(itemObj, firebaseKey);
     }
 
     if (event.target.id.includes('edit-order')) {
