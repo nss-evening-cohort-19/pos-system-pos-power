@@ -7,7 +7,6 @@ body {
   background-color: black;
   color: brown;
   text-align: center;
-  // margin-top: 100px;
   max-width: 100%;
   max-height: 100%;
 }
@@ -38,13 +37,7 @@ body {
 }
 
 #navBarDiv {
-  background-color: black;
-  border-bottom: 0.5px;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  border-style: solid;
-  border-color: white;
+  background-color: #333333;
   position: fixed;
   top: 0;
   width: 100%;
@@ -56,15 +49,27 @@ body {
 }
 
 #view-order {
-  margin-top: 1%;
+  margin-top: 3%;
+}
+
+#view-order:hover {
+  color:#44D62C;
 }
 
 #home-nav {
-  margin-top: 4%;
+  margin-top: 5%;
+}
+
+#home-nav:hover {
+  color: #04d9ff
 }
 
 #create-order {
   margin-top: 2%;
+}
+
+#create-order:hover {
+  color: #f69904;
 }
 
 #view {
@@ -190,7 +195,6 @@ body {
   margin-top: -3%;
 }
 
-css-login
 #sign-in-logo {
   margin-top: 10%;
   margin-bottom: 5%;
@@ -239,6 +243,34 @@ css-login
 
 #createHome:hover {
   background-color: black;
+}
+
+.order-card {
+  color: black;
+}
+
+.btn-light {
+  background-color: #47d62c;
+  color: white;
+  border-style: solid;
+  border-color: #44D62C;
+}
+
+.btn-light:hover {
+  background-color: white;
+  color: #47d62c;
+  border-style: solid;
+  border-color: #47d62c;
+}
+
+.btn-primary {
+  background-color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+}
+
+.btn-primary:hover {
+  background-color: white;
   color: #04d9ff;
   border-style: solid;
   border-color: #04d9ff;
@@ -257,4 +289,17 @@ css-login
   color: #f69904;
   border-style: solid;
   border-color: #f69904;
+}
+  
+.btn-danger {
+  background-color: #f69904;
+  border-style: solid;
+  border-color: #f69904;
+}
+
+.btn-danger:hover {
+  background-color: white;
+  border-style: solid;
+  border-color: #f69904;
+  color:#f69904;
 }
