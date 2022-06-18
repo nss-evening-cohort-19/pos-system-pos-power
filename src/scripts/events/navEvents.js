@@ -12,6 +12,7 @@ const navEvents = (user) => {
   document.querySelector('#create-order').addEventListener('click', orderForm);
 
   document.querySelector('#searchBar-input').addEventListener('keyup', (e) => {
+    e.preventDefault();
     const input = document.querySelector('#searchBar-input').value.toLowerCase();
     if (e.keyCode === 13) {
       getAllOrders(user.uid)
