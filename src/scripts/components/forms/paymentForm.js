@@ -6,7 +6,7 @@ const paymentForm = (obj = {}) => {
   const domString = `
   <form id="paymentForm--${obj.firebaseKey}">
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Select Payment Type</>
+      <label for="select-payment">Select Payment Type</>
       <select class="form-control" id="paymentType">
         <option selected>Please Select Payment Type</option>
         <option id="cash" value="cash">Cash</option>
