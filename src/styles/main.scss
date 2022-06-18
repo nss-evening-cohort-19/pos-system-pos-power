@@ -236,3 +236,25 @@ css-login
   border-color: #44D62C;
   color: #44D62C;
 }
+
+#paymentForm {
+  color: white;
+}
+
+#paymentType {
+  margin-top: 1%;
+}
+
+#submit-payment-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#submit-payment-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
