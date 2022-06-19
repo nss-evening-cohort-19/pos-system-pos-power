@@ -18,6 +18,8 @@ const orderDetails = (obj = {}) => {
       </div>
     </div>`;
     });
+    domString += `
+    </div>`;
     const buttonString = `
     <div id=orderDetailsButtons>
       <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
