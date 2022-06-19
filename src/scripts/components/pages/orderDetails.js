@@ -15,10 +15,10 @@ const orderDetails = (obj = {}) => {
           <button class="btn btn-primary" id="edit-item-btn--${card.firebaseKey}">Edit</button>
           <button class="btn btn-danger" id="delete-item-btn--${card.firebaseKey}">Delete</button>
         </div>
+      </div>
     </div>`;
     });
     const buttonString = `
-    </div>
     <div id=orderDetailsButtons>
       <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
       <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
@@ -32,7 +32,13 @@ const orderDetails = (obj = {}) => {
       <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
       <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
+    const buttonString = `
+    <div id=orderDetailsButtons>
+      <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
+      <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
+    </div>`;
     renderToDOM('#view', htmlString);
+    renderToDOM('#details-buttons', buttonString);
   }
 };
 
