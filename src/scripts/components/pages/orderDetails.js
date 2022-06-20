@@ -31,7 +31,7 @@ const orderDetails = (obj = {}) => {
     <h2 id="no-items">No Items in Order</h2>`;
     const buttonString = `
     <div id=orderDetailsButtons-empty>
-      <button id="addItemButton" class="btn btn-success addItemBtn">Add Item</button>
+      <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
       <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
     renderToDOM('#view', htmlString);
