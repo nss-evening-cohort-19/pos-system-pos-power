@@ -1,10 +1,11 @@
-import { updateItem, createItem, getItems } from '../../api/itemsData';
-import viewOrderDetails from '../../api/mergedData';
-import { createOrder, updateOrder, getSingleOrder } from '../../api/ordersData';
+import {
+  updateItem, createItem
+} from '../../api/itemsData';
+import { viewOrderDetails } from '../../api/mergedData';
+import { createOrder, updateOrder } from '../../api/ordersData';
+import closeOrder from '../components/closeOrder';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
-import { createRevenueNode } from '../../api/revenueData';
-import revenuePage from '../components/pages/revenue';
 
 const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -71,25 +72,7 @@ const formEvents = (uid) => {
 
     if (e.target.id.includes('paymentForm')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getItems().then((itemArray) => {
-        let sum = 0;
-        itemArray.forEach((item) => {
-          if (item.orderId === firebaseKey) {
-            sum += item.price;
-          }
-        });
-        const revenueObject = {
-          totalAmount: sum,
-          date: new Date().toLocaleString(),
-          tipAmount: parseInt(document.querySelector('#tipAmount').value, 10),
-          paymentType: document.querySelector('#paymentType').value,
-          orderId: firebaseKey,
-          orderType: getSingleOrder(firebaseKey).then((orderObject) => orderObject.orderType),
-
-        };
-
-        createRevenueNode(revenueObject).then(revenuePage());
-      });
+      closeOrder(firebaseKey);
     }
   });
 };
