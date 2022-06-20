@@ -1,6 +1,7 @@
 import axios from 'axios';
 import firebaseConfig from './apiKeys';
 import revenueObj from './revenueDataFunctions';
+import { getAllOrders } from './ordersData';
 
 const dbURL = firebaseConfig.databaseURL;
 
@@ -15,9 +16,7 @@ const createRevenueNode = (revenueObject) => new Promise((resolve, reject) => {
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbURL}/revenue/${response.data.name}.json`, payload)
-        .then(() => {
-          getAllRevenueObj().then(resolve);
-        });
+        .then(getAllOrders().then(resolve));
     }).catch(reject);
 });
 

@@ -2,7 +2,7 @@ import { getSingleOrder, getSingleOrdersItems, updateOrder } from '../../api/ord
 import { createRevenueNode } from '../../api/revenueData';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
-// import renderOrders from './pages/orders';
+import renderOrders from './pages/orders';
 
 const closeOrder = (firebaseKey) => {
   getSingleOrder(firebaseKey).then((order) => {
@@ -30,7 +30,7 @@ const closeOrder = (firebaseKey) => {
             orderType: order.orderType,
             date: new Date().toLocaleString()
           };
-          createRevenueNode(revenueObject).then((orderArray) => console.warn(orderArray));
+          createRevenueNode(revenueObject).then((orderArray) => renderOrders(orderArray));
         })
       );
     }

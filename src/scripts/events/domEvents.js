@@ -21,10 +21,6 @@ const domEvents = () => {
     if (e.target.id.includes('revenueHome')) {
       getAllRevenueObj().then(revenuePage);
     }
-    if (e.target.id.includes('goToPaymentButton')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((orderObject) => paymentForm(orderObject));
-    }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
     if (event.target.id.includes('view-details-btn')) {
@@ -69,6 +65,11 @@ const domEvents = () => {
         .then((response) => {
           orderDetails(response);
         });
+    }
+
+    if (event.target.id.includes('goToPaymentButton')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObject) => paymentForm(orderObject));
     }
   });
 };
