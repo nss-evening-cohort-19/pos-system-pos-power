@@ -5,7 +5,7 @@ const itemForm = (obj = {}, orderId) => {
   clearDom();
   const domString = `
 <<<<<<< HEAD
-    <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="mb-4 item-form-div">
+    <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : `submit-item--${orderId}`}" class="mb-4 item-form-div">
 =======
     <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : `submit-item--${orderId}`}" class="mb-4">
 >>>>>>> main

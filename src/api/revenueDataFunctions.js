@@ -3,7 +3,7 @@ const getTotalRevenue = (arr) => {
   arr.forEach((revObj) => {
     sum += revObj.totalAmount;
   });
-  return sum;
+  return Number(sum);
 };
 
 const getTotalTips = (arr) => {
@@ -11,7 +11,7 @@ const getTotalTips = (arr) => {
   arr.forEach((revObj) => {
     sum += revObj.tipAmount;
   });
-  return sum;
+  return Number(sum);
 };
 
 const getOrderTypeTotal = (arr, typeOfOrder) => {
@@ -24,17 +24,36 @@ const getPaymentTypeTotal = (arr, typeOfOrder) => {
   return filteredArr.length;
 };
 
+const getDateRange = (arr, dateDesired) => {
+  let date = null;
+  let finalDate = null;
+  const sortedArr = arr.sort((a, b) => {
+    const da = new Date(a.date);
+    const db = new Date(b.date);
+    return da - db;
+  });
+  if (dateDesired === 'oldest') {
+    date = new Date(sortedArr[0].date);
+    finalDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+  } else if (dateDesired === 'newest') {
+    date = new Date(sortedArr[arr.length - 1].date);
+    finalDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+  }
+  return finalDate;
+};
+
 const revenueObj = (arr) => {
   const newRevenueObj = {
+    earlyDate: getDateRange(arr, 'oldest'),
+    lateDate: getDateRange(arr, 'newest'),
     totalAmount: getTotalRevenue(arr),
     tipAmount: getTotalTips(arr),
     walkInOrders: getOrderTypeTotal(arr, 'walk-in'),
     callInOrders: getOrderTypeTotal(arr, 'call-in'),
-    cardOrders: getPaymentTypeTotal(arr, 'card'),
+    cardOrders: getPaymentTypeTotal(arr, 'credit'),
     cashOrders: getPaymentTypeTotal(arr, 'cash'),
     mobileOrders: getPaymentTypeTotal(arr, 'mobile'),
   };
-  console.warn(newRevenueObj);
   return newRevenueObj;
 };
 
