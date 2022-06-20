@@ -3,7 +3,7 @@ import renderToDOM from '../../helpers/renderToDom';
 
 const orderDetails = (obj = {}) => {
   clearDom();
-  const itemArray = Object.values(obj.itemObj);
+  const { itemArray } = obj;
   if (itemArray.length) {
     let domString = '<div id="itemsContainer">';
     itemArray.forEach((card) => {

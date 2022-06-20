@@ -3,6 +3,12 @@ import firebaseConfig from './apiKeys';
 
 const dbURL = firebaseConfig.databaseURL;
 
+const getOrderItems = (orderId) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
+    .then((items) => resolve(Object.values(items.data)))
+    .catch((error) => reject(error));
+});
+
 const getItems = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/items.json`)
     .then((response) => {
@@ -28,9 +34,7 @@ const updateItem = (itemObj) => new Promise((resolve, reject) => {
 
 const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbURL}/items/${firebaseKey}.json`)
-    .then(() => {
-      getItems().then((itemsArray) => resolve(itemsArray));
-    })
+    .then(resolve)
     .catch((error) => reject(error));
 });
 
@@ -45,10 +49,6 @@ const createItem = (itemObj) => new Promise((resolve, reject) => {
     }).catch(reject);
 });
 
-// const getOrderId = (firebaseKey) => new Promise((resolve, reject) => {
-//   axios.get(`${dbURL}/items.json?orderBy="orderId"&equalTo="$"`)
-// })
-
 export {
-  getItems, getSingleItem, updateItem, deleteItem, createItem
+  getItems, getSingleItem, updateItem, deleteItem, createItem, getOrderItems
 };
