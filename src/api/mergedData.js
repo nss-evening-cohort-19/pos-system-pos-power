@@ -1,13 +1,23 @@
+import { getSingleItem, deleteItem } from './itemsData';
 import { getSingleOrder, getSingleOrdersItems } from './ordersData';
 
 const viewOrderDetails = (orderFirebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(orderFirebaseKey)
     .then((orderObject) => {
       getSingleOrdersItems(orderObject.firebaseKey)
-        .then((itemObj) => {
-          resolve({ itemObj, ...orderObject });
+        .then((itemArray) => {
+          resolve({ itemArray, ...orderObject });
         });
     }).catch((error) => reject(error));
 });
 
-export default viewOrderDetails;
+const updatedItems = (itemFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleItem(itemFirebaseKey)
+    .then((itemObject) => {
+      deleteItem(itemFirebaseKey, itemObject.orderId)
+        .then(() => viewOrderDetails(itemObject.orderId).then(resolve))
+        .catch((error) => reject(error));
+    });
+});
+
+export { viewOrderDetails, updatedItems };
