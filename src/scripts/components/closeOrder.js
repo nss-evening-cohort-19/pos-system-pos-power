@@ -2,7 +2,7 @@ import { getSingleOrder, getSingleOrdersItems, updateOrder } from '../../api/ord
 import { createRevenueNode } from '../../api/revenueData';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
-import revenuePage from './pages/revenue';
+// import renderOrders from './pages/orders';
 
 const closeOrder = (firebaseKey) => {
   getSingleOrder(firebaseKey).then((order) => {
@@ -17,14 +17,20 @@ const closeOrder = (firebaseKey) => {
       };
       updateOrder(updatedOrder).then(
         getSingleOrdersItems(firebaseKey).then((itemArray) => {
-          const revenuObject = {
-            totalAmount: itemArray.map(((item) => item.price).reduce((sum, val) => sum + val, 0)),
-            tipAmount: document.querySelector('#tipAmount').value,
+          console.warn(itemArray);
+          let sum = 0;
+          itemArray.forEach((item) => {
+            sum += Number(item.item_price);
+          });
+          console.warn(sum);
+          const revenueObject = {
+            totalAmount: Number(sum),
+            tipAmount: parseInt(document.querySelector('#tipAmount').value, 10),
             paymentType: document.querySelector('#paymentType').value,
             orderType: order.orderType,
             date: new Date().toLocaleString()
           };
-          createRevenueNode(revenuObject).then(revenuePage(revenuObject));
+          createRevenueNode(revenueObject).then((orderArray) => console.warn(orderArray));
         })
       );
     }
