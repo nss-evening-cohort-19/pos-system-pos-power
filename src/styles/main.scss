@@ -1,8 +1,3 @@
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "~bootstrap/scss/bootstrap";
-$bg-img: url('../../instructions/wallpaper.jpg');
-
-
 body {
   background-color: black;
   color: brown;
@@ -86,12 +81,15 @@ body {
   flex-flow: row wrap;
   margin-left: auto;
   margin-right: auto;
+  row-gap: 5%;
 }
 
 .card-body {
   background-color: white;
   margin: 1% 1% 5% 5%;
-  box-shadow: 1px 1px 4px grey;
+  box-shadow: 1px 1px 4px lightgray;
+  margin-bottom: 5%;
+  height: 100%;
 }
 
 #loginHomeDiv {
@@ -206,18 +204,68 @@ body {
   border: none;
 }
 
-.addItemBtn {
-  position: absolute;
-  top: 10%;
-  left: 42%;
+#submit-order {
+  color: white; 
 }
 
-.goToPaymentBtn {
-  position: absolute;
-  top: 10%;
-  left: 50%;
+.form-group {
+  text-align: left;
+  margin-bottom: 3%;
 }
 
+#order-submit-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#order-submit-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
+
+#paymentForm {
+  color: white;
+}
+
+#paymentType {
+  margin-top: 1%;
+}
+
+#submit-payment-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#submit-payment-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
+
+.item-form-div {
+  color: white;
+}
+
+#submit-item-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#submit-item-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
 #ordersHome {
   background-color: #44D62C;
   color: black;
@@ -243,10 +291,6 @@ body {
 
 #createHome:hover {
   background-color: black;
-}
-
-.order-card {
-  color: black;
 }
 
 .btn-light {
@@ -345,7 +389,7 @@ body {
   color: black;
   margin-left: 5%;
   max-width: 100%;
-  max-height: 100%;
+  min-height: 100%;
 }
 
 .items-div {
@@ -361,7 +405,6 @@ body {
   margin-right: auto;
   width: 100%;
   height: 100%;
-  justify-content: space-between;
 }
 
 #orderDetailsButtons {
@@ -376,12 +419,22 @@ body {
   margin-top: 12%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: space-between;
-  margin-right: 5%;
 }
 
 #no-items {
   color: white;
   margin-left: auto;
   margin-right: auto;
+}
+
+.order-card {
+  color: black;
+  margin-left: 5%;
+  max-width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.card-title {
+  padding-top: 7%;
 }
