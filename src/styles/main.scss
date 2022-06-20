@@ -206,68 +206,18 @@ body {
   border: none;
 }
 
-#submit-order {
-  color: white; 
+.addItemBtn {
+  position: absolute;
+  top: 10%;
+  left: 42%;
 }
 
-.form-group {
-  text-align: left;
-  margin-bottom: 3%;
+.goToPaymentBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
 }
 
-#order-submit-btn {
-  background-color: #44D62C;
-  border-style: solid;
-  border-color: #44D62C;
-  color: black;
-}
-
-#order-submit-btn:hover {
-  background-color: black;
-  border-style: solid;
-  border-color: #44D62C;
-  color: #44D62C;
-}
-
-#paymentForm {
-  color: white;
-}
-
-#paymentType {
-  margin-top: 1%;
-}
-
-#submit-payment-btn {
-  background-color: #44D62C;
-  border-style: solid;
-  border-color: #44D62C;
-  color: black;
-}
-
-#submit-payment-btn:hover {
-  background-color: black;
-  border-style: solid;
-  border-color: #44D62C;
-  color: #44D62C;
-}
-
-.item-form-div {
-  color: white;
-}
-
-#submit-item-btn {
-  background-color: #44D62C;
-  border-style: solid;
-  border-color: #44D62C;
-  color: black;
-}
-
-#submit-item-btn:hover {
-  background-color: black;
-  border-style: solid;
-  border-color: #44D62C;
-  color: #44D62C;
-}
 #ordersHome {
   background-color: #44D62C;
   color: black;
@@ -411,6 +361,7 @@ body {
   margin-right: auto;
   width: 100%;
   height: 100%;
+  justify-content: space-between;
 }
 
 #orderDetailsButtons {
@@ -425,6 +376,8 @@ body {
   margin-top: 12%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: space-between;
+  margin-right: 5%;
 }
 
 #no-items {
