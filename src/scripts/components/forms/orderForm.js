@@ -11,7 +11,7 @@ const orderForm = (obj = {}) => {
       </div>
       <div class="form-group">
         <label for="phone">Customer Phone Number</label>
-        <input type="text" class="form-control" placeholder="Phone Number" id="customerPhoneNumber" value="${obj.customerPhoneNumber || ''}" required>
+        <input type="tel" class="form-control" placeholder="123-456-7890" id="customerPhoneNumber" value="${obj.customerPhoneNumber || ''}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
       </div>
       <div class="form-group">
         <label for="email">Customer Email</label>
