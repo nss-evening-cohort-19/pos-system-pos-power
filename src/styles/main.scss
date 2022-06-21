@@ -1,10 +1,452 @@
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "~bootstrap/scss/bootstrap";
-
-
 body {
-  background-color: antiquewhite;
+  background-color: black;
   color: brown;
   text-align: center;
-  margin-top: 100px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.logo {
+  height: 300px;
+  width: 300px;
+}
+
+#login-form-container {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+
+}
+#google-auth {
+  display: block;
+  margin: auto;
+}
+
+#navLogo {
+  width: 50px;
+  height: 50px;
+}
+
+#logo-image {
+  display: flex;
+}
+
+#navBarDiv {
+  background-color: #333333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+}
+
+#search-bar-div {
+  margin-top: 3%;
+}
+
+#view-order {
+  margin-top: 3%;
+}
+
+#view-order:hover {
+  color:#44D62C;
+}
+
+#home-nav {
+  margin-top: 5%;
+}
+
+#home-nav:hover {
+  color: #04d9ff
+}
+
+#create-order {
+  margin-top: 2%;
+}
+
+#create-order:hover {
+  color: #f69904;
+}
+
+#view {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-top: 10%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#cardContainer {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: auto;
+  margin-right: auto;
+  row-gap: 5%;
+}
+
+.card-body {
+  background-color: white;
+  margin: 1% 1% 5% 5%;
+  box-shadow: 1px 1px 4px lightgray;
+  margin-bottom: 5%;
+  height: 100%;
+}
+
+#loginHomeDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
+
+#ordersHome {
+  margin-top: 30%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#createHome {
+  margin-top: 5%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#revenueHome {
+  margin-top: 5%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#welcomeHome {
+  font-size: 50px;
+  color: white;
+}
+
+#form-container {
+  margin-top: 10%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr-order {
+  color: black;
+}
+
+#revenuePageDiv {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+#totalRevenue {
+  margin-top: 20%;
+}
+
+#dateRangeTitle {
+  margin-top: 10%;
+  font-size: small;
+}
+
+#dateRangeInfo {
+  margin-top: -3%;
+  font-size: small;
+}
+
+#totalTipsTitle {
+  margin-top: 10%;
+  font-size: small;
+}
+
+#totalCallIn {
+  font-size: small;
+  margin-top: -3%;
+}
+
+#totalWalklIn {
+  font-size: small;
+  margin-top: -3%;
+}
+
+#paymentType {
+  margin-top: 10%;
+  font-size: small;
+
+}
+
+#cashPayments{
+  font-size: small;
+  margin-top: -3%;
+}
+
+#creditPayments {
+  font-size: small;
+  margin-top: -3%;
+}
+
+#mobilePayment {
+  font-size: small;
+  margin-top: -3%;
+}
+
+#sign-in-logo {
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+#google-auth {
+  background-color: #44D62C;
+  color: white;
+  border: none;
+}
+
+#submit-order {
+  color: white; 
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 3%;
+}
+
+#order-submit-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#order-submit-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
+
+#paymentForm {
+  color: white;
+}
+
+#paymentType {
+  margin-top: 1%;
+}
+
+#submit-payment-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#submit-payment-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
+
+.item-form-div {
+  color: white;
+}
+
+#submit-item-btn {
+  background-color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+  color: black;
+}
+
+#submit-item-btn:hover {
+  background-color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  color: #44D62C;
+}
+#ordersHome {
+  background-color: #44D62C;
+  color: black;
+  border-style: solid;
+  border-color: #44D62C;
+  border-radius: 4px;
+}
+
+#ordersHome:hover {
+  background-color: black;
+  color: #44D62C;
+  border-style: solid;
+  border-color: #44D62C;
+}
+
+#createHome {
+  background-color: #04d9ff;
+  color: black;
+  border-style: solid;
+  border-color: #04d9ff;
+  border-radius: 4px;
+}
+
+#createHome:hover {
+  background-color: black;
+}
+
+.btn-light {
+  background-color: #47d62c;
+  color: white;
+  border-style: solid;
+  border-color: #44D62C;
+}
+
+.btn-light:hover {
+  background-color: white;
+  color: #47d62c;
+  border-style: solid;
+  border-color: #47d62c;
+}
+
+.btn-primary {
+  background-color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+}
+
+#revenueHome {
+  background-color: #f69904;
+  color: black;
+  border-style: solid;
+  border-color: #f69904;
+  border-radius: 4px;
+}
+
+#revenueHome:hover {
+  background-color: black;
+  color: #f69904;
+  border-style: solid;
+  border-color: #f69904;
+}
+  
+.btn-danger {
+  background-color: #f69904;
+  border-style: solid;
+  border-color: #f69904;
+}
+
+.btn-danger:hover {
+  background-color: white;
+  border-style: solid;
+  border-color: #f69904;
+  color:#f69904;
+}
+
+.goToPaymentBtn {
+  background-color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+  color: black;
+}
+
+.goToPaymentBtn:hover {
+  background-color: black;
+  color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+}
+
+.addItemBtn {
+  background-color: #47d62c;
+  color: black;
+  border-style: solid;
+  border-color: #44D62C;
+}
+
+.addItemBtn:hover {
+  background-color: black;
+  color: #47d62c;
+  border-style: solid;
+  border-color: #47d62c;
+}
+
+#itemsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.items-card {
+  color: black;
+  margin-left: 5%;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.items-div {
+  width: 30%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#details-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+}
+
+#orderDetailsButtons {
+  width: 100%;
+  margin-top: 12%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#orderDetailsButtons-empty {
+  width: 100%;
+  margin-top: 12%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#no-items {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.order-card {
+  color: black;
+  margin-left: 5%;
+  max-width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.card-title {
+  padding-top: 7%;
+}
+
+#already-closed {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-card-styling {
+  display: flex;
+  row-gap: 5%;
+  margin-bottom: 3%;
 }
