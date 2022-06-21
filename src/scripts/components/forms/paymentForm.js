@@ -10,10 +10,9 @@ const paymentForm = (obj = {}) => {
       <select class="form-control" id="paymentType" required>
         <option selected value="">Please Select Payment Type</option>
         <option id="cash" value="cash">Cash</option>
-        <option id="mastercard" value="mastercard">Mastercard</option>
-        <option id="visa "value="visa">Visa</option>
-        <option id="americanExpress" value="americanExpress">American Express</option>
-        <option id="discover" value="discover">Discover</option>
+        <option id="credit" value="credit">Credit</option>
+        <option id="check "value="check">Check</option>
+        <option id="mobile" value="mobile">Mobile</option>
       </select>
     </div>
     <div class="form-group">
