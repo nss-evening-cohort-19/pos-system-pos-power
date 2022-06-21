@@ -1,6 +1,9 @@
-import { updateItem, createItem } from '../../api/itemsData';
+import {
+  updateItem, createItem
+} from '../../api/itemsData';
 import { viewOrderDetails } from '../../api/mergedData';
 import { createOrder, updateOrder } from '../../api/ordersData';
+import closeOrder from '../components/closeOrder';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 
@@ -65,6 +68,11 @@ const formEvents = (uid) => {
             }
           });
         });
+    }
+
+    if (e.target.id.includes('paymentForm')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      closeOrder(firebaseKey);
     }
   });
 };

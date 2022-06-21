@@ -6,7 +6,7 @@ import viewOrders from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
-import getAllRevenueObj from '../../api/revenueData';
+import { getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 
@@ -20,12 +20,6 @@ const domEvents = () => {
     }
     if (e.target.id.includes('revenueHome')) {
       getAllRevenueObj().then(revenuePage);
-    }
-    if (e.target.id.includes('goToPaymentButton')) {
-      paymentForm();
-    }
-    if (e.target.id.includes('goToPaymentButton')) {
-      paymentForm();
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
@@ -71,6 +65,11 @@ const domEvents = () => {
         .then((response) => {
           orderDetails(response);
         });
+    }
+
+    if (event.target.id.includes('goToPaymentButton')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObject) => paymentForm(orderObject));
     }
   });
 };

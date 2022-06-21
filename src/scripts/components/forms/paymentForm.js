@@ -1,10 +1,10 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const paymentForm = () => {
+const paymentForm = (obj = {}) => {
   clearDom();
   const domString = `
-  <form id="paymentForm">
+  <form id="paymentForm--${obj.firebaseKey}">
     <div class="form-group">
       <label for="select-payment">Select Payment Type</>
       <select class="form-control" id="paymentType">
@@ -21,7 +21,7 @@ const paymentForm = () => {
         <input type="text" class="form-control" placeholder="Tip Amount" id="tipAmount">
     </div>
     <br>
-    <button id="submit-payment-btn" type="submit" class="btn btn-primary">Submit Item
+    <button type="submit" id="close-order--${obj.firebaseKey}" class="btn btn-primary">Close Order
     </button>
   </form>`;
 
