@@ -53,6 +53,7 @@ const revenueObj = (arr) => {
     cardOrders: getPaymentTypeTotal(arr, 'credit'),
     cashOrders: getPaymentTypeTotal(arr, 'cash'),
     mobileOrders: getPaymentTypeTotal(arr, 'mobile'),
+    checkOrders: getPaymentTypeTotal(arr, 'check'),
   };
   return newRevenueObj;
 };
