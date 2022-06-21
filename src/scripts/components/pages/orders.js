@@ -8,12 +8,11 @@ const emptyOrders = () => {
 const renderOrders = (array) => {
   clearDom();
   if (array.length) {
-    const orderFilterButton = `<form id="status-form"><select class="custom-select" id="orderStatusButton" required>
-    <option value="">Select Order Type</option>
-    <option value="all-orders">All Orders</option>
-    <option value="open">Open</option>
-    <option value="closed">Closed</option>
-  </select></form>`;
+    const orderFilterButton = `<div class="btn-group" role="group" aria-label="Basic example" id="order-status">
+    <button type="button" class="btn btn-secondary" id="all-orders">All Orders</button>
+    <button type="button" class="btn btn-secondary" id="open-orders">Open Orders</button>
+    <button type="button" class="btn btn-secondary" id="closed-orders">Closed Orders</button>
+  </div>`;
     renderToDOM('#orderStatus-button', orderFilterButton);
     let domString = '<div id="cardContainer" class="container order-container">';
     array.forEach((card) => {
