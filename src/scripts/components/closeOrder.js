@@ -24,7 +24,7 @@ const closeOrder = (firebaseKey) => {
           });
           console.warn(sum);
           const revenueObject = {
-            totalAmount: Number(sum),
+            totalAmount: Number(sum) + parseInt(document.querySelector('#tipAmount').value, 10),
             tipAmount: parseInt(document.querySelector('#tipAmount').value, 10),
             paymentType: document.querySelector('#paymentType').value,
             orderType: order.orderType,
