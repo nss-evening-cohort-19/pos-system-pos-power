@@ -10,12 +10,10 @@ const closeOrder = (firebaseKey) => {
     };
     updateOrder(updatedOrder).then(
       getSingleOrdersItems(firebaseKey).then((itemArray) => {
-        console.warn(itemArray);
         let sum = 0;
         itemArray.forEach((item) => {
           sum += Number(item.item_price);
         });
-        console.warn(sum);
         const revenueObject = {
           totalAmount: Number(sum) + parseInt(document.querySelector('#tipAmount').value, 10),
           tipAmount: parseInt(document.querySelector('#tipAmount').value, 10),
