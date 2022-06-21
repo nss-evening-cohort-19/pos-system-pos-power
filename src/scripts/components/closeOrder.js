@@ -19,7 +19,8 @@ const closeOrder = (firebaseKey) => {
           tipAmount: parseInt(document.querySelector('#tipAmount').value, 10),
           paymentType: document.querySelector('#paymentType').value,
           orderType: order.orderType,
-          date: new Date().toLocaleString()
+          date: new Date().toLocaleString(),
+          orderId: firebaseKey
         };
         createRevenueNode(revenueObject).then((orderArray) => renderOrders(orderArray));
       })
