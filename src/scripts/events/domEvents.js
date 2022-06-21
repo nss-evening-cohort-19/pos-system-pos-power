@@ -1,5 +1,7 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
-import { deleteOrder, getSingleOrder } from '../../api/ordersData';
+import {
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders
+} from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 import viewOrders from '../helpers/viewOrders';
@@ -80,6 +82,18 @@ const domEvents = () => {
           paymentForm(orderObject);
         }
       });
+    }
+
+    if (event.target.id.includes('all-orders')) {
+      getAllOrders().then((orderArray) => renderOrders(orderArray));
+    }
+
+    if (event.target.id.includes('open-orders')) {
+      getOpenOrders().then((orderArray) => renderOrders(orderArray));
+    }
+
+    if (event.target.id.includes('closed-orders')) {
+      getClosedOrders().then((orderArray) => renderOrders(orderArray));
     }
   });
 };
