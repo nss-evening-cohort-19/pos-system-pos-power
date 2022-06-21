@@ -16,6 +16,7 @@ const revenuePage = (revObj) => {
       <p id="cashPayments">CASH: ${revObj.cashOrders}</p>
       <p id="creditPayments">CREDIT: ${revObj.cardOrders}</p>
       <p id="mobilePayment">MOBILE: ${revObj.mobileOrders}</p>
+      <p id="mobilePayment">CHECK: ${revObj.checkOrders}</p>
     </div>`;
 
   renderToDOM('#view', domString);
