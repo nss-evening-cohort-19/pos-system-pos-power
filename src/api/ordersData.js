@@ -67,6 +67,30 @@ const getOrderByUser = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getOpenOrders = () => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orders.json?orderBy="orderStatus"&equalTo="open"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch((error) => reject(error));
+});
+
+const getClosedOrders = () => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orders.json?orderBy="orderStatus"&equalTo="closed"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch((error) => reject(error));
+});
+
 export {
-  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser
+  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser, getOpenOrders, getClosedOrders
 };

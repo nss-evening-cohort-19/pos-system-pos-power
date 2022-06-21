@@ -8,6 +8,13 @@ const emptyOrders = () => {
 const renderOrders = (array) => {
   clearDom();
   if (array.length) {
+    const orderFilterButton = `<form id="status-form"><select class="custom-select" id="orderStatusButton" required>
+    <option value="">Select Order Type</option>
+    <option value="all-orders">All Orders</option>
+    <option value="open">Open</option>
+    <option value="closed">Closed</option>
+  </select></form>`;
+    renderToDOM('#orderStatus-button', orderFilterButton);
     let domString = '<div id="cardContainer" class="container order-container">';
     array.forEach((card) => {
       domString += `<div style="width: 18rem;">

@@ -2,7 +2,9 @@ import {
   updateItem, createItem
 } from '../../api/itemsData';
 import { viewOrderDetails } from '../../api/mergedData';
-import { createOrder, updateOrder } from '../../api/ordersData';
+import {
+  createOrder, getAllOrders, getClosedOrders, getOpenOrders, updateOrder
+} from '../../api/ordersData';
 import closeOrder from '../components/closeOrder';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -73,6 +75,16 @@ const formEvents = (uid) => {
     if (e.target.id.includes('paymentForm')) {
       const [, firebaseKey] = e.target.id.split('--');
       closeOrder(firebaseKey);
+    }
+
+    if (e.target.id.includes('status-form')) {
+      if (document.querySelector('#orderStatusButton').value === 'open') {
+        getOpenOrders().then((orderArray) => renderOrders(orderArray));
+      } else if (document.querySelector('#orderStatusButton').value === 'closed') {
+        getClosedOrders().then((orderArray) => renderOrders(orderArray));
+      } else {
+        getAllOrders().then((orderArray) => renderOrders(orderArray));
+      }
     }
   });
 };
