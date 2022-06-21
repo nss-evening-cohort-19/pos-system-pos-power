@@ -9,6 +9,8 @@ import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
 import { getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
+import clearDom from '../helpers/clearDom';
+import renderToDOM from '../helpers/renderToDom';
 
 const domEvents = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -69,7 +71,15 @@ const domEvents = () => {
 
     if (event.target.id.includes('goToPaymentButton')) {
       const [, firebaseKey] = event.target.id.split('--');
-      getSingleOrder(firebaseKey).then((orderObject) => paymentForm(orderObject));
+      getSingleOrder(firebaseKey).then((orderObject) => {
+        if (orderObject.orderStatus === 'closed') {
+          clearDom();
+          const domString = '<h1 id="already-closed">Order Already Closed!</h1>';
+          renderToDOM('#view', domString);
+        } else {
+          paymentForm(orderObject);
+        }
+      });
     }
   });
 };
