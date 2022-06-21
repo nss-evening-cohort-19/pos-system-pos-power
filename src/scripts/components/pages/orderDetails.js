@@ -8,7 +8,7 @@ const orderDetails = (obj = {}) => {
     let domString = '<div id="itemsContainer">';
     itemArray.forEach((card) => {
       domString += `
-      <div style="width: 25rem;">
+      <div class="item-card-styling" style="width: 25rem;">
         <div class="card-body items-card">
           <h5 class="card-title">${card.item_name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${card.item_price}</h6>
