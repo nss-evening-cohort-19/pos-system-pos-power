@@ -348,14 +348,14 @@ body {
   color:#f69904;
 }
 
-#goToPaymentButton {
+.goToPaymentBtn {
   background-color: #04d9ff;
   border-style: solid;
   border-color: #04d9ff;
   color: black;
 }
 
-#goToPaymentButton:hover {
+.goToPaymentBtn:hover {
   background-color: black;
   color: #04d9ff;
   border-style: solid;
@@ -437,4 +437,16 @@ body {
 
 .card-title {
   padding-top: 7%;
+}
+
+#already-closed {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-card-styling {
+  display: flex;
+  row-gap: 5%;
+  margin-bottom: 3%;
 }

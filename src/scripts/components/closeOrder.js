@@ -8,7 +8,7 @@ const closeOrder = (firebaseKey) => {
   getSingleOrder(firebaseKey).then((order) => {
     if (order.orderStatus === 'closed') {
       clearDom();
-      const domString = '<h1>Order Already Closed!</h1>';
+      const domString = '<h1 id="already-closed">Order Already Closed!</h1>';
       renderToDOM('#view', domString);
     } else {
       const updatedOrder = {
