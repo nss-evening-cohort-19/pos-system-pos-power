@@ -18,7 +18,15 @@ const domEvents = (user) => {
       viewUserOrders(user);
     }
     if (e.target.id.includes('createHome')) {
-      orderForm(user);
+      getOrderByUser(user).then((orderArray) => {
+        if (orderArray.some((order) => order.orderStatus === 'open')) {
+          clearDom();
+          const domString = '<h1>You already Have a Current Order!</h1>';
+          renderToDOM('#view', domString);
+        } else {
+          orderForm(user);
+        }
+      });
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
