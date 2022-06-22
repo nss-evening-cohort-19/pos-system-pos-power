@@ -21,7 +21,6 @@ const revenuePage = (revObj) => {
       <p id="mobilePayment">CHECK: ${revObj.checkOrders}</p>
     </div>`;
   renderToDOM('#view', domString);
-  return revObj;
 };
 
 export default revenuePage;
