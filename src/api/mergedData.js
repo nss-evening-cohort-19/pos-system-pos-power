@@ -1,5 +1,7 @@
 import { getSingleItem, deleteItem } from './itemsData';
-import { getSingleOrder, getSingleOrdersItems } from './ordersData';
+import {
+  getClosedOrders, getOrderByUser, getSingleOrder, getSingleOrdersItems, getOpenOrders
+} from './ordersData';
 
 const viewOrderDetails = (orderFirebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(orderFirebaseKey)
@@ -20,4 +22,26 @@ const updatedItems = (itemFirebaseKey) => new Promise((resolve, reject) => {
     });
 });
 
-export { viewOrderDetails, updatedItems };
+const viewClosedOrdersByUser = (user) => new Promise((resolve, reject) => {
+  getOrderByUser(user)
+    .then((orderObject) => {
+      getClosedOrders()
+        .then((closedArray) => {
+          resolve({ closedArray, ...orderObject });
+        });
+    }).catch((error) => reject(error));
+});
+
+const viewOpenOrdersByUser = (user) => new Promise((resolve, reject) => {
+  getOrderByUser(user)
+    .then((orderObject) => {
+      getOpenOrders()
+        .then((openArray) => {
+          resolve({ openArray, ...orderObject });
+        });
+    }).catch((error) => reject(error));
+});
+
+export {
+  viewOrderDetails, updatedItems, viewClosedOrdersByUser, viewOpenOrdersByUser
+};

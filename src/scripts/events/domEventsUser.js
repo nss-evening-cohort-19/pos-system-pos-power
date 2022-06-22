@@ -1,6 +1,6 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getOrderByUser
+  deleteOrder, getSingleOrder, getOrderByUser, getOpenOrders, getClosedOrders
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -84,15 +84,11 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('open-orders')) {
-      getOpenOrders(user)
-        .then((orderArray) => getOrderByUser(orderArray)
-          .then((userArray) => renderOrders(userArray)));
+      getOpenOrders(user).then((orderArray) => renderOrders(orderArray));
     }
 
     if (event.target.id.includes('closed-orders')) {
-      getClosedOrders(user)
-        .then((orderArray) => getOrderByUser(orderArray)
-          .then((userArray) => renderOrders(userArray)));
+      getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
     }
   });
 };
