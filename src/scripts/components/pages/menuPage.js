@@ -5,7 +5,7 @@ const emptyMenu = () => {
   document.querySelector('#view').innerHTML = '<h2>No Menu Items to Display</h2>';
 };
 
-const menu = (array) => {
+const viewMenu = (array) => {
   clearDom();
   if (array.length) {
     let domString = '<div id="menuContainer" class="container order-container">';
@@ -14,8 +14,9 @@ const menu = (array) => {
       <img class="card-img-top" src="${menuItem.imgUrl}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">${menuItem.title}</h5>
-        <h5 class="card-price">${menuItem.price}</h5>
+        <h6 class="card-price">${menuItem.price}</h6>
         <p class="card-text">${menuItem.description}</p>
+        <h6 class="card-subtitle mb-2">${menuItem.onSale ? 'On Sale' : ''}</h6>
         <a href="#" id="add-menuItem--${menuItem.firebaseKey}" class="btn btn-primary">Add to Order</a>
       </div>
     </div>`;
@@ -27,4 +28,4 @@ const menu = (array) => {
   }
 };
 
-export default menu;
+export default viewMenu;
