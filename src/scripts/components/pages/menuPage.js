@@ -16,7 +16,7 @@ const menu = (array) => {
         <h5 class="card-title">${menuItem.title}</h5>
         <h5 class="card-price">${menuItem.price}</h5>
         <p class="card-text">${menuItem.description}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" id="add-menuItem--${menuItem.firebaseKey}" class="btn btn-primary">Add to Order</a>
       </div>
     </div>`;
     });
