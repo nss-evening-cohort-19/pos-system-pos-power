@@ -1,17 +1,14 @@
 import Chart from 'chart.js/auto';
-import revenueObj from './revenueDataFunctions';
 
-const data = revenueObj;
 const ctx = document.querySelector('#revenueChart');
+// ctx = document.querySelector('#revenueChart').getContext('2d');
 
-const config = {
-  type: 'line',
-  datasets: data,
+const generateRevenueChart = (dataObj) => {
+  const revenueChart = new Chart(ctx, {
+    type: 'line',
+    data: dataObj
+  });
+  return revenueChart;
 };
 
-const revenueChart = new Chart(
-  ctx,
-  config
-);
-
-export default revenueChart;
+export default generateRevenueChart;

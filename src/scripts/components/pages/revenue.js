@@ -5,8 +5,8 @@ const revenuePage = (revObj) => {
   clearDom();
   const domString = `
     <div id="revenuePageDiv">
-      <div id="revenueChart">
-      </div>
+      <canvas id="revenueChart">
+      </canvas>
       <h2 id="revenueHeader">REVENUE</h2>
       <h2 id="totalRevenue">TOTAL REVENUE: $${revObj.totalAmount.toFixed(2)}</h2>
       <p id="dateRangeTitle">DATE RANGE: ${revObj.earlyDate} - ${revObj.lateDate}</p>
@@ -20,8 +20,8 @@ const revenuePage = (revObj) => {
       <p id="mobilePayment">MOBILE: ${revObj.mobileOrders}</p>
       <p id="mobilePayment">CHECK: ${revObj.checkOrders}</p>
     </div>`;
-
   renderToDOM('#view', domString);
+  return revObj;
 };
 
 export default revenuePage;
