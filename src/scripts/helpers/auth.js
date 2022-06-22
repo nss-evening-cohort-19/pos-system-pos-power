@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import loginButton from '../components/loginButton';
 import firebaseConfig from '../../api/apiKeys';
-import startApp from './startApp';
+import startAppAdmin from './startAppAdmin';
 import loginPageBackground from '../components/loginPageBackground';
 import users from '../../../sample_data/users.json';
 import startAppUser from './startAppUser';
@@ -12,9 +12,10 @@ const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // eslint-disable-next-line arrow-parens
-      if (users.filter(currentUser => currentUser.uid === firebase.auth.user.id).length !== 0) {
-        startApp(user);
-      } else {
+      if (users.find(adminUser => adminUser.uid === user.uid)) {
+        startAppAdmin(user);
+      // eslint-disable-next-line arrow-parens
+      } else if (users.filter(adminUser => adminUser.uid !== user.uid)) {
         startAppUser(user);
       }
     } else {
