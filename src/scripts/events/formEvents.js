@@ -3,7 +3,7 @@ import {
 } from '../../api/itemsData';
 import { viewOrderDetails } from '../../api/mergedData';
 import {
-  createOrder, getOpenOrdersByUser, updateOrder
+  createOrder, getOpenOrders, updateOrder
 } from '../../api/ordersData';
 import closeOrder from '../components/closeOrder';
 import orderDetails from '../components/pages/orderDetails';
@@ -22,7 +22,7 @@ const formEvents = (user, uid) => {
         orderType: document.querySelector('#orderType').value,
         uid,
       };
-      getOpenOrdersByUser(user).then((orderArray) => {
+      getOpenOrders(user.uid).then((orderArray) => {
         if (orderArray.some((order) => order.orderStatus === 'open')) {
           const domString = `
           <h5 id="alreadyOpen">You Already Have A Current Order</h5>`;

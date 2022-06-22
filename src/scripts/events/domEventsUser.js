@@ -21,7 +21,7 @@ const domEvents = (user) => {
       getOrderByUser(user).then((orderArray) => {
         if (orderArray.some((order) => order.orderStatus === 'open')) {
           clearDom();
-          const domString = '<h1>You already Have a Current Order!</h1>';
+          const domString = '<h1 class="existing-order">You already Have a Current Order!</h1>';
           renderToDOM('#view', domString);
         } else {
           orderForm(user);
