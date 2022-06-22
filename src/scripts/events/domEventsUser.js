@@ -1,6 +1,6 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOrderByUser, getOpenOrders, getClosedOrders
+  deleteUserOrder, getSingleOrder, getOrderByUser, getOpenOrders, getClosedOrders
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -43,7 +43,7 @@ const domEvents = (user) => {
             }
           });
         });
-        deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
+        deleteUserOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
       }
     }
 

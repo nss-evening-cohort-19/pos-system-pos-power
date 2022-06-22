@@ -17,7 +17,7 @@ import renderToDOM from '../helpers/renderToDom';
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('ordersHome')) {
-      viewOrders(user.uid);
+      viewOrders(user);
     }
     if (e.target.id.includes('createHome')) {
       orderForm(user);

@@ -59,6 +59,14 @@ const getOrderByUser = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const deleteUserOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/orders/${firebaseKey}.json`)
+    .then(() => {
+      getOrderByUser().then((ordersArray) => resolve(ordersArray));
+    })
+    .catch((error) => reject(error));
+});
+
 const getOpenOrders = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/orders.json?orderBy="orderStatus"&equalTo="open"`)
     .then((response) => {
@@ -131,5 +139,5 @@ const getClosedOrdersByUser = (user) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser, getOpenOrders, getClosedOrders, createUserOrder, updateUserOrder, getOpenOrdersByUser, getClosedOrdersByUser
+  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser, getOpenOrders, getClosedOrders, createUserOrder, updateUserOrder, getOpenOrdersByUser, getClosedOrdersByUser, deleteUserOrder
 };
