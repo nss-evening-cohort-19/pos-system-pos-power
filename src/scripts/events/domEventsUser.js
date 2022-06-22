@@ -1,14 +1,12 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getOrderByUser
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
-import { viewOrders } from '../helpers/viewOrders';
+import { viewUserOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
-import revenuePage from '../components/pages/revenue';
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
-import { getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
@@ -17,13 +15,10 @@ import renderToDOM from '../helpers/renderToDom';
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('ordersHome')) {
-      viewOrders(user.uid);
+      viewUserOrders(user);
     }
     if (e.target.id.includes('createHome')) {
       orderForm(user);
-    }
-    if (e.target.id.includes('revenueHome')) {
-      getAllRevenueObj().then(revenuePage);
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
@@ -85,15 +80,19 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('all-orders')) {
-      getAllOrders(user).then((orderArray) => renderOrders(orderArray));
+      getOrderByUser(user).then((orderArray) => renderOrders(orderArray));
     }
 
     if (event.target.id.includes('open-orders')) {
-      getOpenOrders(user).then((orderArray) => renderOrders(orderArray));
+      getOpenOrders(user)
+        .then((orderArray) => getOrderByUser(orderArray)
+          .then((userArray) => renderOrders(userArray)));
     }
 
     if (event.target.id.includes('closed-orders')) {
-      getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
+      getClosedOrders(user)
+        .then((orderArray) => getOrderByUser(orderArray)
+          .then((userArray) => renderOrders(userArray)));
     }
   });
 };

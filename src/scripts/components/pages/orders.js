@@ -2,7 +2,7 @@ import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
 const emptyOrders = () => {
-  document.querySelector('#view').innerHTML = '<h2>No Orders to Display</h2>';
+  document.querySelector('#view').innerHTML = '<h2 id="empty-order">No Orders to Display</h2>';
 };
 
 const renderOrders = (array) => {
