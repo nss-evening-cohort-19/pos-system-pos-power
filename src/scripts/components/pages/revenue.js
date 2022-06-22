@@ -30,7 +30,7 @@ const revenuePage = (revObj) => {
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary" id="submit-date-range">Submit</button>
             </div>
           </div>
         </div>
