@@ -20,7 +20,7 @@ const itemForm = (obj = {}, orderId) => {
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="${obj.onSale ? 'checked' : ''}" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
-        Default checkbox
+        On Sale?
         </label>
       </div>
       <div class="form-group" id="select-order"></div>
