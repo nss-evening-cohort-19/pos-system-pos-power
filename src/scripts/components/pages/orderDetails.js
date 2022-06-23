@@ -6,22 +6,23 @@ const orderDetails = (obj = {}) => {
   const { itemArray } = obj;
   if (itemArray.length) {
     let domString = '<div id="itemsContainer">';
-    itemArray.forEach((card) => {
+    itemArray.forEach((menuItem) => {
       domString += `
-      <div class="item-card-styling" style="width: 25rem;">
-        <div class="card-body items-card">
-          <h5 class="card-title">${card.item_name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${card.item_price}</h6>
-          <button class="btn btn-primary" id="edit-item-btn--${card.firebaseKey}">Edit</button>
-          <button class="btn btn-danger" id="delete-item-btn--${card.firebaseKey}">Delete</button>
-        </div>
+      <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="${menuItem.imgUrl}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${menuItem.item_name}</h5>
+        <h6 class="card-price">${menuItem.item_price}</h6>
+        <p class="card-text">${menuItem.item_description}</p>
+        <h6 class="card-subtitle mb-2">${menuItem.onSale ? 'On Sale' : ''}</h6>
+        <button class="btn btn-danger" id="delete-from-order-btn--${menuItem.firebaseKey}">Remove From Order</button>
+      </div>
     </div>`;
     });
     domString += `
     </div>`;
     const buttonString = `
     <div id=orderDetailsButtons>
-      <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
       <button id="goToPaymentButton--${obj.firebaseKey}" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
     renderToDOM('#view', domString);
@@ -31,7 +32,6 @@ const orderDetails = (obj = {}) => {
     <h2 id="no-items">No Items in Order</h2>`;
     const buttonString = `
     <div id=orderDetailsButtons-empty>
-      <button id="addItemButton--${obj.firebaseKey}" class="btn btn-success addItemBtn">Add Item</button>
       <button id="goToPaymentButton" class="btn btn-primary goToPaymentBtn">Go To Payment</button>
     </div>`;
     renderToDOM('#view', htmlString);
