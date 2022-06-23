@@ -10,12 +10,12 @@ const startAppAdmin = (user) => {
   document.querySelector('#login-form-container').innerHTML = '';
   document.getElementById('login-form-container').style.backgroundImage = '';
   domBuilder();
-  navBar(user);
-  logoutButton(user);
+  navBar();
+  logoutButton();
   loginHome(user);
   navEvents(user);
-  domEvents(user);
-  formEvents(user);
+  domEvents();
+  formEvents();
 };
 
 export default startAppAdmin;
