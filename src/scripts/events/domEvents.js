@@ -13,6 +13,7 @@ import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
+import viewMenu from '../components/pages/menuPage';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -53,9 +54,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      const [, firebaseKey] = event.target.id.split('--');
-      const itemObj = {};
-      itemForm(itemObj, firebaseKey);
+      getItems().then((menuArray) => viewMenu(menuArray));
     }
 
     if (event.target.id.includes('edit-order')) {
