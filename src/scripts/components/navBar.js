@@ -22,6 +22,10 @@ const navBar = () => {
           <li class="nav-item">
             <a id="create-order" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">Create an Order</a>
           </li>
+          </li>
+          <li class="nav-item">
+            <a id="menu-nav" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">Menu</a>
+          </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <form id="search-bar-div" class="nav-item" onsubmit="return false">
