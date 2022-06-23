@@ -6,16 +6,16 @@ import navEvents from '../events/navEvents';
 import loginHome from '../components/pages/loginHome';
 import formEvents from '../events/formEvents';
 
-const startApp = (user) => {
+const startAppAdmin = (user) => {
   document.querySelector('#login-form-container').innerHTML = '';
   document.getElementById('login-form-container').style.backgroundImage = '';
   domBuilder();
-  navBar(user);
-  logoutButton(user);
+  navBar();
+  logoutButton();
   loginHome(user);
   navEvents(user);
-  domEvents(user);
-  formEvents(user);
+  domEvents();
+  formEvents();
 };
 
-export default startApp;
+export default startAppAdmin;
