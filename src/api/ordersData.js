@@ -47,14 +47,6 @@ const createOrder = (orderObject) => new Promise((resolve, reject) => {
     }).catch(reject);
 });
 
-const updateOrder = (orderObject) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/orders/${orderObject.firebaseKey}.json`, orderObject)
-    .then(() => {
-      getAllOrders(orderObject.uid).then(resolve);
-    })
-    .catch(reject);
-});
-
 const getOrderByUser = (uid) => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/orders.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
@@ -63,6 +55,14 @@ const getOrderByUser = (uid) => new Promise((resolve, reject) => {
       } else {
         resolve([]);
       }
+    })
+    .catch((error) => reject(error));
+});
+
+const deleteUserOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/orders/${firebaseKey}.json`)
+    .then(() => {
+      getOrderByUser().then((ordersArray) => resolve(ordersArray));
     })
     .catch((error) => reject(error));
 });
@@ -91,6 +91,53 @@ const getClosedOrders = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const createUserOrder = (orderObject) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/orders.json`, orderObject)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/orders/${response.data.name}.json`, payload)
+        .then(() => {
+          getOrderByUser(orderObject.uid).then(resolve);
+        });
+    }).catch(reject);
+});
+
+const updateOrder = (orderObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/orders/${orderObject.firebaseKey}.json`, orderObject)
+    .then(() => {
+      getAllOrders(orderObject.uid).then(resolve);
+    })
+    .catch(reject);
+});
+
+const updateUserOrder = (orderObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/orders/${orderObject.firebaseKey}.json`, orderObject)
+    .then(() => {
+      getOrderByUser(orderObject.uid).then(resolve);
+    })
+    .catch(reject);
+});
+
+const getOpenOrdersByUser = (user) => new Promise((resolve, reject) => {
+  getOpenOrders().then((orderArray) => {
+    const orderPromises = orderArray.map();
+
+    Promise.all(orderPromises).then(() => {
+      getOrderByUser(user.uid).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
+const getClosedOrdersByUser = (user) => new Promise((resolve, reject) => {
+  getClosedOrders().then((orderArray) => {
+    const orderPromises = orderArray.map();
+
+    Promise.all(orderPromises).then(() => {
+      getOrderByUser(user.uid).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
 export {
-  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser, getOpenOrders, getClosedOrders
+  getAllOrders, getSingleOrder, getSingleOrdersItems, deleteOrder, createOrder, updateOrder, getOrderByUser, getOpenOrders, getClosedOrders, createUserOrder, updateUserOrder, getOpenOrdersByUser, getClosedOrdersByUser, deleteUserOrder
 };

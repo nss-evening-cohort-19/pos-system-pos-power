@@ -1,14 +1,12 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders,
+  deleteOrder, getSingleOrder, getOrderByUser, getOpenOrders, getClosedOrders
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
-import { viewOrders } from '../helpers/viewOrders';
+import { viewUserOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
-import revenuePage from '../components/pages/revenue';
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
-import { getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
@@ -17,13 +15,18 @@ import renderToDOM from '../helpers/renderToDom';
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('ordersHome')) {
-      viewOrders(user);
+      viewUserOrders(user);
     }
     if (e.target.id.includes('createHome')) {
-      orderForm(user);
-    }
-    if (e.target.id.includes('revenueHome')) {
-      getAllRevenueObj().then(revenuePage);
+      getOrderByUser(user).then((orderArray) => {
+        if (orderArray.some((order) => order.orderStatus === 'open')) {
+          clearDom();
+          const domString = '<h1 class="existing-order">You already Have a Current Order!</h1>';
+          renderToDOM('#view', domString);
+        } else {
+          orderForm(user);
+        }
+      });
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
@@ -48,7 +51,7 @@ const domEvents = (user) => {
             }
           });
         });
-        deleteOrder(firebaseKey).then((orderArray) => renderOrders(orderArray));
+        deleteOrder(firebaseKey, user).then(() => viewUserOrders(user));
       }
     }
 
@@ -85,7 +88,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('all-orders')) {
-      getAllOrders(user).then((orderArray) => renderOrders(orderArray));
+      getOrderByUser(user).then((orderArray) => renderOrders(orderArray));
     }
 
     if (event.target.id.includes('open-orders')) {

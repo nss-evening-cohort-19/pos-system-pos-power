@@ -1,22 +1,21 @@
 import domBuilder from '../components/domBuilder';
 import logoutButton from '../components/logoutButton';
 import navBar from '../components/navBar';
-import domEvents from '../events/domEvents';
-import navEvents from '../events/navEvents';
+import domEventsUser from '../events/domEventsUser';
+import navEventsUser from '../events/navEventsUser';
 import loginHomeUser from '../components/pages/loginHomeUser';
-import formEvents from '../events/formEvents';
+import formEventsUser from '../events/formEventsUser';
 
 const startAppUser = (user) => {
   document.querySelector('#login-form-container').innerHTML = '';
   document.getElementById('login-form-container').style.backgroundImage = '';
-  console.warn(user.uid);
-  domBuilder();
+  domBuilder(user.uid);
   navBar(user);
-  logoutButton(user);
+  logoutButton(user.uid);
   loginHomeUser(user);
-  navEvents(user);
-  domEvents(user);
-  formEvents(user);
+  navEventsUser(user);
+  domEventsUser(user.uid);
+  formEventsUser(user.uid);
 };
 
 export default startAppUser;
