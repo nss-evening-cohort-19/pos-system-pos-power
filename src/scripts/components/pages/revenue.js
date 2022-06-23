@@ -5,8 +5,6 @@ const revenuePage = (revObj) => {
   clearDom();
   const domString = `
     <div id="revenuePageDiv">
-      <canvas id="revenueChart">
-      </canvas>
       <h2 id="revenueHeader">REVENUE</h2>
       <h2 id="totalRevenue">TOTAL REVENUE: $${revObj.totalAmount.toFixed(2)}</h2>
       <p id="dateRangeTitle">DATE RANGE: ${revObj.earlyDate} - ${revObj.lateDate}</p>

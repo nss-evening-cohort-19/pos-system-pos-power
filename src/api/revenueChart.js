@@ -1,22 +1,31 @@
-/* eslint-disable array-callback-return */
 import Chart from 'chart.js/auto';
 
-const filterDataObj = (dataObj) => dataObj.map((revenueObject) => revenueObject.date);
+const filterDataObj = (dataObj) => {
+  const newArr = [];
+  dataObj.forEach((revenueObject) => {
+    const newObj = {
+      y: Number(revenueObject.totalAmount).toFixed(2),
+      x: revenueObject.date
+    };
+    newArr.push(newObj);
+  });
+  return newArr;
+};
 
 const generateRevenueChart = (dataObj) => {
-  console.warn(dataObj);
-  filterDataObj(dataObj);
+  const ctx = document.querySelector('#revenueChart').getContext('2d');
   console.warn(filterDataObj(dataObj));
-  const canvas = document.querySelector('#revenueChart');
-  const ctx = canvas.getContext('2d');
   const revenueChart = new Chart(ctx, {
     type: 'line',
     data: {
-      datasets: [
-        filterDataObj(dataObj)
-      ]
+      datasets: [{
+        backgroundColor: 'rgb(255, 99, 132)',
+        data: [Object.values(filterDataObj(dataObj))]
+      }],
+      labels: Object.keys(filterDataObj(dataObj))
     },
   });
+  console.warn(revenueChart);
   return revenueChart;
 };
 

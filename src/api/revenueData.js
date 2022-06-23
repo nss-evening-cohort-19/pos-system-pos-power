@@ -10,9 +10,9 @@ const getAllRevenueObj = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/revenue.json`)
     .then((response) => {
       resolve(revenueObj(Object.values((response.data))));
-      console.warn(Object.values(response.data));
-      generateRevenueChart(Object.values((response.data)));
+      return response;
     })
+    .then((response) => generateRevenueChart(Object.values((response.data))))
     .catch((reject));
 });
 

@@ -8,6 +8,7 @@ const domBuilder = () => {
     <div id="form-container"></div>
     <div id="orderStatus-button"></div>
     <div id="view"></div>
+    <canvas id="revenueChart"></canvas> 
   </div>`;
 
   renderToDOM('#app', domString);
