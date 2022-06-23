@@ -120,21 +120,15 @@ const updateUserOrder = (orderObject) => new Promise((resolve, reject) => {
 
 const getOpenOrdersByUser = (user) => new Promise((resolve, reject) => {
   getOpenOrders().then((orderArray) => {
-    const orderPromises = orderArray.map();
-
-    Promise.all(orderPromises).then(() => {
-      getOrderByUser(user.uid).then(resolve);
-    });
+    const userOrders = orderArray.filter((order) => order.uid === user);
+    resolve(userOrders);
   }).catch((error) => reject(error));
 });
 
 const getClosedOrdersByUser = (user) => new Promise((resolve, reject) => {
   getClosedOrders().then((orderArray) => {
-    const orderPromises = orderArray.map();
-
-    Promise.all(orderPromises).then(() => {
-      getOrderByUser(user.uid).then(resolve);
-    });
+    const userOrders = orderArray.filter((order) => order.uid === user);
+    resolve(userOrders);
   }).catch((error) => reject(error));
 });
 
