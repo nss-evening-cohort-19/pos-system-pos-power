@@ -5,14 +5,14 @@ const navBar = () => {
   const domString = `
   <nav id="navBarDiv" class="navbar navbar-expand-lg navbar-dark mb-5">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggleBtn">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+      <a id="logo-image" class="navbar-brand">
+        <img id="navLogo" src="${logo}">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li id="logo-image">
-            <img id="navLogo" src=${logo}>
-          </li>
           <li class="nav-item">
             <a id="home-nav" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" href="#">Home</a>
           </li>
@@ -28,7 +28,7 @@ const navBar = () => {
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <form id="search-bar-div" class="nav-item" onsubmit="return false">
+          <form id="search-bar-div" class="nav-item" onsubmit="return false" data-bs-toggle="collapse">
             <input type="search" class="form-control" id="searchBar-input" placeholder="Search Orders">
           </form>
           <div id="logout-nav-div" class="nav-link">

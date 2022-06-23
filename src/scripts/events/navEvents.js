@@ -14,6 +14,10 @@ const navEvents = (user) => {
 
   document.querySelector('#menu-nav').addEventListener('click', viewMenu);
 
+  // document.querySelector('#navbarToggleBtn').addEventListener('click', () => {
+  //   const navBar = document.querySelector('#navbarSupportedContent');
+  // });
+
   document.querySelector('#searchBar-input').addEventListener('keyup', (e) => {
     e.preventDefault();
     const input = document.querySelector('#searchBar-input').value.toLowerCase();
