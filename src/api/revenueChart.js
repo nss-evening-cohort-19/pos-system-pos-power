@@ -12,20 +12,29 @@ const filterDataObj = (dataObj) => {
   return newArr;
 };
 
+const getArrayProp = (arr, property) => {
+  const newArr = [];
+  arr.forEach((object) => {
+    newArr.push(object[property]);
+  });
+  return newArr;
+};
+
 const generateRevenueChart = (dataObj) => {
   const ctx = document.querySelector('#revenueChart').getContext('2d');
-  console.warn(filterDataObj(dataObj));
   const revenueChart = new Chart(ctx, {
     type: 'line',
     data: {
       datasets: [{
-        backgroundColor: 'rgb(255, 99, 132)',
-        data: [Object.values(filterDataObj(dataObj))]
+        borderColor: 'rgb(75, 192, 192)',
+        backgroundColor: 'rgb(0, 0, 0)',
+        label: 'Generated Revenue',
+        data: getArrayProp((filterDataObj(dataObj)), 'y'),
+        tension: 0.1
       }],
-      labels: Object.keys(filterDataObj(dataObj))
+      labels: getArrayProp((filterDataObj(dataObj)), 'x'),
     },
   });
-  console.warn(revenueChart);
   return revenueChart;
 };
 
