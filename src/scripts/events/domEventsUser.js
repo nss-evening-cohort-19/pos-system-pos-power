@@ -57,7 +57,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray, user));
+      getItems().then((menuArray) => viewMenu(menuArray));
     }
 
     if (event.target.id.includes('edit-order')) {
@@ -96,17 +96,6 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('closed-orders')) {
       getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
-    }
-
-    if (event.target.id.includes('add-menuItem')) {
-      const [, uid] = event.target.id.split('--');
-      getOrderByUser(uid).then((orderArray) => {
-        orderArray.forEach((order) => {
-          if (order.orderStatus === 'open') {
-            viewOrderDetails(order.firebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
-          }
-        });
-      });
     }
   });
 };

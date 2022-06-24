@@ -1,6 +1,6 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders, getOpenOrdersByUser,
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders,
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -93,12 +93,6 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('closed-orders')) {
       getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
-    }
-
-    if (event.target.id.includes('add-menuItem')) {
-      getOpenOrdersByUser(user).then((orderObject) => {
-        viewOrderDetails(orderObject.firebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
-      });
     }
   });
 };
