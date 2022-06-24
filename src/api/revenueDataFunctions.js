@@ -58,4 +58,21 @@ const revenueObj = (arr) => {
   return newRevenueObj;
 };
 
-export default revenueObj;
+const customRevenueObj = (arr, startDate, endDate) => {
+  const filteredArr = arr.filter((order) => new Date(order.date) >= new Date(startDate) && new Date(order.date) < new Date(endDate));
+  const newRevenueObj = {
+    earlyDate: startDate,
+    lateDate: endDate,
+    totalAmount: getTotalRevenue(filteredArr),
+    tipAmount: getTotalTips(filteredArr),
+    walkInOrders: getOrderTypeTotal(filteredArr, 'walk-in'),
+    callInOrders: getOrderTypeTotal(filteredArr, 'call-in'),
+    cardOrders: getPaymentTypeTotal(filteredArr, 'credit'),
+    cashOrders: getPaymentTypeTotal(filteredArr, 'cash'),
+    mobileOrders: getPaymentTypeTotal(filteredArr, 'mobile'),
+    checkOrders: getPaymentTypeTotal(filteredArr, 'check'),
+  };
+  return newRevenueObj;
+};
+
+export { revenueObj, customRevenueObj };

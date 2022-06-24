@@ -8,7 +8,7 @@ import { viewOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
-import { getAllRevenueObj } from '../../api/revenueData';
+import { getAllCustomRevenueObj, getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
@@ -81,6 +81,14 @@ const domEvents = (user) => {
           paymentForm(orderObject);
         }
       });
+    }
+    // Custom Start and End Dates
+    if (event.target.id.includes('date-modal-submit')) {
+      const startDateValue = `${document.querySelector('#startDate').value}, 12:00:00 AM`;
+      const endDateValue = `${document.querySelector('#endDate').value}, 11:59:59 PM`;
+      const startDate = new Date(startDateValue).toLocaleString();
+      const endDate = new Date(endDateValue).toLocaleString();
+      getAllCustomRevenueObj(startDate, endDate).then((response) => revenuePage(response));
     }
 
     if (event.target.id.includes('all-orders')) {
