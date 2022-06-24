@@ -118,12 +118,12 @@ const updateUserOrder = (orderObject) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getOpenOrdersByUser = (user) => new Promise((resolve, reject) => {
+const getOpenOrdersByUser = (uid) => new Promise((resolve, reject) => {
   getOpenOrders().then((orderArray) => {
     const orderPromises = orderArray.map();
 
     Promise.all(orderPromises).then(() => {
-      getOrderByUser(user.uid).then(resolve);
+      getOrderByUser(uid).then(resolve);
     });
   }).catch((error) => reject(error));
 });

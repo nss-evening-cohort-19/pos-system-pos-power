@@ -1,6 +1,6 @@
 import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders,
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders, getOpenOrdersByUser,
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -54,7 +54,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray));
+      getItems().then((menuArray) => viewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
@@ -93,6 +93,12 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('closed-orders')) {
       getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
+    }
+
+    if (event.target.id.includes('add-menuItem')) {
+      getOpenOrdersByUser(user).then((orderObject) => {
+        viewOrderDetails(orderObject.firebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
+      });
     }
   });
 };
