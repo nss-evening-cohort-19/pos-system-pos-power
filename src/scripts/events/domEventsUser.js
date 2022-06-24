@@ -6,7 +6,9 @@ import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 import { viewUserOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
-import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
+import {
+  createItem, deleteItem, getItems, getSingleItem
+} from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
@@ -57,7 +59,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray));
+      getItems().then((menuArray) => viewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
@@ -96,6 +98,22 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('closed-orders')) {
       getClosedOrdersByUser(user).then((orderArray) => renderOrders(orderArray));
+    }
+
+    if (event.target.id.includes('add-menuItem')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getOpenOrdersByUser(user).then((order) => {
+        getSingleItem(firebaseKey).then((itemObject) => {
+          createItem(itemObject)
+            .then((itemArray) => {
+              itemArray.forEach((item) => {
+                if (order.firebaseKey === item.orderId) {
+                  viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+                }
+              });
+            });
+        });
+      });
     }
   });
 };

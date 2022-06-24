@@ -118,9 +118,9 @@ const updateUserOrder = (orderObject) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getOpenOrdersByUser = (uid) => new Promise((resolve, reject) => {
+const getOpenOrdersByUser = (user) => new Promise((resolve, reject) => {
   getOpenOrders().then((orderArray) => {
-    const userOrders = orderArray.filter((order) => order.uid === uid);
+    const userOrders = orderArray.filter((order) => order.uid === user);
     resolve(userOrders);
   }).catch((error) => reject(error));
 });
