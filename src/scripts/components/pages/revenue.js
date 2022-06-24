@@ -4,6 +4,9 @@ import renderToDOM from '../../helpers/renderToDom';
 const revenuePage = (revObj) => {
   clearDom();
   const domString = `
+    <div class="container">
+      <canvas id="revenueChart"></canvas> 
+    </div>
     <div id="revenuePageDiv">
       <h2 id="revenueHeader">REVENUE</h2>
       <h2 id="totalRevenue">TOTAL REVENUE: $${revObj.totalAmount.toFixed(2)}</h2>
@@ -49,7 +52,6 @@ const revenuePage = (revObj) => {
       <p id="mobilePayment">MOBILE: ${revObj.mobileOrders}</p>
       <p id="mobilePayment">CHECK: ${revObj.checkOrders}</p>
     </div>`;
-
   renderToDOM('#view', domString);
 };
 
