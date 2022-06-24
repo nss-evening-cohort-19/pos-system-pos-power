@@ -9,6 +9,7 @@ const loginHome = (user) => {
     <button id="ordersHome">View Orders</button>
     <button id="createHome">Create Order</button>
     <button id="revenueHome">View Revenue</button>
+    <button id="bookingsHome">Talent Bookings</button></button>
   </div>`;
   renderToDOM('#view', domString);
 };

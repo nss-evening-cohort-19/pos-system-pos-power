@@ -1,0 +1,46 @@
+{
+  "-N4XsK1RBhzvSQHkK45T": {
+    "firebaseKey": "-N4XsK1RBhzvSQHkK45T",
+    "imageUrl": "src/styles/images/PepperoniPizza.jpeg",
+    "talent_name": "lil chum.i.am",
+    "talent_email": "chumiam@gmail.com",
+    "talent_phone": "615-210-8078",
+    "bookingId": "-N4XsK1RBhzvSQHkK45T"
+  },
+  "-N4XsXJoSW-tzqtRIfgh": {
+    "firebaseKey": "-N4XsXJoSW-tzqtRIfgh",
+    "talent_name": "Dust & Ivory",
+    "talent_email": "dust.ivory@soundcloud.com",
+    "talent_phone": "281-543-0987",
+    "bookingId": "-N4XsXJoSW-tzqtRIfgh"
+  },
+  "-N4Xsnoa6hzqDZz1i7yh": {
+    "firebaseKey": "-N4Xsnoa6hzqDZz1i7yh",
+    "talent_name": "Kristen Chandler",
+    "talent_email": "krismchandler@gmail.com",
+    "talent_phone": "615-482-9506",
+    "bookingId": "-N4Xsnoa6hzqDZz1i7yh"
+  },
+  "-N4Xt2xBwpTYlEK5hgvb": {
+    "firebaseKey": "-N4Xt2xBwpTYlEK5hgvb",
+    "talent_name": "Phoenix Fire",
+    "talent_email": "fromtheashes@soundcloud.com",
+    "talent_phone": "571-953-9627",
+    "bookingId": "-N4Xt2xBwpTYlEK5hgvb"
+  },
+  "-N4XtU9_Xty3wgnUuFMp": {
+    "firebaseKey": "-N4XtU9_Xty3wgnUufmP",
+    "talent_name": "Save Ferris",
+    "talent_email": "save_ferris@gmail.com",
+    "talent_phone": "831-277-4284",
+    "bookingId": "-N4XtU9_Xty3wgnUufmP"
+  },
+  "-N5LdozcKsHbm0dcwscV": {
+    "firebaseKey": "-N5LdozcKsHbm0dcwscV",
+    "imageUrl": "src/styles/images/PepperoniPizza.jpeg",
+    "talent_name": "Zach Swift",
+    "talent_email": "zswift@gmail.com",
+    "talent_phone": "432-657-03873",
+    "bookingId": "-N5LdozcKsHbm0dcwscV"
+  }
+}

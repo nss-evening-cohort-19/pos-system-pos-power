@@ -1,0 +1,44 @@
+{
+  "-N4Xno5mS84KKlkwdj9T": {
+    "firebaseKey": "-N4XsXJoSW-tzqtRIfgh",
+    "performanceType": "in-person",
+    "performanceDate": "06-29-2022",
+    "talent_name": "Dust & Ivory",
+    "uid": "nxcU5RkrqLUEgt9wOqfCrOgyHtD2"
+  },
+  "-N4XpYNgXcygEX1dpPOB": {
+    "firebaseKey": "-N4Xt2xBwpTYlEK5hgvb",
+    "performanceType": "virtual",
+    "performanceDate": "06-30-2022",
+    "talent_name": "Phoenix Fire",
+    "uid": "nxcU5RkrqLUEgt9wOqfCrOgyHtD2"
+  },
+  "-N4XrCyVzxDRE3RAqv6Y": {
+    "firebaseKey": "-N4XtU9_Xty3wgnUufmP",
+    "performanceType": "in-person",
+    "performanceDate": "07-5-2022",
+    "talent_name": "Save Ferris",
+    "uid": "NSxpLnqK2ZgQPbcQBxuhXbslCTQ2"
+  },
+  "-N4rHEdlNBbHxoyBrtyH": {
+    "firebaseKey": "-N5LdozcKsHbm0dcwscV",
+    "performanceType": "virtual",
+    "performanceDate": "07-22-2022",
+    "talent_name": "Zach Swift",
+    "uid": "Tdq9u1FTUDRmyhj7Kj8q7XCTY9i1"
+  },
+  "-N5LK5shcQvcKJMOa78t": {
+    "firebaseKey": "-N4Xsnoa6hzqDZz1i7yh",
+    "performanceType": "in-person",
+    "performanceDate": "07-18-2022",
+    "talent_name": "Kristen Chandler",
+    "uid": "y68rC5NsxXaPmVo6RoRN0FSE2qz1"
+  },
+  "-N5L_jMVs_ODP7IppVD3": {
+    "firebaseKey": "-N4XsK1RBhzvSQHkK45T",
+    "performanceType": "in-person",
+    "performanceDate": "08-05-2022",
+    "talent_name": "lil chum.i.am",
+    "uid": "PMS8gc3HEZVpXgLfc5tBXylbult2"
+  }
+}
