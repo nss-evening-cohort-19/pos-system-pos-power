@@ -6,6 +6,8 @@ const domBuilder = () => {
   <div id="main-container">
     <div id ="details-buttons"></div>
     <div id="form-container"></div>
+    <div id="orderStatus-button"></div>
+    <div id="orderOpen"></div>
     <div id="view"></div>
   </div>`;
 

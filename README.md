@@ -15,30 +15,144 @@ Planning Documents for Project:
 * **[Github Milestones](https://github.com/nss-evening-cohort-19/pos-system-pos-power/milestones)** - Separate those issue tickets into Milestones to plan out the work.
 * **[Github Project Board](https://github.com/nss-evening-cohort-19/pos-system-pos-power/projects/1)** - Create a project board, add all of your issue tickets, and order them by priority.
 
-## Definition of Done
+## Definition of Project
 
-Do not submit this project until all of the following are complete:
+Introducing the new POS (Point of Sale) system for Hip Hop Pizza N' Wings!
 
-1. All items are completed in getting started
-1. MVP, defined by the Acceptance Criteria, has been completed
-1. The title of your application is visible in the browser tab
-1. The project has been deployed
-1. Loom video has been created
-1. `README.md` has been updated
+This state of the art system:
+  
+  - Requires login for all users through Google Authentication.
 
-## Requirements
+  - Has different interfaces for Admins (HHPnW employees) & customers!
 
-Things to remember while coding out the project
+      <table>
+        <tr>
+          <td>User Home Page</td>
+          <td>Admin Home Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/userHomePage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/adminHomePage.png" width=400 height=250></td>
+        </tr>
+      </table>
 
-* Clean code - single responsibility principle
-* ES6 Modules bundled with webpack
-* No errors - linters should be clean
-* Bootstrap 5 for styling
-* Completely planned out - before each section you should be making new cards on your Github project board before you code
-* Wireframes are provided for you for MVP
-* You should have an ERD
+  - Is composed of:
 
-### Instructions
+      1. A Home Page with links to the View Orders Page, Create Orders Page, View Revenue Page (Admin), Book Talent Page (Admin).
+      
+      <table>
+        <tr>
+          <td>Admin Home Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/adminHomePage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+      2. A Nav Bar with links to the Home Page, View Orders Page, Create Order Page, Menu Page, Talent Booking Page (View Upcoming Shows for Customers).
+
+      <table>
+        <tr>
+          <td>Nav Bar</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/adminNavBar.png" width=700 height=30></td>
+        </tr>
+      </table>
+
+      3. A View Orders Page with the ability to filter on All Orders, Open Orders and Closed Orders.
+          - Users can see Order Details (Order Detail Page) for each order, edit each order and delete each order.
+
+      <table>
+        <tr>
+          <td>Orders Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/viewOrdersPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+      4. An Order Details Page with the ability to add items from a specified menu (specified by Admin) to order, remove items from an order and Close order (go to payment - Close Order Page)
+
+      <table>
+        <tr>
+          <td>Order Details Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/orderDetailsPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+      5. A Close Order Page with the ability to specify payment type (cash, credit, check, mobile) and tip amount.
+
+      <table>
+        <tr>
+          <td>Close Order Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/closeOrderPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+      6. A Revenue Page (Admin) that lets the Admin know the total Revenue, Tip Amounts, Call-in Order Amounts, Walk-in Order Amounts, Respective Payment Type Amounts for a specified date range (and renders results into a chart).
+
+      <table>
+        <tr>
+          <td>Revenue Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/revenuePage.png" width=500 height=250></td>
+        </tr>
+      </table>
+
+      7. A Create Order Page that lets user input Order Name, Cust. Phone Number and Customer Email for Order.
+
+      <table>
+        <tr>
+          <td>Create Order Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/createOrderPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+      8. A Book Talent Page (Admin) that filters on all Shows and Talent Acts and lets Admin book new Shows/Talent. (note: non-Admin users are available to view this page without making edits.)
+
+      <table>
+        <tr>
+          <td>Book Talent Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/bookTalentPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+      9. A Menu Page that lets Admins add new items to the menu!
+
+      <table>
+        <tr>
+          <td>Menu Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/menuPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+## Contributors:
+
+#### Justin Ferwerda - https://github.com/Justin-Ferwerda
+#### Kristen Chandler - https://github.com/kmchandler
+#### Christian Black - https://github.com/blackcl3
+#### Mitch McCullough - https://github.com/mmccullough1997
+
+## How to Use:
+
+- clone repository
+- install app dependencies: npm i
+- start server: npm start
+
+
+### Assignment Overview:
 
 * [MVP Definition - It Gets the Job Done](./instructions/mvp.md)
 * [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)

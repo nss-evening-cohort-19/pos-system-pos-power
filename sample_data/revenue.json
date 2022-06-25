@@ -1,6 +1,6 @@
 {
   "-N4ZpUOxAYifiBxWJMRk": {
-    "date": "20222-05-15",
+    "date": "6/18/2022, 6:10:26 PM",
     "firebaseKey": "-N4ZpUOxAYifiBxWJMRk",
     "orderId": "-N4Xno5mS84KKlkwdjA7",
     "orderType": "call-in",
@@ -9,7 +9,7 @@
     "totalAmount": 24.56
   },
   "-N4Zpj9ff0_DJG5EA5pd": {
-    "date": "2022-05-16",
+    "date": "4/18/21, 3:25:54 AM",
     "firebaseKey": "-N4Zpj9ff0_DJG5EA5pd",
     "orderId": "-N4XovoF0GMhKOr2na0K",
     "orderType": "walk-in",
@@ -18,7 +18,7 @@
     "totalAmount": 100.24
   },
   "-N4ZpstqK4EGse6mzyRS": {
-    "date": "2022-05-23",
+    "date": "5/21/22, 4:12:13 PM",
     "firebaseKey": "-N4ZpstqK4EGse6mzyRS",
     "orderId": "-N4XpYNgXcygEX1dpPVL",
     "orderType": "call-in",
@@ -27,16 +27,16 @@
     "totalAmount": 1235.65
   },
   "-N4Zpz6mqyg9agKmb9fr": {
-    "date": "2022-05-25",
+    "date": "6/14/22, 4:20:00 PM",
     "firebaseKey": "-N4Zpz6mqyg9agKmb9fr",
-    "orderId": "-N4XqQlbbn3Cj--YS4ob",
+    "orderId": "-N4XrCyVzxDRE3RAqx11",
     "orderType": "walk-in",
     "paymentType": "mobile",
     "tipAmount": 43.65,
     "totalAmount": 3.00
   },
   "-N4Zq5jw_UB9EejdXWMz": {
-    "date": "2022-05-26",
+    "date": "6/08/22, 3:56:56 PM",
     "firebaseKey": "-N4Zq5jw_UB9EejdXWMz",
     "orderId": "-N4XrCyVzxDRE3RAqx11",
     "orderType": "walk-in",
