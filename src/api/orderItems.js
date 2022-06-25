@@ -16,8 +16,27 @@ const getOrderMenuItems = (firebaseKey) => new Promise((resolve, reject) => {
 
 const getAllOrderMenuItems = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/orderItems.json`)
-    .then((response) => resolve(Object.values(response)))
+    .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
 
-export { getOrderMenuItems, getAllOrderMenuItems };
+const getOrderItems = () => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orderItems.json`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    }).catch((error) => reject(error));
+});
+
+const deleteOrderItem = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/orderItems/${firebaseKey}.json`)
+    .then(resolve)
+    .catch((error) => reject(error));
+});
+
+export {
+  getOrderMenuItems, getAllOrderMenuItems, getOrderItems, deleteOrderItem
+};

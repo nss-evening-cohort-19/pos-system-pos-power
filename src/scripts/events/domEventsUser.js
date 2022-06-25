@@ -1,17 +1,18 @@
 import { updatedItems, viewOrderDetails, cloneMenuItem } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOrderByUser, getClosedOrdersByUser, getOpenOrdersByUser
+  getSingleOrder, getOrderByUser, getClosedOrdersByUser, getOpenOrdersByUser
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 import { viewUserOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
-import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
+import { getItems, getSingleItem } from '../../api/itemsData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
+import { getOrderItems, deleteOrderItem } from '../../api/orderItems';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -45,14 +46,13 @@ const domEvents = (user) => {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to Delete?')) {
         const [, firebaseKey] = event.target.id.split('--');
-        getItems().then((itemArray) => {
+        getOrderItems().then((itemArray) => {
           itemArray.forEach((item) => {
             if (item.orderId === firebaseKey) {
-              deleteItem(item.firebaseKey).then(null);
+              deleteOrderItem(item.firebaseKey).then(null);
             }
           });
         });
-        deleteOrder(firebaseKey, user).then(() => viewUserOrders(user));
       }
     }
 
@@ -106,7 +106,7 @@ const domEvents = (user) => {
             getSingleItem(firebaseKey).then((itemObject) => {
               cloneMenuItem(itemObject, order.firebaseKey).then((itemArray) => {
                 itemArray.forEach((item) => {
-                  if (firebaseKey === item.orderId) {
+                  if (order.firebaseKey === item.orderId) {
                     viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
                   }
                 });
