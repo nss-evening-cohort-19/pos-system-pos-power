@@ -12,7 +12,7 @@ const renderOrders = (array) => {
     <button type="button" class="btn btn-secondary" id="all-orders">All Orders</button>
     <button type="button" class="btn btn-secondary" id="open-orders">Open Orders</button>
     <button type="button" class="btn btn-secondary" id="closed-orders">Closed Orders</button>
-  </div>`;
+    </div>`;
     renderToDOM('#orderStatus-button', orderFilterButton);
     let domString = '<div id="cardContainer" class="container order-container">';
     array.forEach((card) => {
@@ -32,7 +32,13 @@ const renderOrders = (array) => {
     domString += '</div>';
     renderToDOM('#view', domString);
   } else {
+    const orderFilterButton = `<div class="btn-group" role="group" aria-label="Basic example" id="order-status">
+    <button type="button" class="btn btn-secondary" id="all-orders">All Orders</button>
+    <button type="button" class="btn btn-secondary" id="open-orders">Open Orders</button>
+    <button type="button" class="btn btn-secondary" id="closed-orders">Closed Orders</button>
+    </div>`;
     emptyOrders();
+    renderToDOM('#orderStatus-button', orderFilterButton);
   }
 };
 
