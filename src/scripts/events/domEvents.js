@@ -1,6 +1,6 @@
-import { updatedItems, viewOrderDetails } from '../../api/mergedData';
+import { viewOrderDetails, cloneMenuItem, updatedOrderItems } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders,
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders, getOrderByUser
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -63,12 +63,15 @@ const domEvents = (user) => {
       getSingleOrder(firebaseKey).then((orderObject) => orderForm(orderObject));
     }
 
-    if (event.target.id.includes('delete-item-btn')) {
-      const [, firebaseKey] = event.target.id.split('--');
-      updatedItems(firebaseKey)
-        .then((response) => {
-          orderDetails(response);
-        });
+    if (event.target.id.includes('delete-from-order-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        const [, firebaseKey] = event.target.id.split('--');
+        updatedOrderItems(firebaseKey)
+          .then((response) => {
+            orderDetails(response);
+          });
+      }
     }
 
     if (event.target.id.includes('goToPaymentButton')) {
@@ -102,6 +105,25 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('closed-orders')) {
       getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
+    }
+
+    if (event.target.id.includes('add-menuItem')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getOrderByUser(user).then((orderArray) => {
+        orderArray.forEach((order) => {
+          if (order.orderStatus === 'open') {
+            getSingleItem(firebaseKey).then((itemObject) => {
+              cloneMenuItem(itemObject, order.firebaseKey).then((itemArray) => {
+                itemArray.forEach((item) => {
+                  if (order.firebaseKey === item.orderId) {
+                    viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+                  }
+                });
+              });
+            });
+          }
+        });
+      });
     }
   });
 };
