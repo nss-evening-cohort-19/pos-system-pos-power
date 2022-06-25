@@ -5,7 +5,7 @@ const emptyMenu = () => {
   document.querySelector('#view').innerHTML = '<h2>No Menu Items to Display</h2>';
 };
 
-const viewMenu = (array) => {
+const adminViewMenu = (array) => {
   clearDom();
   if (array.length) {
     let domString = '<div id="menuContainer" class="container order-container">';
@@ -28,4 +28,4 @@ const viewMenu = (array) => {
   }
 };
 
-export default viewMenu;
+export default adminViewMenu;
