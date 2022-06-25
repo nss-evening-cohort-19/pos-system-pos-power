@@ -8,14 +8,16 @@ const orderDetails = (obj = {}) => {
     let domString = '<div id="itemsContainer">';
     itemArray.forEach((menuItem) => {
       domString += `
-      <div class="card" style="width: 18rem;">
+      <div id="item-card" class="card" style="width: 18rem;">
       <img class="card-img-top" src="${menuItem.imageUrl}" alt="Card image cap">
-      <div class="card-body">
+      <div>
         <h5 class="card-title">${menuItem.item_name}</h5>
         <h6 class="card-price">${menuItem.item_price}</h6>
         <p class="card-text">${menuItem.item_description}</p>
         <h6 class="card-subtitle mb-2">${menuItem.onSale ? 'On Sale' : ''}</h6>
         <button class="btn btn-danger" id="delete-from-order-btn--${menuItem.firebaseKey}">Remove From Order</button>
+        <br>
+        <br>
       </div>
     </div>`;
     });

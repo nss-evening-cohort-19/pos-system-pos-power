@@ -11,13 +11,15 @@ const adminViewMenu = (array) => {
     let domString = '<div id="menuContainer" class="container order-container">';
     array.forEach((menuObject) => {
       domString += `<div id="menu-items" class="card" style="width: 18rem;">
-      <img class="card-img-top" src="${menuObject.imgUrl}" alt="Card image cap">
-      <div class="card-body">
+      <img class="card-img-top" id="menuImages" src="${menuObject.imageUrl}" alt="menu item image">
+      <div id="menuCards">
         <h5 class="card-title">${menuObject.item_name}</h5>
         <h6 class="card-price">${menuObject.item_price}</h6>
         <p class="card-text">${menuObject.item_description}</p>
         <h6 class="card-subtitle mb-2">${menuObject.onSale ? 'On Sale' : ''}</h6>
         <a href="#" id="add-menuItem--${menuObject.firebaseKey}" class="btn btn-primary">Add to Order</a>
+        <a href="#" id="edit-menuItem--${menuObject.firebaseKey}" class="btn btn-success">Edit Menu Item</a>
+        <a href="#" id="delete-menuItem--${menuObject.firebaseKey}" class="btn btn-danger">Delete Menu Item</a>
       </div>
     </div>`;
     });
