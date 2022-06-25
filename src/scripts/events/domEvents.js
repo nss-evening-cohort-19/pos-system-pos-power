@@ -48,9 +48,9 @@ const domEvents = (user) => {
       viewOrderDetails(orderFirebaseKey).then((orderItemObject) => orderDetails(orderItemObject));
     }
 
-    if (event.target.id.includes('edit-item-btn')) {
-      const [, itemFirebaseKey] = event.target.id.split('--');
-      getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject, itemObject.orderId));
+    if (event.target.id.includes('edit-menuItem')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getSingleItem(firebaseKey).then((itemObject) => itemForm(itemObject, itemObject.orderId));
     }
 
     if (event.target.id.includes('delete-order-btn')) {
@@ -132,12 +132,15 @@ const domEvents = (user) => {
       talentForm();
     }
 
-    if (event.target.id.includes('delete-item-btn')) {
+    if (event.target.id.includes('delete-menuItem')) {
       const [, firebaseKey] = event.target.id.split('--');
-      updatedItems(firebaseKey)
-        .then((response) => {
-          orderDetails(response);
-        });
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        updatedItems(firebaseKey)
+          .then((response) => {
+            orderDetails(response);
+          });
+      }
     }
 
     if (event.target.id.includes('goToPaymentButton')) {
