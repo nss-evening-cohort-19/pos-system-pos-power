@@ -14,6 +14,15 @@ import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
+import { viewBookings, viewTalent } from '../helpers/viewBookings';
+import {
+  deleteBooking, getInPersonBookings, getSingleBooking, getVirtualBookings
+} from '../../api/bookingsData';
+import renderBookings from '../components/pages/bookings';
+import bookingsForm from '../components/forms/bookingsForm';
+import talentForm from '../components/forms/talentForm';
+import { deleteTalent, getSingleArtist } from '../../api/talentData';
+import renderTalent from '../components/pages/talent';
 // import generateRevenueChart from '../../api/revenueChart';
 
 const domEvents = (user) => {
@@ -26,6 +35,9 @@ const domEvents = (user) => {
     }
     if (e.target.id.includes('revenueHome')) {
       getAllRevenueObj().then(revenuePage);
+    }
+    if (e.target.id.includes('bookingsHome')) {
+      viewBookings();
     }
   });
   document.querySelector('#main-container').addEventListener('click', (event) => {
@@ -54,6 +66,46 @@ const domEvents = (user) => {
       }
     }
 
+    if (event.target.id.includes('delete-booking-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        const [, firebaseKey] = event.target.id.split('--');
+        getSingleBooking().then((bookingArray) => {
+          bookingArray.forEach((item) => {
+            if (item.orderId === firebaseKey) {
+              deleteBooking(item.firebaseKey).then(null);
+            }
+          });
+        });
+        deleteBooking(firebaseKey).then((bookingArray) => renderBookings(bookingArray));
+      }
+    }
+
+    if (event.target.id.includes('delete-talent-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        const [, firebaseKey] = event.target.id.split('--');
+        getSingleArtist().then((artistArray) => {
+          artistArray.forEach((item) => {
+            if (item.orderId === firebaseKey) {
+              deleteTalent(item.firebaseKey).then(null);
+            }
+          });
+        });
+        deleteTalent(firebaseKey).then((talentArray) => renderTalent(talentArray));
+      }
+    }
+
+    if (event.target.id.includes('edit-talent')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getSingleArtist(firebaseKey).then((talentObject) => talentForm(talentObject));
+    }
+
+    if (event.target.id.includes('edit-booking')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getSingleArtist(firebaseKey).then((bookingsObject) => bookingsForm(bookingsObject));
+    }
+
     if (event.target.id.includes('addItemButton')) {
       getItems().then((menuArray) => viewMenu(menuArray, user));
     }
@@ -61,6 +113,10 @@ const domEvents = (user) => {
     if (event.target.id.includes('edit-order')) {
       const [, firebaseKey] = event.target.id.split('--');
       getSingleOrder(firebaseKey).then((orderObject) => orderForm(orderObject));
+    }
+
+    if (event.target.id.includes('book-talent')) {
+      talentForm();
     }
 
     if (event.target.id.includes('delete-item-btn')) {
@@ -102,6 +158,23 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('closed-orders')) {
       getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
+    }
+    if (event.target.id.includes('view-talent')) {
+      viewTalent();
+    }
+    if (event.target.id.includes('all-shows')) {
+      viewBookings();
+    }
+    if (event.target.id.includes('in-person-shows')) {
+      getInPersonBookings(user).then((bookingsArray) => renderBookings(bookingsArray));
+    }
+
+    if (event.target.id.includes('virtual-shows')) {
+      getVirtualBookings(user).then((bookingsArray) => renderBookings(bookingsArray));
+    }
+
+    if (event.target.id.includes('book-new-show')) {
+      bookingsForm();
     }
   });
 };

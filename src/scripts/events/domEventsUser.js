@@ -14,6 +14,9 @@ import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
+import artistSignUp from '../components/forms/artistSignUp';
+import thankYouMessage from '../helpers/thankYouMessage';
+import { getOrderItems, deleteOrderItem } from '../../api/orderItems';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -96,23 +99,30 @@ const domEvents = (user) => {
       getClosedOrdersByUser(user).then((orderArray) => renderOrders(orderArray));
     }
 
-    if (event.target.id.includes('add-menuItem')) {
-      const [, firebaseKey] = event.target.id.split('--');
-      getOrderByUser(user).then((orderArray) => {
-        orderArray.forEach((order) => {
-          if (order.orderStatus === 'open') {
-            getSingleItem(firebaseKey).then((itemObject) => {
-              cloneMenuItem(itemObject, order.firebaseKey).then((itemArray) => {
-                itemArray.forEach((item) => {
-                  if (order.firebaseKey === item.orderId) {
-                    viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
-                  }
+    if (event.target.id.includes('artist-sign-up')) {
+      artistSignUp();
+    }
+
+    if (event.target.id.includes('submit-application')) {
+      thankYouMessage();
+      if (event.target.id.includes('add-menuItem')) {
+        const [, firebaseKey] = event.target.id.split('--');
+        getOrderByUser(user).then((orderArray) => {
+          orderArray.forEach((order) => {
+            if (order.orderStatus === 'open') {
+              getSingleItem(firebaseKey).then((itemObject) => {
+                cloneMenuItem(itemObject, order.firebaseKey).then((itemArray) => {
+                  itemArray.forEach((item) => {
+                    if (order.firebaseKey === item.orderId) {
+                      viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+                    }
+                  });
                 });
               });
-            });
-          }
+            }
+          });
         });
-      });
+      }
     }
   });
 };
