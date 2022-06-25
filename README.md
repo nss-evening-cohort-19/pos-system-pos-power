@@ -21,10 +21,12 @@ Introducing the new POS (Point of Sale) system for Hip Hop Pizza N' Wings!
 
 This state of the art system:
   - Has different interfaces for Admins (HHPnW employees) & customers!
-  - Requires login for all users through Google Authentication
+  - Requires login for all users through Google Authentication.
   - Is composed of:
-      1. A home page with links to View Orders, Create Orders, View Revenue (Admin), Book Talent (Admin)
-      2. 
+      1. A Home Page with links to the View Orders Page, Create Orders Page, View Revenue Page (Admin), Book Talent Page (Admin).
+      2. A Nav Bar with links to the Home Page, View Orders Page, Create Order Page, Menu Page, Talent Booking Page (View Upcoming Shows for Customers).
+      3. A View Orders Page with the ability to filter on All Orders, Open Orders and Closed Orders.
+          - Users can see Order Details (Order Detail Page) for each order, edit each order and delete each order.
 
 
 
