@@ -8,12 +8,13 @@ import { viewOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
-import { getAllRevenueObj } from '../../api/revenueData';
+import { getAllCustomRevenueObjChart, getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
+// import generateRevenueChart from '../../api/revenueChart';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -54,7 +55,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray));
+      getItems().then((menuArray) => viewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
@@ -81,6 +82,14 @@ const domEvents = (user) => {
           paymentForm(orderObject);
         }
       });
+    }
+    // Custom Start and End Dates
+    if (event.target.id.includes('date-modal-submit')) {
+      const startDateValue = `${document.querySelector('#startDate').value}, 12:00:00 AM`;
+      const endDateValue = `${document.querySelector('#endDate').value}, 11:59:59 PM`;
+      const startDate = new Date(startDateValue).toLocaleString();
+      const endDate = new Date(endDateValue).toLocaleString();
+      getAllCustomRevenueObjChart(startDate, endDate).then((response) => revenuePage(response));
     }
 
     if (event.target.id.includes('all-orders')) {
