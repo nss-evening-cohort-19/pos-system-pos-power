@@ -32,7 +32,7 @@ const revenuePage = (revObj) => {
                   <input class="form-control" type="text" placeholder="Select Start Date" id="startDate" name="startDate" onfocus="(this.type='date')" required>
                   <input class="form-control" type="text" placeholder="Select End Date" id="endDate" name="endDate" onfocus="(this.type='date')" required>
               
-                  <div class="modal-footer">
+                  <div class="modal-footer modalFooter">
                   <button type="submit" id="date-modal-submit" class="btn btn-success" aria-hidden:"true" data-bs-dismiss="modal">Submit</button>
                   </div>
                 </form>
