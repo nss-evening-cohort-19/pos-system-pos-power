@@ -15,28 +15,20 @@ Planning Documents for Project:
 * **[Github Milestones](https://github.com/nss-evening-cohort-19/pos-system-pos-power/milestones)** - Separate those issue tickets into Milestones to plan out the work.
 * **[Github Project Board](https://github.com/nss-evening-cohort-19/pos-system-pos-power/projects/1)** - Create a project board, add all of your issue tickets, and order them by priority.
 
-## Definition of Done
+## Definition of Project
 
-Do not submit this project until all of the following are complete:
+Introducing the new POS (Point of Sale) system for Hip Hop Pizza N' Wings!
 
-1. All items are completed in getting started
-1. MVP, defined by the Acceptance Criteria, has been completed
-1. The title of your application is visible in the browser tab
-1. The project has been deployed
-1. Loom video has been created
-1. `README.md` has been updated
+This state of the art system:
+  - Has different interfaces for Admins (HHPnW employees) & customers!
+  - Requires login for all users through Google Authentication
+  - Is composed of:
+      1. A home page with links to View Orders, Create Orders, View Revenue (Admin), Book Talent (Admin)
+      2. 
 
-## Requirements
 
-Things to remember while coding out the project
 
-* Clean code - single responsibility principle
-* ES6 Modules bundled with webpack
-* No errors - linters should be clean
-* Bootstrap 5 for styling
-* Completely planned out - before each section you should be making new cards on your Github project board before you code
-* Wireframes are provided for you for MVP
-* You should have an ERD
+
 
 ### Instructions
 
