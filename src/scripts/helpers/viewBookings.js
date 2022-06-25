@@ -7,8 +7,12 @@ const viewBookings = (user) => {
   getAllBookings(user).then((response) => renderBookings(response));
 };
 
+const viewBookingsUser = (user) => {
+  getAllBookings(user).then((response) => renderBookings(response));
+};
+
 const viewTalent = (user) => {
   getTalent(user).then((response) => renderTalent(response));
 };
 
-export { viewBookings, viewTalent };
+export { viewBookings, viewTalent, viewBookingsUser };

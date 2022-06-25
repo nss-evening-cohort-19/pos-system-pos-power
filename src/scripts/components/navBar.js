@@ -26,6 +26,9 @@ const navBar = () => {
           <li class="nav-item">
             <a id="menu-nav" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">Menu</a>
           </li>
+          <li class="nav-item">
+          <a id="talent-bookings-nav-user" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">View Upcoming Shows</a>
+        </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <form id="search-bar-div" class="nav-item" onsubmit="return false">
