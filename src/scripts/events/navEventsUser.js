@@ -7,6 +7,7 @@ import renderToDOM from '../helpers/renderToDom';
 import clearDom from '../helpers/clearDom';
 import viewMenu from '../components/pages/menuPage';
 import { viewBookingsUser } from '../helpers/viewBookings';
+import { getItems } from '../../api/itemsData';
 
 const navEvents = (user) => {
   document.querySelector('#home-nav').addEventListener('click', () => { loginHomeUser(user); });
@@ -39,6 +40,12 @@ const navEvents = (user) => {
         .then((response) => (response.filter((order) => order.last_name.toLowerCase().includes(input) || order.customerPhoneNumber.toLowerCase().includes(input))))
         .then((searchedOrders) => (renderOrders(searchedOrders, user.uid)))
         .then(document.querySelector('#searchBar-input').value = '');
+    }
+  });
+
+  document.querySelector('#navigation').addEventListener('click', (e) => {
+    if (e.target.id.includes('menu-nav')) {
+      getItems().then((menuArray) => viewMenu(menuArray));
     }
   });
 };
