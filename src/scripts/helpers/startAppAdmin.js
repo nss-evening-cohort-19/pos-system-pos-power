@@ -14,8 +14,8 @@ const startAppAdmin = (user) => {
   logoutButton();
   loginHome(user);
   navEvents(user);
-  domEvents();
-  formEvents();
+  domEvents(user.uid);
+  formEvents(user);
 };
 
 export default startAppAdmin;

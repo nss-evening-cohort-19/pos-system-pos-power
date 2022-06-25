@@ -9,7 +9,7 @@ const orderDetails = (obj = {}) => {
     itemArray.forEach((menuItem) => {
       domString += `
       <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="${menuItem.imgUrl}" alt="Card image cap">
+      <img class="card-img-top" src="${menuItem.imageUrl}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">${menuItem.item_name}</h5>
         <h6 class="card-price">${menuItem.item_price}</h6>

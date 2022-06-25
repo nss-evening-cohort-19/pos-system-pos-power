@@ -8,7 +8,7 @@ import { viewOrders } from '../helpers/viewOrders';
 import orderForm from '../components/forms/orderForm';
 import revenuePage from '../components/pages/revenue';
 import { deleteItem, getItems, getSingleItem } from '../../api/itemsData';
-import { getAllCustomRevenueObj, getAllRevenueObj } from '../../api/revenueData';
+import { getAllCustomRevenueObjChart, getAllRevenueObj } from '../../api/revenueData';
 import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
@@ -23,6 +23,7 @@ import bookingsForm from '../components/forms/bookingsForm';
 import talentForm from '../components/forms/talentForm';
 import { deleteTalent, getSingleArtist } from '../../api/talentData';
 import renderTalent from '../components/pages/talent';
+// import generateRevenueChart from '../../api/revenueChart';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -106,7 +107,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray));
+      getItems().then((menuArray) => viewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
@@ -144,7 +145,7 @@ const domEvents = (user) => {
       const endDateValue = `${document.querySelector('#endDate').value}, 11:59:59 PM`;
       const startDate = new Date(startDateValue).toLocaleString();
       const endDate = new Date(endDateValue).toLocaleString();
-      getAllCustomRevenueObj(startDate, endDate).then((response) => revenuePage(response));
+      getAllCustomRevenueObjChart(startDate, endDate).then((response) => revenuePage(response));
     }
 
     if (event.target.id.includes('all-orders')) {

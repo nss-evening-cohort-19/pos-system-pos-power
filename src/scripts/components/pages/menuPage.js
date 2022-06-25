@@ -9,15 +9,19 @@ const viewMenu = (array) => {
   clearDom();
   if (array.length) {
     let domString = '<div id="menuContainer" class="container order-container">';
-    array.forEach((menuItem) => {
+    array.forEach((menuObject) => {
       domString += `<div id="menu-items" class="card" style="width: 18rem;">
+<<<<<<< HEAD
       <img class="card-img-top" src="${menuItem.imageUrl}" alt="Card image cap">
+=======
+      <img class="card-img-top" src="${menuObject.imgUrl}" alt="Card image cap">
+>>>>>>> development
       <div class="card-body">
-        <h5 class="card-title">${menuItem.item_name}</h5>
-        <h6 class="card-price">${menuItem.item_price}</h6>
-        <p class="card-text">${menuItem.item_description}</p>
-        <h6 class="card-subtitle mb-2">${menuItem.onSale ? 'On Sale' : ''}</h6>
-        <a href="#" id="add-menuItem--${menuItem.firebaseKey}" class="btn btn-primary">Add to Order</a>
+        <h5 class="card-title">${menuObject.item_name}</h5>
+        <h6 class="card-price">${menuObject.item_price}</h6>
+        <p class="card-text">${menuObject.item_description}</p>
+        <h6 class="card-subtitle mb-2">${menuObject.onSale ? 'On Sale' : ''}</h6>
+        <a href="#" id="add-menuItem--${menuObject.firebaseKey}" class="btn btn-primary">Add to Order</a>
       </div>
     </div>`;
     });
