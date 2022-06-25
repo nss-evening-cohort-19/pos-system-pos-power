@@ -16,7 +16,7 @@ import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
 import artistSignUp from '../components/forms/artistSignUp';
 import thankYouMessage from '../helpers/thankYouMessage';
-import { getOrderItems, deleteOrderItem } from '../../api/orderItems';
+// import { getOrderItems, deleteOrderItem } from '../../api/orderItems';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
