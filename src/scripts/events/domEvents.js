@@ -1,6 +1,8 @@
-import { updatedItems, viewOrderDetails } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders,
+  viewOrderDetails, cloneMenuItem, updatedOrderItems, updatedItems
+} from '../../api/mergedData';
+import {
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders, getOrderByUser
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -13,7 +15,7 @@ import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
-import viewMenu from '../components/pages/menuPage';
+import adminViewMenu from '../components/pages/adminMenuPage';
 import { viewBookings, viewTalent } from '../helpers/viewBookings';
 import {
   deleteBooking, getInPersonBookings, getSingleBooking, getVirtualBookings
@@ -107,12 +109,23 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray, user));
+      getItems().then((menuArray) => adminViewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
       const [, firebaseKey] = event.target.id.split('--');
       getSingleOrder(firebaseKey).then((orderObject) => orderForm(orderObject));
+    }
+
+    if (event.target.id.includes('delete-from-order-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        const [, firebaseKey] = event.target.id.split('--');
+        updatedOrderItems(firebaseKey)
+          .then((response) => {
+            orderDetails(response);
+          });
+      }
     }
 
     if (event.target.id.includes('book-talent')) {
@@ -159,6 +172,26 @@ const domEvents = (user) => {
     if (event.target.id.includes('closed-orders')) {
       getClosedOrders(user).then((orderArray) => renderOrders(orderArray));
     }
+
+    if (event.target.id.includes('add-menuItem')) {
+      const [, firebaseKey] = event.target.id.split('--');
+      getOrderByUser(user).then((orderArray) => {
+        orderArray.forEach((order) => {
+          if (order.orderStatus === 'open') {
+            getSingleItem(firebaseKey).then((itemObject) => {
+              cloneMenuItem(itemObject, order.firebaseKey).then((itemArray) => {
+                itemArray.forEach((item) => {
+                  if (order.firebaseKey === item.orderId) {
+                    viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+                  }
+                });
+              });
+            });
+          }
+        });
+      });
+    }
+
     if (event.target.id.includes('view-talent')) {
       viewTalent();
     }
