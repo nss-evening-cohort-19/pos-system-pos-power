@@ -1,16 +1,17 @@
 import axios from 'axios';
 import firebaseConfig from './apiKeys';
-import { getSingleItem, deleteItem, getOrderItems } from './itemsData';
+import { getSingleItem, deleteItem } from './itemsData';
 import {
-  getClosedOrders, getOrderByUser, getSingleOrder, getSingleOrdersItems, getOpenOrders
+  getClosedOrders, getOrderByUser, getSingleOrder, getOpenOrders
 } from './ordersData';
+import { getAllOrderMenuItems, getOrderMenuItems } from './orderItems';
 
 const dbURL = firebaseConfig.databaseURL;
 
 const viewOrderDetails = (orderFirebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(orderFirebaseKey)
     .then((orderObject) => {
-      getSingleOrdersItems(orderObject.firebaseKey)
+      getOrderMenuItems(orderObject.firebaseKey)
         .then((itemArray) => {
           resolve({ itemArray, ...orderObject });
         });
@@ -51,7 +52,9 @@ const cloneMenuItem = (menuObject, orderFirebaseKey) => new Promise((resolve, re
     .then((response) => {
       const payload = { firebaseKey: response.data.name, orderId: orderFirebaseKey };
       axios.patch(`${dbURL}/orderItems/${response.data.name}.json`, payload)
-        .then((fire) => getOrderItems(fire.data.orderId));
+        .then(() => {
+          getAllOrderMenuItems().then(resolve);
+        });
     }).catch(reject);
 });
 

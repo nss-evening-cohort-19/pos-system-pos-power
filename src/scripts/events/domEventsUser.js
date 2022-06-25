@@ -104,7 +104,13 @@ const domEvents = (user) => {
         orderArray.forEach((order) => {
           if (order.orderStatus === 'open') {
             getSingleItem(firebaseKey).then((itemObject) => {
-              cloneMenuItem(itemObject, order.firebaseKey).then((orderItemArray) => orderDetails(orderItemArray));
+              cloneMenuItem(itemObject, order.firebaseKey).then((itemArray) => {
+                itemArray.forEach((item) => {
+                  if (firebaseKey === item.orderId) {
+                    viewOrderDetails(item.orderId).then((orderItemObject) => orderDetails(orderItemObject));
+                  }
+                });
+              });
             });
           }
         });
