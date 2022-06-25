@@ -4,7 +4,9 @@ import { getSingleItem, deleteItem } from './itemsData';
 import {
   getClosedOrders, getOrderByUser, getSingleOrder, getOpenOrders
 } from './ordersData';
-import { getAllOrderMenuItems, getOrderMenuItems } from './orderItems';
+import {
+  getAllOrderMenuItems, getOrderMenuItems, getSingleOrderItem, deleteOrderItem
+} from './orderItems';
 
 const dbURL = firebaseConfig.databaseURL;
 
@@ -58,6 +60,15 @@ const cloneMenuItem = (menuObject, orderFirebaseKey) => new Promise((resolve, re
     }).catch(reject);
 });
 
+const updatedOrderItems = (itemFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleOrderItem(itemFirebaseKey)
+    .then((itemObject) => {
+      deleteOrderItem(itemFirebaseKey, itemObject.orderId)
+        .then(() => viewOrderDetails(itemObject.orderId).then(resolve))
+        .catch((error) => reject(error));
+    });
+});
+
 export {
-  viewOrderDetails, updatedItems, viewClosedOrdersByUser, viewOpenOrdersByUser, cloneMenuItem
+  viewOrderDetails, updatedItems, viewClosedOrdersByUser, viewOpenOrdersByUser, cloneMenuItem, updatedOrderItems
 };
