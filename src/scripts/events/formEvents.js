@@ -4,7 +4,7 @@ import {
 } from '../../api/itemsData';
 import { viewOrderDetails } from '../../api/mergedData';
 import {
-  createOrder, getOpenOrders, updateOrder
+  createOrder, updateOrder
 } from '../../api/ordersData';
 import { createTalent, updateTalent } from '../../api/talentData';
 import closeOrder from '../components/closeOrder';
@@ -12,7 +12,6 @@ import renderBookings from '../components/pages/bookings';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
 import renderTalent from '../components/pages/talent';
-import renderToDOM from '../helpers/renderToDom';
 
 const formEvents = (user, uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -26,15 +25,7 @@ const formEvents = (user, uid) => {
         orderType: document.querySelector('#orderType').value,
         uid,
       };
-      getOpenOrders(user.uid).then((orderArray) => {
-        if (orderArray.some((order) => order.orderStatus === 'open')) {
-          const domString = `
-          <h5 id="alreadyOpen">You Already Have A Current Order</h5>`;
-          renderToDOM('#orderOpen', domString);
-        } else {
-          createOrder(newOrder).then((response) => renderOrders(response));
-        }
-      });
+      createOrder(newOrder).then((response) => renderOrders(response));
     }
     if (e.target.id.includes('update-order')) {
       const [, firebaseKey] = e.target.id.split('--');
