@@ -11,8 +11,8 @@ const adminViewMenu = (array) => {
     let domString = '<div id="menuContainer" class="container order-container">';
     array.forEach((menuObject) => {
       domString += `<div id="menu-items" class="card" style="width: 18rem;">
-      <img class="card-img-top" src="${menuObject.imgUrl}" alt="Card image cap">
-      <div class="card-body">
+      <img class="card-img-top" id="menuImages" src="${menuObject.imageUrl}" alt="menu item image">
+      <div id="menuCards">
         <h5 class="card-title">${menuObject.item_name}</h5>
         <h6 class="card-price">${menuObject.item_price}</h6>
         <p class="card-text">${menuObject.item_description}</p>
