@@ -115,6 +115,7 @@ const formEvents = (user, uid) => {
     if (e.target.id.includes('submit-booking')) {
       const newShow = {
         talent_name: document.querySelector('#talent_name').value,
+        imageUrl: document.querySelector('#imageUrl').value,
         performanceDate: document.querySelector('#show-date').value,
         performanceType: document.querySelector('#performanceType').value,
         uid,

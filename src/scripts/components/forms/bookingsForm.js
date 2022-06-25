@@ -10,6 +10,10 @@ const bookingsForm = (obj = {}) => {
         <input type="text" class="form-control" id="talent_name" aria-describedby="talent_name" placeholder="Enter Artist/Band Name" value="${obj.talent_name || ''}" required>
       </div>
       <div class="form-group">
+      <label for="imageUrl">Artist Image</label>
+      <input type="url" class="form-control" placeholder="Image Url" id="imageUrl" aria-describedby="imageUrl" value="${obj.imageUrl || ''}" required>
+    </div>
+      <div class="form-group">
       <label for="show-date">Date of Show</label>
       <input type="date" class="form-control" id="show-date" placeholder="Date" value="${obj.showDate || ''}" required>
     </div>

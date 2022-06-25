@@ -21,6 +21,7 @@ const renderBookings = (array) => {
     array.forEach((card) => {
       domString += `<div style="width: 18rem;">
       <div class="card-body order-card">
+        <img class="card-img-top" src="${card.imageUrl}">
         <h5 class="card-title">${card.talent_name}</h5>
         <h6 class="card-subtitle mb-2">${card.performanceType}</h6>
         <p class="card-text">Scheduled Date: ${card.performanceDate}</p>
