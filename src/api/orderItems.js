@@ -37,6 +37,12 @@ const deleteOrderItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleOrderItem = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/orderItems/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
 export {
-  getOrderMenuItems, getAllOrderMenuItems, getOrderItems, deleteOrderItem
+  getOrderMenuItems, getAllOrderMenuItems, getOrderItems, deleteOrderItem, getSingleOrderItem
 };

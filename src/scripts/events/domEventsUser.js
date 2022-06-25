@@ -1,4 +1,6 @@
-import { updatedItems, viewOrderDetails, cloneMenuItem } from '../../api/mergedData';
+import {
+  updatedItems, viewOrderDetails, cloneMenuItem, updatedOrderItems
+} from '../../api/mergedData';
 import {
   getSingleOrder, getOrderByUser, getClosedOrdersByUser, getOpenOrdersByUser
 } from '../../api/ordersData';
@@ -12,7 +14,6 @@ import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
-import { getOrderItems, deleteOrderItem } from '../../api/orderItems';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -42,17 +43,14 @@ const domEvents = (user) => {
       getSingleItem(itemFirebaseKey).then((itemObject) => itemForm(itemObject, itemObject.orderId));
     }
 
-    if (event.target.id.includes('delete-order-btn')) {
+    if (event.target.id.includes('delete-from-order-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to Delete?')) {
         const [, firebaseKey] = event.target.id.split('--');
-        getOrderItems().then((itemArray) => {
-          itemArray.forEach((item) => {
-            if (item.orderId === firebaseKey) {
-              deleteOrderItem(item.firebaseKey).then(null);
-            }
+        updatedOrderItems(firebaseKey)
+          .then((response) => {
+            orderDetails(response);
           });
-        });
       }
     }
 
