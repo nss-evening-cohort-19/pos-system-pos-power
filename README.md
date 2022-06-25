@@ -31,8 +31,8 @@ This state of the art system:
           <td>Admin Home Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/userHomePage.png" width=400 height=250></td>
-          <td><img src="./instructions/adminHomePage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/userHomePage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/adminHomePage.png" width=400 height=250></td>
         </tr>
       </table>
 
@@ -45,7 +45,7 @@ This state of the art system:
           <td>Admin Home Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/adminHomePage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/adminHomePage.png" width=400 height=250></td>
         </tr>
       </table>
 
@@ -56,7 +56,7 @@ This state of the art system:
           <td>Nav Bar</td>
         </tr>
         <tr>
-          <td><img src="./instructions/adminNavBar.png" width=700 height=30></td>
+          <td><img src="./instructions/readMeDocs/adminNavBar.png" width=700 height=30></td>
         </tr>
       </table>
 
@@ -68,7 +68,7 @@ This state of the art system:
           <td>Orders Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/viewOrdersPage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/viewOrdersPage.png" width=400 height=250></td>
         </tr>
       </table>
 
@@ -79,7 +79,7 @@ This state of the art system:
           <td>Order Details Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/orderDetailsPage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/orderDetailsPage.png" width=400 height=250></td>
         </tr>
       </table>
 
@@ -90,7 +90,7 @@ This state of the art system:
           <td>Close Order Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/closeOrderPage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/closeOrderPage.png" width=400 height=250></td>
         </tr>
       </table>
 
@@ -101,7 +101,7 @@ This state of the art system:
           <td>Revenue Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/revenuePage.png" width=500 height=250></td>
+          <td><img src="./instructions/readMeDocs/revenuePage.png" width=500 height=250></td>
         </tr>
       </table>
 
@@ -112,7 +112,7 @@ This state of the art system:
           <td>Create Order Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/createOrderPage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/createOrderPage.png" width=400 height=250></td>
         </tr>
       </table>
 
@@ -123,17 +123,36 @@ This state of the art system:
           <td>Book Talent Page</td>
         </tr>
         <tr>
-          <td><img src="./instructions/bookTalentPage.png" width=400 height=250></td>
+          <td><img src="./instructions/readMeDocs/bookTalentPage.png" width=400 height=250></td>
         </tr>
       </table>
 
       9. A Menu Page that lets Admins add new items to the menu!
 
+      <table>
+        <tr>
+          <td>Menu Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/readMeDocs/menuPage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
+## Contributors:
+
+#### Justin Ferwerda - https://github.com/Justin-Ferwerda
+#### Kristen Chandler - https://github.com/kmchandler
+#### Christian Black - https://github.com/blackcl3
+#### Mitch McCullough - https://github.com/mmccullough1997
+
+## How to Use:
+
+- clone repository
+- install app dependencies: npm i
+- start server: npm start
 
 
-
-
-### Instructions
+### Assignment Overview:
 
 * [MVP Definition - It Gets the Job Done](./instructions/mvp.md)
 * [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)
