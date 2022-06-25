@@ -6,6 +6,7 @@ import loginHomeUser from '../components/pages/loginHomeUser';
 import renderToDOM from '../helpers/renderToDom';
 import clearDom from '../helpers/clearDom';
 import viewMenu from '../components/pages/menuPage';
+import { viewBookingsUser } from '../helpers/viewBookings';
 
 const navEvents = (user) => {
   document.querySelector('#home-nav').addEventListener('click', () => { loginHomeUser(user); });
@@ -13,6 +14,8 @@ const navEvents = (user) => {
   document.querySelector('#view-order').addEventListener('click', () => { viewUserOrders(user.uid); });
 
   document.querySelector('#menu-nav').addEventListener('click', viewMenu);
+
+  document.querySelector('#talent-bookings-nav-user').addEventListener('click', viewBookingsUser);
 
   document.querySelector('#navigation').addEventListener('click', (e) => {
     if (e.target.id.includes('create-order')) {

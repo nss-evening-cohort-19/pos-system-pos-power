@@ -30,6 +30,15 @@ const itemForm = (obj = {}, orderId) => {
     </form>`;
 
   renderToDOM('#form-container', domString);
+  const filterBookingsButtons = `<div class="btn-group" role="group" aria-label="Basic example" id="show-type">
+  <button type="button" class="btn btn-secondary" id="all-shows">All Shows</button>
+  <button type="button" class="btn btn-secondary" id="virtual-shows">Virtual Shows</button>
+  <button type="button" class="btn btn-secondary" id="in-person-shows">In Person Shows</button>
+  <button type="button" class="btn btn-secondary" id="book-new-show">Book New Show</button>
+  <button type="button" class="btn btn-secondary" id="view-talent">View Talent</button>
+  <button type="button" class="btn btn-secondary" id="book-talent">Book New Talent</button>
+  </div>`;
+  renderToDOM('#details-buttons', filterBookingsButtons);
 };
 
 export default itemForm;

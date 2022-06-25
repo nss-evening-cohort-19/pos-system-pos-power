@@ -1,3 +1,4 @@
+import { createBooking, updateBooking } from '../../api/bookingsData';
 import {
   updateItem, createItem
 } from '../../api/itemsData';
@@ -5,9 +6,12 @@ import { viewOrderDetails } from '../../api/mergedData';
 import {
   createOrder, updateOrder
 } from '../../api/ordersData';
+import { createTalent, updateTalent } from '../../api/talentData';
 import closeOrder from '../components/closeOrder';
+import renderBookings from '../components/pages/bookings';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
+import renderTalent from '../components/pages/talent';
 
 const formEvents = (user, uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -71,9 +75,53 @@ const formEvents = (user, uid) => {
         });
     }
 
+    if (e.target.id.includes('update-booking')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const updatedShow = {
+        talent_name: document.querySelector('#talent_name').value,
+        performanceDate: document.querySelector('#show-date').value,
+        performanceType: document.querySelector('#performanceType').value,
+        uid,
+        firebaseKey,
+      };
+      updateBooking(updatedShow).then((bookingArray) => renderBookings(bookingArray));
+    }
+
+    if (e.target.id.includes('update-talent')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const artistObject = {
+        firebaseKey,
+        talent_name: document.querySelector('#talent_name').value,
+        imageUrl: document.querySelector('#imageUrl').value,
+        talent_email: document.queryCommandValue('#talent_email').value,
+        talent_phone: document.queryCommandValue('#talent_phone').value,
+      };
+      updateTalent(artistObject).then((artistArray) => renderTalent(artistArray));
+    }
+
     if (e.target.id.includes('paymentForm')) {
       const [, firebaseKey] = e.target.id.split('--');
       closeOrder(firebaseKey);
+    }
+    if (e.target.id.includes('submit-booking')) {
+      const newShow = {
+        talent_name: document.querySelector('#talent_name').value,
+        imageUrl: document.querySelector('#imageUrl').value,
+        performanceDate: document.querySelector('#show-date').value,
+        performanceType: document.querySelector('#performanceType').value,
+        uid,
+      };
+      createBooking(newShow).then((response) => renderBookings(response));
+    }
+
+    if (e.target.id.includes('submit-talent')) {
+      const newArtist = {
+        talent_name: document.querySelector('#talent_name').value,
+        imageUrl: document.querySelector('#imageUrl').value,
+        talent_email: document.querySelector('#talent_email_div').value,
+        talent_phone: document.querySelector('#talent_phone_div').value,
+      };
+      createTalent(newArtist).then((response) => renderTalent(response));
     }
   });
 };

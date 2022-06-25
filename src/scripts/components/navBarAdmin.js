@@ -1,7 +1,7 @@
 import renderToDom from '../helpers/renderToDom';
 import logo from '../../../instructions/hhpw-record-neon.png';
 
-const navBar = () => {
+const navBarAdmin = () => {
   const domString = `
   <nav id="navBarDiv" class="navbar navbar-expand-lg navbar-dark mb-5">
     <div class="container-fluid">
@@ -27,8 +27,8 @@ const navBar = () => {
             <a id="menu-nav" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">Menu</a>
           </li>
           <li class="nav-item">
-          <a id="talent-bookings-nav-user" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">View Upcoming Shows</a>
-        </li>
+            <a id="talent-bookings-nav" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">Talent Bookings</a>
+          </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <form id="search-bar-div" class="nav-item" onsubmit="return false">
@@ -45,4 +45,4 @@ const navBar = () => {
   renderToDom('#navigation', domString);
 };
 
-export default navBar;
+export default navBarAdmin;

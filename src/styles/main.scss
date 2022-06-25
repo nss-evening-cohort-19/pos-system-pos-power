@@ -3,6 +3,14 @@ body {
   text-align: center;
   max-width: 100%;
   max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .logo {
@@ -55,7 +63,7 @@ body {
 }
 
 #home-nav:hover {
-  color: #04d9ff
+  color: #04d9ff;
 }
 
 #create-order {
@@ -71,10 +79,9 @@ body {
   flex-flow: row wrap;
   width: 100%;
   margin-top: 10%;
-  max-width: 100%;
-  max-height: 100%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
 }
 
 #cardContainer {
@@ -83,6 +90,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   row-gap: 5%;
+  width: 100%;
+  justify-content: center;
 }
 
 .card-body {
@@ -102,7 +111,7 @@ body {
 }
 
 #ordersHome {
-  margin-top: 30%;
+  margin-top: 20%;
   width: 30%;
   margin-left: auto;
   margin-right: auto;
@@ -135,6 +144,10 @@ body {
 }
 
 #hr-order {
+  color: black;
+}
+
+#hr-booking {
   color: black;
 }
 
@@ -538,4 +551,189 @@ body {
 
 #menu-nav:hover {
   color: #FF10F0;
+}
+
+#bookingsHome {
+  margin: 2px;
+  border-radius: 4px;
+  margin-top: 5%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FF10F0;
+  color: black;
+  border-style: solid;
+  border-color: #FF10F0;
+}
+
+#bookingsHome:hover {
+  background-color: black;
+  color: #FF10F0;
+  border-style: solid;
+  border-color: #FF10F0;
+}
+
+#bookings-buttons {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  height: 100%;
+  margin-top: 12%;
+}
+
+#filterBookingsButtons {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#virtual-shows {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#book-new-show {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#in-person-shows {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#all-shows {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#view-talent {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#book-talent {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#artist-sign-up {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
+#empty-bookings {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#show-type {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8%;
+}
+
+.bookingsForm {
+  color: white;
+}
+
+#booking-submit-btn {
+  background-color: #04d9ff;
+  color: black;
+}
+
+#booking-submit-btn:hover {
+  background-color: black;
+  color: #04d9ff;
+}
+
+.talentForm {
+  color: white;
+}
+
+#talent-submit-btn {
+  background-color: #04d9ff;
+  color: black;
+}
+
+#talent-submit-btn:hover {
+  background-color: black;
+  color: #04d9ff;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+#talent-bookings-nav {
+  margin-top: 3%;
+}
+
+#talent-bookings-nav:hover {
+  color: #04d9ff;
+}
+
+#talent-apply {
+  color: white;
+  text-align: left;
+}
+
+#thanks {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#talent-bookings-nav-user {
+  margin-top: 2%;
+}
+
+#talent-bookings-nav-user:hover {
+  color: #04d9ff;
+}
+
+#submit-application {
+  background-color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+  color: black;
+}
+
+#submit-application:hover {
+  background-color: black;
+  color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
 }
