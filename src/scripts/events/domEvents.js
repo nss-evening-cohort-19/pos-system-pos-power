@@ -2,7 +2,7 @@ import {
   viewOrderDetails, cloneMenuItem, updatedOrderItems, updatedItems
 } from '../../api/mergedData';
 import {
-  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders, getOrderByUser
+  deleteOrder, getSingleOrder, getOpenOrders, getClosedOrders, getAllOrders,
 } from '../../api/ordersData';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
@@ -175,7 +175,7 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('add-menuItem')) {
       const [, firebaseKey] = event.target.id.split('--');
-      getOrderByUser(user).then((orderArray) => {
+      getAllOrders(user).then((orderArray) => {
         orderArray.forEach((order) => {
           if (order.orderStatus === 'open') {
             getSingleItem(firebaseKey).then((itemObject) => {
