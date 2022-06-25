@@ -1,4 +1,4 @@
-import { createBooking, getAllBookings, updateBooking } from '../../api/bookingsData';
+import { createBooking, updateBooking } from '../../api/bookingsData';
 import {
   updateItem, createItem
 } from '../../api/itemsData';
@@ -6,7 +6,7 @@ import { viewOrderDetails } from '../../api/mergedData';
 import {
   createOrder, getOpenOrders, updateOrder
 } from '../../api/ordersData';
-import { createTalent, getTalent, updateTalent } from '../../api/talentData';
+import { createTalent, updateTalent } from '../../api/talentData';
 import closeOrder from '../components/closeOrder';
 import renderBookings from '../components/pages/bookings';
 import orderDetails from '../components/pages/orderDetails';
@@ -119,21 +119,17 @@ const formEvents = (user, uid) => {
         performanceType: document.querySelector('#performanceType').value,
         uid,
       };
-      getAllBookings().then(() => {
-        createBooking(newShow).then((response) => renderBookings(response));
-      });
+      createBooking(newShow).then((response) => renderBookings(response));
     }
 
     if (e.target.id.includes('submit-talent')) {
       const newArtist = {
         talent_name: document.querySelector('#talent_name').value,
         imageUrl: document.querySelector('#imageUrl').value,
-        talent_email: document.queryCommandValue('#talent_email').value,
-        talent_phone: document.queryCommandValue('#talent_phone').value,
+        talent_email: document.queryCommandValue('#talent_email_div').value,
+        talent_phone: document.queryCommandValue('#talent_phone_div').value,
       };
-      getTalent().then(() => {
-        createTalent(newArtist).then((response) => renderTalent(response));
-      });
+      createTalent(newArtist).then((response) => renderTalent(response));
     }
   });
 };
