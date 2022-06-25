@@ -14,18 +14,14 @@ const navEvents = (user) => {
 
   document.querySelector('#menu-nav').addEventListener('click', viewMenu);
 
-  // document.querySelector('#navBarToggleBtn').addEventListener('click', (e) => {
-  //   console.warn(e);
-  //   console.warn(document.querySelector('#navbarSupportedContent').classList);
-  //   const navBarCollapse = document.querySelector('#navbarSupportedContent');
-  //   if (navBarCollapse.classList.contains('show')) {
-  //     e.preventDefault();
-  //     navBarCollapse.classList.remove('collapsing');
-  //     navBarCollapse.classList.replace('show', 'hide');
-  //   } else {
-  //     document.querySelector('#navbarSupportedContent').classList.replace('hide', 'show');
-  //   }
-  // });
+  document.querySelector('#navBarToggleBtn').addEventListener('click', (e) => {
+    console.warn(e);
+    console.warn(document.querySelector('#navbarSupportedContent').classList);
+    const navBarCollapse = document.querySelector('#navbarSupportedContent');
+    if (navBarCollapse.classList.value === ('navbar-collapse collapse show')) {
+      navBarCollapse.classList.replace('show', 'hide');
+    }
+  });
 
   document.querySelector('#searchBar-input').addEventListener('keyup', (e) => {
     e.preventDefault();

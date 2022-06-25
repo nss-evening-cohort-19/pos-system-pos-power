@@ -4,14 +4,14 @@ import logo from '../../../instructions/hhpw-record-neon.png';
 const navBar = () => {
   const domString = `
   <nav id="navBarDiv" class="navbar navbar-expand-lg navbar-dark mb-5">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navBarToggleBtn">
+   <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navBarToggleBtn">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <a id="logo-image" class="navbar-brand">
+    </button>
+    <a id="logo-image" class="navbar-brand">
         <img id="navLogo" src="${logo}">
-      </a>
-      <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    </a>
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a id="home-nav" class="nav-link" aria-current="page" href="#">Home</a>
@@ -35,9 +35,8 @@ const navBar = () => {
               Logout
             </div>
           </div>
-        </ul>
-      </div>
-    </div>
+      </ul>
+   </div>
   </nav>
   `;
   renderToDom('#navigation', domString);
