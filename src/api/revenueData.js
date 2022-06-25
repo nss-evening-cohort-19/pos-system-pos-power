@@ -22,6 +22,16 @@ const getAllCustomRevenueObj = (startDate, endDate) => new Promise((resolve, rej
     .catch((reject));
 });
 
+const getAllCustomRevenueObjChart = (startDate, endDate) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/revenue.json`)
+    .then((response) => {
+      resolve(customRevenueObj(Object.values((response.data)), startDate, endDate));
+      return response;
+    })
+    .then((response) => generateRevenueChart(Object.values((response.data))))
+    .catch((reject));
+});
+
 const createRevenueNode = (revenueObject) => new Promise((resolve, reject) => {
   axios.post(`${dbURL}/revenue.json`, revenueObject)
     .then((response) => {
@@ -32,4 +42,6 @@ const createRevenueNode = (revenueObject) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getAllRevenueObj, createRevenueNode, getAllCustomRevenueObj };
+export {
+  getAllRevenueObj, createRevenueNode, getAllCustomRevenueObj, getAllCustomRevenueObjChart
+};
