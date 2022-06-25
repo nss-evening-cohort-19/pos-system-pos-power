@@ -468,7 +468,15 @@ body {
 
 .searchDates {
   display: flex;
+  justify-content: center;
 }
+
+.modalFooter {
+  display: flex;
+  justify-content: center;
+}
+
+
 
 #order-status {
   display: flex;
