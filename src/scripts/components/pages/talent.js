@@ -25,8 +25,8 @@ const renderTalent = (array) => {
         <h5 class="card-title">${card.talent_name}</h5>
         <p class="card-text">${card.talent_phone}</p>
         <p class="card-text">${card.talent_email}</p>
-        <button class="btn btn-primary" id="edit-order-btn--${card.firebaseKey}">Edit</button>
-        <button class="btn btn-danger" id="delete-order-btn--${card.firebaseKey}">Delete</button>
+        <button class="btn btn-primary" id="edit-talent-btn--${card.firebaseKey}">Edit</button>
+        <button class="btn btn-danger" id="delete-talent-btn--${card.firebaseKey}">Delete</button>
       </div>
     </div>`;
     });

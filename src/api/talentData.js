@@ -28,7 +28,9 @@ const updateTalent = (itemObj) => new Promise((resolve, reject) => {
 
 const deleteTalent = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbURL}/talent/${firebaseKey}.json`)
-    .then(resolve)
+    .then(() => {
+      getTalent().then((talentArray) => resolve(talentArray));
+    })
     .catch((error) => reject(error));
 });
 

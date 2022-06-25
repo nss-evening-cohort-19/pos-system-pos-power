@@ -126,8 +126,8 @@ const formEvents = (user, uid) => {
       const newArtist = {
         talent_name: document.querySelector('#talent_name').value,
         imageUrl: document.querySelector('#imageUrl').value,
-        talent_email: document.queryCommandValue('#talent_email_div').value,
-        talent_phone: document.queryCommandValue('#talent_phone_div').value,
+        talent_email: document.querySelector('#talent_email_div').value,
+        talent_phone: document.querySelector('#talent_phone_div').value,
       };
       createTalent(newArtist).then((response) => renderTalent(response));
     }
