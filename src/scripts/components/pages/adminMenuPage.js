@@ -18,6 +18,8 @@ const adminViewMenu = (array) => {
         <p class="card-text">${menuObject.item_description}</p>
         <h6 class="card-subtitle mb-2">${menuObject.onSale ? 'On Sale' : ''}</h6>
         <a href="#" id="add-menuItem--${menuObject.firebaseKey}" class="btn btn-primary">Add to Order</a>
+        <a href="#" id="edit-menuItem--${menuObject.firebaseKey}" class="btn btn-success">Edit Menu Item</a>
+        <a href="#" id="delete-menuItem--${menuObject.firebaseKey}" class="btn btn-danger">Delete Menu Item</a>
       </div>
     </div>`;
     });
