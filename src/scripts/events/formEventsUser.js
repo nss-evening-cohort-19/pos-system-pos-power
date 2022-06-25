@@ -8,6 +8,7 @@ import {
 import closeOrder from '../components/closeOrder';
 import orderDetails from '../components/pages/orderDetails';
 import renderOrders from '../components/pages/orders';
+import thankYouMessage from '../helpers/thankYouMessage';
 
 const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -75,6 +76,10 @@ const formEvents = (uid) => {
     if (e.target.id.includes('paymentForm')) {
       const [, firebaseKey] = e.target.id.split('--');
       closeOrder(firebaseKey);
+    }
+
+    if (e.target.id.includes('submit-application')) {
+      thankYouMessage();
     }
   });
 };
