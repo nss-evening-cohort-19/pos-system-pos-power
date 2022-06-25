@@ -12,7 +12,7 @@ const renderBookingsUser = (array) => {
     <button type="button" class="btn btn-secondary" id="all-shows">All Shows</button>
     <button type="button" class="btn btn-secondary" id="virtual-shows">Virtual Shows</button>
     <button type="button" class="btn btn-secondary" id="in-person-shows">In Person Shows</button>
-    <button type="button" class="btn btn-secondary" id="artist-sign-up">Interested in Performing Here?</button>
+    <button type="button" class="btn btn-secondary" id="artist-sign-up">Apply Here to Perform</button>
     </div>`;
     renderToDOM('#details-buttons', filterBookingsButtons);
     let domString = '<div id="cardContainer" class="container order-container">';

@@ -15,7 +15,7 @@ const navEvents = (user) => {
 
   document.querySelector('#menu-nav').addEventListener('click', viewMenu);
 
-  document.querySelector.apply('#talent-bookings-nav-user').addEventListener('click', viewBookingsUser);
+  document.querySelector('#talent-bookings-nav-user').addEventListener('click', viewBookingsUser);
 
   document.querySelector('#navigation').addEventListener('click', (e) => {
     if (e.target.id.includes('create-order')) {

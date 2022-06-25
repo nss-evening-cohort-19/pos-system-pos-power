@@ -13,6 +13,7 @@ import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
 import artistSignUp from '../components/forms/artistSignUp';
+import thankYouMessage from '../helpers/thankYouMessage';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
@@ -101,6 +102,10 @@ const domEvents = (user) => {
 
     if (event.target.id.includes('artist-sign-up')) {
       artistSignUp();
+    }
+
+    if (event.target.id.includes('submit-application')) {
+      thankYouMessage();
     }
   });
 };

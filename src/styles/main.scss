@@ -642,6 +642,15 @@ body {
   color: #a3a3a3;
 }
 
+#artist-sign-up {
+  margin: 2px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border-color: #333333;
+  color: #a3a3a3;
+}
+
 #empty-bookings {
   color: white;
   margin-left: auto;
@@ -698,10 +707,33 @@ body {
 
 #talent-apply {
   color: white;
+  text-align: left;
 }
 
 #thanks {
   color: white;
   margin-left: auto;
   margin-right: auto;
+}
+
+#talent-bookings-nav-user {
+  margin-top: 2%;
+}
+
+#talent-bookings-nav-user:hover {
+  color: #04d9ff;
+}
+
+#submit-application {
+  background-color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
+  color: black;
+}
+
+#submit-application:hover {
+  background-color: black;
+  color: #04d9ff;
+  border-style: solid;
+  border-color: #04d9ff;
 }
