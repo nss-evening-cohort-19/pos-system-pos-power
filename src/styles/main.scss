@@ -10,6 +10,7 @@ body {
 #main-container {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .logo {
@@ -62,7 +63,7 @@ body {
 }
 
 #home-nav:hover {
-  color: #04d9ff
+  color: #04d9ff;
 }
 
 #create-order {
@@ -78,10 +79,9 @@ body {
   flex-flow: row wrap;
   width: 100%;
   margin-top: 10%;
-  max-width: 100%;
-  max-height: 100%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
 }
 
 #cardContainer {
@@ -90,6 +90,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   row-gap: 5%;
+  width: 100%;
+  justify-content: center;
 }
 
 .card-body {
@@ -691,5 +693,5 @@ body {
 }
 
 #talent-bookings-nav:hover {
-  color: #D9EB4B;
+  color: #04d9ff;
 }
