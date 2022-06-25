@@ -20,13 +20,34 @@ Planning Documents for Project:
 Introducing the new POS (Point of Sale) system for Hip Hop Pizza N' Wings!
 
 This state of the art system:
-  - Has different interfaces for Admins (HHPnW employees) & customers!
   - Requires login for all users through Google Authentication.
+
+  <image src="./instructions/loginPage.png" style="height:200px;"></image></div>
+
+  - Has different interfaces for Admins (HHPnW employees) & customers!
+
+      <table>
+    <tr>
+      <td>Admin Home Page</td>
+      <td>User Home Page</td>
+    </tr>
+    <tr>
+      <td><img src="./instructions/userHomePage.png" width=400 height=250></td>
+      <td><img src="./instructions/adminHomePage.png" width=400 height=250></td>
+    </tr>
+  </table>
+
   - Is composed of:
       1. A Home Page with links to the View Orders Page, Create Orders Page, View Revenue Page (Admin), Book Talent Page (Admin).
       2. A Nav Bar with links to the Home Page, View Orders Page, Create Order Page, Menu Page, Talent Booking Page (View Upcoming Shows for Customers).
       3. A View Orders Page with the ability to filter on All Orders, Open Orders and Closed Orders.
           - Users can see Order Details (Order Detail Page) for each order, edit each order and delete each order.
+      4. An Order Details Page with the ability to add items from a specified menu (specified by Admin) to order, remove items from an order and Close order (go to payment - Close Order Page)
+      5. A Close Order Page with the ability to specify payment type (cash, credit, check, mobile) and tip amount.
+      6. A Revenue Page (Admin) that lets the Admin know the total Revenue, Tip Amounts, Call-in Order Amounts, Walk-in Order Amounts, Respective Payment Type Amounts for a specified date range (and renders results into a chart).
+      7. A Create Order Page that lets user input Order Name, Cust. Phone Number and Customer Email for Order.
+      8. A Book Talent Page (Admin) that filters on all Shows and Talent Acts and lets Admin book new Shows/Talent. (note: non-Admin users are available to view this page without making edits.)
+      9. A Menu Page that lets Admins add new items to the menu!
 
 
 
