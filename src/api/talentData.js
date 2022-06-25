@@ -38,7 +38,7 @@ const createTalent = (itemObj) => new Promise((resolve, reject) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbURL}/talent/${response.data.name}.json`, payload)
         .then(() => {
-          getTalent().then(resolve);
+          getTalent(itemObj.uid).then(resolve);
         });
     }).catch(reject);
 });

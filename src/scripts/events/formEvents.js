@@ -125,16 +125,14 @@ const formEvents = (user, uid) => {
     }
 
     if (e.target.id.includes('submit-talent')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      const artistObject = {
+      const newArtist = {
         talent_name: document.querySelector('#talent_name').value,
         imageUrl: document.querySelector('#imageUrl').value,
         talent_email: document.queryCommandValue('#talent_email').value,
         talent_phone: document.queryCommandValue('#talent_phone').value,
-        orderId: firebaseKey
       };
       getTalent().then(() => {
-        createTalent(artistObject).then((response) => renderTalent(response));
+        createTalent(newArtist).then((response) => renderTalent(response));
       });
     }
   });

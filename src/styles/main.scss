@@ -679,3 +679,17 @@ body {
   background-color: black;
   color: #04d9ff;
 }
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+#talent-bookings-nav {
+  margin-top: 3%;
+}
+
+#talent-bookings-nav:hover {
+  color: #D9EB4B;
+}
