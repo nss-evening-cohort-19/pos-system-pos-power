@@ -27,18 +27,28 @@ This state of the art system:
   - Has different interfaces for Admins (HHPnW employees) & customers!
 
       <table>
-    <tr>
-      <td>Admin Home Page</td>
-      <td>User Home Page</td>
-    </tr>
-    <tr>
-      <td><img src="./instructions/userHomePage.png" width=400 height=250></td>
-      <td><img src="./instructions/adminHomePage.png" width=400 height=250></td>
-    </tr>
-  </table>
+        <tr>
+          <td>Admin Home Page</td>
+          <td>User Home Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/userHomePage.png" width=400 height=250></td>
+          <td><img src="./instructions/adminHomePage.png" width=400 height=250></td>
+        </tr>
+      </table>
 
   - Is composed of:
       1. A Home Page with links to the View Orders Page, Create Orders Page, View Revenue Page (Admin), Book Talent Page (Admin).
+
+      <table>
+        <tr>
+          <td>Admin Home Page</td>
+        </tr>
+        <tr>
+          <td><img src="./instructions/adminHomePage.png" width=400 height=250></td>
+        </tr>
+      </table>
+
       2. A Nav Bar with links to the Home Page, View Orders Page, Create Order Page, Menu Page, Talent Booking Page (View Upcoming Shows for Customers).
       3. A View Orders Page with the ability to filter on All Orders, Open Orders and Closed Orders.
           - Users can see Order Details (Order Detail Page) for each order, edit each order and delete each order.
