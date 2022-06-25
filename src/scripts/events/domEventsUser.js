@@ -12,7 +12,7 @@ import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
 import viewMenu from '../components/pages/menuPage';
-import artistSignUp from '../components/artistSignUp';
+import artistSignUp from '../components/forms/artistSignUp';
 
 const domEvents = (user) => {
   document.querySelector('#view').addEventListener('click', (e) => {
