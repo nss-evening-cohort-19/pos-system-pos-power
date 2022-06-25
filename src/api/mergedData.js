@@ -1,7 +1,11 @@
-import { getSingleItem, deleteItem } from './itemsData';
+import axios from 'axios';
+import firebaseConfig from './apiKeys';
+import { getSingleItem, deleteItem, getOrderItems } from './itemsData';
 import {
   getClosedOrders, getOrderByUser, getSingleOrder, getSingleOrdersItems, getOpenOrders
 } from './ordersData';
+
+const dbURL = firebaseConfig.databaseURL;
 
 const viewOrderDetails = (orderFirebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(orderFirebaseKey)
@@ -42,6 +46,15 @@ const viewOpenOrdersByUser = (user) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const cloneMenuItem = (menuObject, orderFirebaseKey) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/orderItems.json`, menuObject)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name, orderId: orderFirebaseKey };
+      axios.patch(`${dbURL}/orderItems/${response.data.name}.json`, payload)
+        .then((fire) => getOrderItems(fire.data.orderId));
+    }).catch(reject);
+});
+
 export {
-  viewOrderDetails, updatedItems, viewClosedOrdersByUser, viewOpenOrdersByUser
+  viewOrderDetails, updatedItems, viewClosedOrdersByUser, viewOpenOrdersByUser, cloneMenuItem
 };
