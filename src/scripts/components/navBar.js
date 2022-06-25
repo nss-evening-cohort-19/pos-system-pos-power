@@ -8,16 +8,16 @@ const navBar = () => {
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div id="logo-image">
+        <img id="navLogo" src=${logo}>
+      </div>
       <div class="collapse navbar-collapse"  id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li id="logo-image">
-            <img id="navLogo" src=${logo}>
-          </li>
           <li class="nav-item">
             <a id="home-nav" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a id="view-order" class="nav-link" data-bs-toggle="collapse"  data-bs-target=".navbar-collapse.show" aria-current="page" href="#">View Orders</a>
+            <a id="view-order" class="nav-link" data-bs-toggle="collapse"  data-bs-target=".navbar-collapse.show" aria-current="page" href="#">View Order</a>
           </li>
           <li class="nav-item">
             <a id="create-order" class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#">Create an Order</a>
