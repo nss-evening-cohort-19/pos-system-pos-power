@@ -55,7 +55,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray));
+      getItems().then((menuArray) => viewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
