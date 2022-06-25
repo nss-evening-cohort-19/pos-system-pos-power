@@ -13,7 +13,7 @@ import itemForm from '../components/forms/itemForm';
 import paymentForm from '../components/forms/paymentForm';
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
-import viewMenu from '../components/pages/menuPage';
+import adminViewMenu from '../components/pages/adminMenuPage';
 // import generateRevenueChart from '../../api/revenueChart';
 
 const domEvents = (user) => {
@@ -55,7 +55,7 @@ const domEvents = (user) => {
     }
 
     if (event.target.id.includes('addItemButton')) {
-      getItems().then((menuArray) => viewMenu(menuArray, user));
+      getItems().then((menuArray) => adminViewMenu(menuArray, user));
     }
 
     if (event.target.id.includes('edit-order')) {
